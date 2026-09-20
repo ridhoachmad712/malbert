@@ -6,7 +6,7 @@ Status: rancangan pengembangan disepakati pengguna; implementasi bertahap. Keput
 
 ## 1. Tujuan dan kedudukan dokumen
 
-Dokumen ini menjadi rujukan utama pengembangan aplikasi sekolah berdasarkan analisis 14 dokumen Word di `instruction_docs` dan rancangan yang disepakati dalam percakapan. TEBAK AKSI berarti TEras BAca Kelas Asah Karakter dan literaSI. Ruang Cerita yang sudah tersedia menjadi ruang publikasi kegiatan, karya, dan prestasi program.
+Dokumen ini menjadi rujukan utama pengembangan aplikasi sekolah berdasarkan analisis 14 dokumen Word di `instruction/sumber` dan rancangan yang disepakati dalam percakapan. TEBAK AKSI berarti TEras BAca Kelas Asah Karakter dan literaSI. Ruang Cerita yang sudah tersedia menjadi ruang publikasi kegiatan, karya, dan prestasi program.
 
 Sistem mendukung kegiatan nyata di sekolah melalui pendataan, dokumentasi, literasi, monitoring, penilaian, pembinaan, pengaduan, dan pelaporan. Tampilan publik harus menarik bagi anak sekolah dasar dan mudah diakses oleh siswa, guru, pengelola, orang tua, masyarakat, serta pihak pemerintah, baik saat berkunjung maupun secara online.
 
@@ -44,7 +44,7 @@ Satu kasus dapat memiliki beberapa sesi dan tindak lanjut. Pengaduan di luar lin
 
 ## 4. Pemetaan dokumen sumber
 
-| Sumber di folder ini | Kebutuhan sistem |
+| Sumber di instruction/sumber | Kebutuhan sistem |
 | --- | --- |
 | ONLINE SISTEM.docx | Peta keseluruhan 13 modul program |
 | 1.REGISTRASI PENDATAAN MURID.docx | Identitas murid, NIS/NISN, kelas, wali kelas, verifikasi, aktivasi |
@@ -251,7 +251,7 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 - Fungsi aplikasi yang sudah berjalan tidak rusak akibat penambahan modul.
 - Pengujian memakai data contoh yang jelas; konfigurasi rahasia tidak dimasukkan ke dokumen.
 - Ikuti aturan Laravel dan pengujian pada `AGENTS.md`.
-- Terapkan [panduan anti-slop proyek](PENERAPAN_ANTI_SLOP.md) selama pengembangan UI dan teks. Pertahankan karakter ramah anak, uji interaksi dan responsivitas, serta laporkan bukti pemeriksaan; adopsi panduan bukan bukti UI sudah lulus audit.
+- Terapkan [panduan anti-slop proyek](../kualitas/PENERAPAN_ANTI_SLOP.md) selama pengembangan UI dan teks. Pertahankan karakter ramah anak, uji interaksi dan responsivitas, serta laporkan bukti pemeriksaan; adopsi panduan bukan bukti UI sudah lulus audit.
 
 ## 13. Riwayat keputusan
 

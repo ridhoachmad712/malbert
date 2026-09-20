@@ -4,13 +4,15 @@ Proyek: TEBAK AKSI / Ruang Cerita. Dokumen konteks ini berlaku untuk semua codin
 
 ## Urutan membaca
 
+Peta dokumen pendukung: [instruction/README.md](instruction/README.md). Gunakan lokasi terbaru pada indeks ini, bukan lokasi lama dari percakapan.
+
 1. [AGENTS.md](AGENTS.md): aturan proyek dan Laravel. Jika sudah dimuat otomatis, tidak perlu membacanya dua kali.
 2. [PROJECT_STATUS.md](PROJECT_STATUS.md): kondisi terbaru dan langkah berikutnya.
 3. [TASKS.md](TASKS.md): tugas, pemilik, dependensi, dan status.
 4. [DECISIONS.md](DECISIONS.md): keputusan tetap dan keputusan terbuka.
-5. [Rancangan sistem](instruction_docs/RENCANA_PENGEMBANGAN_TEBAK_AKSI.md): bagian yang terkait tugas.
-6. Catatan serah terima tugas terkait; mulai dari [serah terima awal](instruction_docs/HANDOFF_CTX_001.md).
-7. Untuk UI, baca [penerapan anti-slop](instruction_docs/PENERAPAN_ANTI_SLOP.md) dan panduan inti yang dirujuknya.
+5. [Rancangan sistem](instruction/rancangan/RENCANA_PENGEMBANGAN_TEBAK_AKSI.md): bagian yang terkait tugas.
+6. Catatan serah terima tugas terkait; mulai dari [serah terima awal](instruction/serah-terima/HANDOFF_CTX_001.md).
+7. Untuk UI, baca [penerapan anti-slop](instruction/kualitas/PENERAPAN_ANTI_SLOP.md) dan panduan inti yang dirujuknya.
 
 AGENTS.md dan START_HERE.md saling menaut untuk penemuan, bukan instruksi untuk membaca berulang tanpa akhir. Baca setiap dokumen sekali per sesi dan ulangi hanya jika berubah.
 
@@ -34,7 +36,7 @@ Aturan cabang: gunakan nama berbasis ID tugas, misalnya `task/FND-001-kelas`. Tu
 
 ## Sebelum berhenti
 
-1. Catat hasil, berkas berubah, hal tersisa, keputusan, dan kendala pada serah terima per tugas; gunakan [template](instruction_docs/HANDOFF_TEMPLATE.md).
+1. Catat hasil, berkas berubah, hal tersisa, keputusan, dan kendala pada serah terima per tugas; gunakan [template](instruction/serah-terima/HANDOFF_TEMPLATE.md).
 2. Jalankan pemeriksaan yang sesuai; rekam perintah, tanggal, hasil, dan cakupan. Bedakan tes tiruan dengan koneksi eksternal nyata.
 3. Periksa diff dan daftar berkas. Commit checkpoint bila layak; jangan menyertakan rahasia. Jika belum commit, tuliskan berkas dan kondisi perubahan yang belum tersimpan dalam Git.
 4. Catat cabang dan revisi kode yang diuji. Catatan dalam commit yang sama boleh menyebut “commit yang memuat catatan ini”; agen berikutnya dapat menemukannya dengan `git log -1 -- <path>`.

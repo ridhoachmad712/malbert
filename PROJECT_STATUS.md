@@ -1,8 +1,10 @@
 # Status proyek
 
-Diperbarui: 2026-09-20 oleh Codex, tugas CTX-001.
+Diperbarui: 2026-09-20 oleh Codex, tugas DOC-002.
 
-Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutuhan data dan informasi sekolah](instruction/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md). Tidak ada perubahan fitur aplikasi; data sekolah masih menunggu pengumpulan.
+Dokumentasi disatukan di [instruction](instruction/README.md). Catatan penataan terbaru: [DOC-002](instruction/serah-terima/HANDOFF_DOC_002.md). Fitur aplikasi tidak berubah.
+
+Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutuhan data dan informasi sekolah](instruction/sekolah/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md). Tidak ada perubahan fitur aplikasi; data sekolah masih menunggu pengumpulan.
 
 ## Kondisi produk
 
@@ -21,7 +23,7 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terakhir sebelum CTX-001: 22 pengujian, 157 assertions, lulus; tes Drive memakai respons tiruan. Pada CTX-001 hanya dokumentasi dan pengaturan Git yang berubah. Catatan pemeriksaan terbaru berada pada [HANDOFF_CTX_001.md](instruction_docs/HANDOFF_CTX_001.md).
+Pengujian aplikasi terakhir sebelum CTX-001: 22 pengujian, 157 assertions, lulus; tes Drive memakai respons tiruan. Pada CTX-001 hanya dokumentasi dan pengaturan Git yang berubah. Catatan pemeriksaan terbaru berada pada [HANDOFF_CTX_001.md](instruction/serah-terima/HANDOFF_CTX_001.md).
 
 ## Koordinasi
 
@@ -40,6 +42,6 @@ Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. R
 | Tes | `tests/Feature/SchoolApplicationTest.php`, `tests/Feature/DriveAlbumTest.php` |
 | Data awal | `database/migrations`, `database/seeders` |
 | Konfigurasi contoh | `.env.example` |
-| Rancangan dan sumber | `instruction_docs` |
+| Rancangan dan sumber | `instruction/sumber` |
 
 Dokumen ini adalah ringkasan keadaan terkini. Aturan bisnis tetap berada pada rancangan; keputusan dan perubahan alasan berada pada DECISIONS.md.

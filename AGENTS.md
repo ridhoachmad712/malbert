@@ -2,7 +2,7 @@
 
 Setiap sesi baru atau pergantian agen wajib membaca [START_HERE.md](START_HERE.md), [PROJECT_STATUS.md](PROJECT_STATUS.md), [TASKS.md](TASKS.md), [DECISIONS.md](DECISIONS.md), dan serah terima tugas terkait. Terapkan protokol mulai/berhenti dan koordinasi di START_HERE.md; jangan bergantung pada riwayat chat atau akun sebelumnya. Pembaruan rutin catatan konteks dan serah terima telah diotorisasi pengguna. Jangan menandai pekerjaan selesai tanpa bukti.
 
-Sebelum merencanakan atau mengubah fitur aplikasi, baca [Rencana Pengembangan TEBAK AKSI](instruction_docs/RENCANA_PENGEMBANGAN_TEBAK_AKSI.md). Dokumen tersebut memuat cakupan yang disepakati, tahapan, aturan bisnis, batas akses, keputusan terbuka, dan kriteria penerimaan.
+Sebelum merencanakan atau mengubah fitur aplikasi, baca [Rencana Pengembangan TEBAK AKSI](instruction/rancangan/RENCANA_PENGEMBANGAN_TEBAK_AKSI.md). Dokumen tersebut memuat cakupan yang disepakati, tahapan, aturan bisnis, batas akses, keputusan terbuka, dan kriteria penerimaan.
 
 Ikuti rancangan tersebut bersama pedoman teknis di bawah. Instruksi pengguna terbaru tetap menjadi acuan; catat perubahan keputusan dan progres bermakna pada dokumen rujukan. Jangan menganggap usulan yang ditandai belum final sebagai keputusan sekolah, atau menandai fitur selesai sebelum kriteria penerimaannya terpenuhi.
 
@@ -142,7 +142,7 @@ Before relying on a package's API, confirm its installed version:
 <!-- antislop:start -->
 ## Kualitas desain dan interaksi
 
-Untuk pekerjaan UI, teks antarmuka, responsivitas, dan pemeriksaan kualitas, baca [Penerapan anti-slop TEBAK AKSI](instruction_docs/PENERAPAN_ANTI_SLOP.md) serta [inti anti-slop](instruction_docs/ANTISLOP_UPSTREAM.md). Gunakan adaptasi proyek untuk cara penerapan dan batas cakupan; rancangan TEBAK AKSI tetap mengatur kebutuhan bisnis.
+Untuk pekerjaan UI, teks antarmuka, responsivitas, dan pemeriksaan kualitas, baca [Penerapan anti-slop TEBAK AKSI](instruction/kualitas/PENERAPAN_ANTI_SLOP.md) serta [inti anti-slop](instruction/kualitas/ANTISLOP_UPSTREAM.md). Gunakan adaptasi proyek untuk cara penerapan dan batas cakupan; rancangan TEBAK AKSI tetap mengatur kebutuhan bisnis.
 
 Anti-slop diadopsi sebagai rujukan inti lokal selama pengembangan. Wizard pemasangan ulang tidak diperlukan. Jangan mengklaim UI lama telah diaudit; gunakan bukti pengujian untuk setiap hasil pemeriksaan. Skill tambahan upstream belum dipasang.
 <!-- antislop:end -->
