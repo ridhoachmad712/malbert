@@ -7,6 +7,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | ID | Tugas | Status | Pemilik aktif | Dependensi/kendala | Serah terima |
 | --- | --- | --- | --- | --- | --- |
 | CTX-001 | Konteks lintas agen dan Git lokal | DONE | Tidak ada | Selesai pada checkpoint awal | [Catatan](instruction_docs/HANDOFF_CTX_001.md) |
+| DOC-001 | Simpan catatan kebutuhan sekolah dalam Markdown | DONE | Tidak ada | Sesuai permintaan folder instruction | [Catatan](instruction_docs/HANDOFF_DOC_001.md) |
 | FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | READY | Belum ditugaskan | Mulai dari kontrak data dan pembagian subtugas | Belum ada |
 | LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | PLANNED | Belum ditugaskan | FND-001 | Belum ada |
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | PLANNED | Belum ditugaskan | LIT-001 dan aturan penilaian terbuka | Belum ada |

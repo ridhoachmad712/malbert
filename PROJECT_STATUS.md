@@ -2,6 +2,8 @@
 
 Diperbarui: 2026-09-20 oleh Codex, tugas CTX-001.
 
+Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutuhan data dan informasi sekolah](instruction/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md). Tidak ada perubahan fitur aplikasi; data sekolah masih menunggu pengumpulan.
+
 ## Kondisi produk
 
 - Aplikasi Laravel Ruang Cerita berjalan lokal sebagai dasar TEBAK AKSI.
