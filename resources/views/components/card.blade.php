@@ -1,0 +1,7 @@
+@php($item = $publication->published_content)
+<article class="story-card">
+<a class="card-cover cover-{{ $item['type'] }}" href="{{ route('story', $publication->slug) }}" tabindex="-1" aria-hidden="true">
+@if(!empty($item['cover']))<img src="{{ $publication->mediaUrl($item['cover']) }}" alt="" loading="lazy" width="600" height="400">@else<span class="cover-emoji">{{ $item['emoji'] ?? ['kegiatan'=>'🌱','karya'=>'🎨','prestasi'=>'🏆'][$item['type']] }}</span><span class="cover-caption">{{ ['kegiatan'=>'Belajar & bertumbuh','karya'=>'Ide kecil, karya besar','prestasi'=>'Rayakan setiap usaha'][$item['type']] }}</span>@endif
+@if($item['example'] ?? false)<span class="example-tag">Contoh cerita</span>@endif
+</a><div class="card-body"><div class="card-meta"><span class="badge {{ $item['type'] }}">{{ ['kegiatan'=>'Kegiatan','karya'=>'Karya Kita','prestasi'=>'Prestasi'][$item['type']] }}</span><span>{{ \Carbon\Carbon::parse($item['event_date'])->translatedFormat('d M Y') }}</span></div><h3><a href="{{ route('story', $publication->slug) }}">{{ $item['title'] }}</a></h3><p>{{ $item['summary'] }}</p><div class="card-bottom"><span>{{ count($item['classes'] ?? []) ? 'Kelas '.implode(', ', $item['classes']) : 'Seluruh sekolah' }}</span><a href="{{ route('story', $publication->slug) }}" aria-label="Baca {{ $item['title'] }}">Baca cerita <span aria-hidden="true">↗</span></a></div></div>
+</article>
