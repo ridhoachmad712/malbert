@@ -37,6 +37,11 @@ class Classroom extends Model
         return $this->hasMany(Student::class);
     }
 
+    public function literacyAssignments(): HasMany
+    {
+        return $this->hasMany(LiteracyAssignment::class);
+    }
+
     public function scopeVisibleTo(Builder $query, User $user): void
     {
         if ($user->role !== 'admin') {

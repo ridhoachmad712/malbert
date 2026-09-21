@@ -27,15 +27,15 @@ class MediaService
         return ['provider' => 'drive', 'id' => $id, 'url' => "https://drive.google.com/file/d/{$id}/view{$suffix}", 'embed' => "https://drive.google.com/file/d/{$id}/preview{$suffix}"];
     }
 
-    public function storeImage(UploadedFile $file, int $maxWidth = 1920): string
+    public function storeImage(UploadedFile $file, int $maxWidth = 1920, string $field = 'cover'): string
     {
         $size = getimagesize($file->getRealPath());
         if (! $size || $size[0] * $size[1] > 24000000) {
-            throw ValidationException::withMessages(['cover' => 'Gambar terlalu besar. Gunakan gambar maksimal 24 megapiksel.']);
+            throw ValidationException::withMessages([$field => 'Gambar terlalu besar. Gunakan gambar maksimal 24 megapiksel.']);
         }
         $source = imagecreatefromstring(file_get_contents($file->getRealPath()));
         if (! $source) {
-            throw ValidationException::withMessages(['cover' => 'Gambar tidak dapat dibaca.']);
+            throw ValidationException::withMessages([$field => 'Gambar tidak dapat dibaca.']);
         }
         if ($file->getMimeType() === 'image/jpeg' && function_exists('exif_read_data')) {
             $orientation = @exif_read_data($file->getRealPath())['Orientation'] ?? 1;
@@ -56,7 +56,7 @@ class MediaService
         $bytes = ob_get_clean();
         $path = 'media/'.Str::uuid().'.webp';
         if (! Storage::disk('local')->put($path, $bytes)) {
-            throw ValidationException::withMessages(['cover' => 'Gambar gagal disimpan. Silakan coba lagi.']);
+            throw ValidationException::withMessages([$field => 'Gambar gagal disimpan. Silakan coba lagi.']);
         }
 
         return $path;

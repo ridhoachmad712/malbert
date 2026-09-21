@@ -13,6 +13,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-007 | Diadopsi | Anti-slop sebagai rujukan inti lokal selama pengembangan; bukan plugin global | Permintaan pengguna dan PENERAPAN_ANTI_SLOP.md |
 | D-008 | Disepakati 2026-09-20 | Konteks disimpan di repositori; AGENTS/CLAUDE mengarah ke sumber yang sama; Git lokal dan serah terima per tugas | Pengguna: “oke buat seperti itu” |
 | D-009 | Disepakati 2026-09-20 | Kerja paralel memakai cabang/checkout terpisah dan satu koordinator integrasi | Usulan alur lintas agen disetujui pengguna |
+| D-010 | Diterapkan 2026-09-21 | Satu hasil literasi per murid per tugas memuat jurnal, karya, dan refleksi; setiap pengajuan/tinjauan menyimpan snapshot revisi. Guru dapat mengusulkan bacaan internal, admin menyetujui bacaan publik, dan berkas karya hanya tersedia lewat unduhan berizin | Cakupan dan kriteria penerimaan LIT-001; D-003 |
 
 ## Masih terbuka
 

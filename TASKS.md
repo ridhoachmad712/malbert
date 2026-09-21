@@ -10,7 +10,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | CTX-001 | Konteks lintas agen dan Git lokal | DONE | Tidak ada | Selesai pada checkpoint awal | [Catatan](instruction/serah-terima/HANDOFF_CTX_001.md) |
 | DOC-001 | Simpan catatan kebutuhan sekolah dalam Markdown | DONE | Tidak ada | Sesuai permintaan folder instruction | [Catatan](instruction/serah-terima/HANDOFF_DOC_001.md) |
 | FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | DONE | Tidak ada | Terintegrasi setelah 48 tes dan QA admin/guru lulus | [Catatan](instruction/serah-terima/HANDOFF_FND_001.md) |
-| LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | READY | Belum ditugaskan | FND-001 selesai; kontrak data perlu ditetapkan | Belum ada |
+| LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | DONE | Tidak ada | Terintegrasi setelah 57 tes dan QA Pojok Baca lulus | [Catatan](instruction/serah-terima/HANDOFF_LIT_001.md) |
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | PLANNED | Belum ditugaskan | LIT-001 dan aturan penilaian terbuka | Belum ada |
 | MON-001 | Tahap 4: monitoring dan laporan | PLANNED | Belum ditugaskan | NIL-001 dan definisi target | Belum ada |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
@@ -28,6 +28,10 @@ Riwayat checkpoint pemeriksaan 2026-09-20: kepemilikan sempat dilepas dengan sta
 FND-001; Codex finalisasi; 2026-09-21 Asia/Makassar; main; dasar f1b38d9 + working tree tercatat; seluruh paket fondasi untuk tinjauan/integrasi, QA browser dan konteks; pengguna meminta lanjut menyelesaikan fondasi dan checkpoint. Database QA terpisah, tanpa pekerja paralel.
 
 Finalisasi 2026-09-21: QA admin/guru dan impor CSV selesai, bug periode berjalan diperbaiki, 48 tes / 331 assertions lulus. Kepemilikan dilepas setelah commit checkpoint; LIT-001 menjadi READY.
+
+LIT-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 476d080; kontrak data bacaan/tugas/jurnal-karya-refleksi/pemeriksaan, model/migrasi, controller/request, media privat, halaman publik dan kelola, routes, backup, factories/seeder, tes dan konteks; tanpa pekerja paralel. Pengguna meminta mengerjakan LIT-001.
+
+Finalisasi 2026-09-21: alur bacaan/tugas → jurnal-karya-refleksi → tinjauan → perbaikan/persetujuan selesai; karya tetap privat dan periode disimpan sebagai snapshot. 57 tes / 398 assertions, Pint, sintaks JavaScript, rute, diff check, dan QA visual Pojok Baca lulus. Kepemilikan dilepas setelah commit checkpoint; NIL-001 masih menunggu keputusan penilaian terbuka.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

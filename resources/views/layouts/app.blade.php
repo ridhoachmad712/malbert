@@ -19,6 +19,7 @@
         <a class="{{ request('type') === 'kegiatan' ? 'active' : '' }}" href="{{ route('home', ['type'=>'kegiatan']) }}#jelajah">Kegiatan</a>
         <a class="{{ request('type') === 'karya' ? 'active' : '' }}" href="{{ route('home', ['type'=>'karya']) }}#jelajah">Karya Kita</a>
         <a class="{{ request('type') === 'prestasi' ? 'active' : '' }}" href="{{ route('home', ['type'=>'prestasi']) }}#jelajah">Prestasi</a>
+        <a class="{{ request()->routeIs('readings.public') ? 'active' : '' }}" href="{{ route('readings.public') }}">Pojok Baca</a>
         <a class="{{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">Sekolah Kita</a>
     </nav>
     <a class="button small outline header-login" href="{{ auth()->check() ? route('dashboard') : route('login') }}">{{ auth()->check() ? 'Ruang Kelola' : 'Masuk Pengelola' }} <span aria-hidden="true">↗</span></a>
@@ -31,6 +32,7 @@
     <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'selected' : '' }}">▦ Dasbor & konten</a>
     <a href="{{ route('publications.create') }}">＋ Buat cerita</a>
     <a href="{{ route('students.index') }}" class="{{ request()->routeIs('students.*') ? 'selected' : '' }}">Data murid</a>
+    <a href="{{ route('literacy.index') }}" class="{{ request()->routeIs('literacy.*', 'readings.*') ? 'selected' : '' }}">Literasi</a>
     @if(auth()->user()->role === 'admin')
     <a href="{{ route('foundation.index') }}" class="{{ request()->routeIs('foundation.*', 'classrooms.*') ? 'selected' : '' }}">Kelas & tahun ajaran</a>
     <a href="{{ route('users.index') }}">♧ Pengguna</a>

@@ -36,6 +36,11 @@ class Student extends Model
         return $this->belongsTo(User::class, 'verified_by');
     }
 
+    public function literacySubmissions(): HasMany
+    {
+        return $this->hasMany(LiteracySubmission::class);
+    }
+
     public function scopeVisibleTo(Builder $query, User $user): void
     {
         $query->whereHas('classroom', fn (Builder $classrooms) => $classrooms->visibleTo($user));
