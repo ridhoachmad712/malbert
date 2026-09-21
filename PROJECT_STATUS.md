@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-21 oleh Codex, finalisasi PUB-001.
+Diperbarui: 2026-09-21 oleh Codex, progres DRV-001.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta inti publikasi terhubung bank karya sudah diimplementasikan, diuji, dan diintegrasikan. Bukti terbaru: [HANDOFF_PUB_001.md](instruction/serah-terima/HANDOFF_PUB_001.md); tahap sebelumnya: [HANDOFF_MON_001.md](instruction/serah-terima/HANDOFF_MON_001.md).
 
@@ -12,7 +12,7 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 
 - Aplikasi Laravel Ruang Cerita berjalan lokal sebagai dasar TEBAK AKSI.
 - Tersedia: akun admin/guru, publikasi kegiatan/karya/prestasi, draf/tinjauan/revisi/arsip, pencarian, profil/logo sekolah, foto terkompresi, tautan Drive, dan pencadangan.
-- Impor folder Drive dan slider sudah memiliki kode dan tes, tetapi koneksi nyata belum selesai. Jangan mengklaim API sudah aktif. Proses Google Cloud terakhir tertahan persyaratan verifikasi dua langkah; status akun perlu diperiksa kembali bila melanjutkan.
+- Impor folder Drive dan slider sudah memiliki kode dan tes. Google Drive API dan key yang dibatasi ke Drive API sudah aktif pada lingkungan lokal ini; koneksi nyata mencapai API dan menerima respons `notFound` untuk ID folder uji fiktif. Album folder nyata belum terbukti sampai tersedia tautan folder publik berisi foto/video.
 - Tahun ajaran, pilihan semester berjalan, rombel, penugasan guru, data murid, impor CSV, verifikasi/status aktif, dan riwayat perpindahan sudah tersedia pada working tree. Akses guru mengikuti rombel saat ini. Filter daftar murid memang memakai kelas saat ini, bukan laporan historis.
 - Pojok Baca publik, bahan bacaan internal, tugas per rombel, jurnal membaca, karya tulisan/tautan/foto/PDF, refleksi, tinjauan, revisi, persetujuan, dan riwayat snapshot sudah tersedia. Hasil tetap privat dan tidak otomatis menjadi publikasi.
 - Bank karya hanya menampilkan hasil yang disetujui. Satu karya dapat disiapkan menjadi satu draf publikasi dengan hubungan sumber dan nomor revisi; hanya karya terpilih yang disalin, sedangkan jurnal, refleksi, umpan balik, nilai, NIS, dan NISN tidak masuk ke konten publik. Kredit nama murid memerlukan konfirmasi izin khusus. Revisi draf mempertahankan versi publik terakhir sampai admin menyetujui ulang.
@@ -25,18 +25,18 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 ## Pekerjaan berikutnya
 
 1. KAS-001 memerlukan aturan penanganan, matriks akses sensitif, pengaduan anonim, waktu respons, dan retensi lampiran sebelum implementasi.
-2. DRV-001 dapat dilanjutkan bila akses Google Cloud tersedia; tahap 6 keseluruhan belum selesai sampai album folder nyata terbukti.
+2. DRV-001 menunggu tautan folder Drive publik berisi foto/video untuk menguji impor, tampilan tanpa login Google, dan batas akses; tahap 6 keseluruhan belum selesai sampai bukti itu lulus.
 3. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 
 ## Bukti dan batas verifikasi
 
-Pengujian terbaru 2026-09-21: 77 tes / 541 assertions lulus, termasuk 4 tes publikasi terhubung / 44 assertions dan regresi seluruh aplikasi. Pint, daftar 68 rute, dan git diff --check lulus. Tes publikasi membuktikan kelayakan hasil, hubungan sumber, pembatasan data internal, izin identitas, salinan aset, akses publik, versi terbit yang tetap, dan backup versi 6. QA browser bank karya lulus pada desktop dan 390 × 844 tanpa error konsol; database lokal tidak memiliki karya disetujui sehingga keadaan berisi dibuktikan lewat tes render. Tes Drive tetap memakai respons tiruan. Audit UI menyeluruh dan uji bersama sekolah belum dilakukan.
+Pengujian aplikasi terbaru 2026-09-21: 77 tes / 541 assertions lulus, termasuk 4 tes publikasi terhubung / 44 assertions dan regresi seluruh aplikasi. Pint, daftar 68 rute, dan git diff --check lulus. Tes publikasi membuktikan kelayakan hasil, hubungan sumber, pembatasan data internal, izin identitas, salinan aset, akses publik, versi terbit yang tetap, dan backup versi 6. QA browser bank karya lulus pada desktop dan 390 × 844 tanpa error konsol; database lokal tidak memiliki karya disetujui sehingga keadaan berisi dibuktikan lewat tes render. Pada DRV-001, koneksi tanpa cookie ke Google Drive API sudah dilakukan dengan key lokal dan menghasilkan `404/notFound` untuk ID fiktif, yang membuktikan endpoint dapat dicapai tetapi belum membuktikan album nyata. Tes perilaku album masih memakai respons tiruan. Audit UI menyeluruh dan uji bersama sekolah belum dilakukan.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 
 ## Koordinasi
 
-Tidak ada pekerja aktif setelah finalisasi PUB-001. Periksa TASKS.md dan status aktual sebelum mengambil tugas berikutnya.
+DRV-001 sedang dimiliki Codex lokal. Tidak ada pekerja paralel; lihat HANDOFF_DRV_001 sebelum melanjutkan atau mengambil alih.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

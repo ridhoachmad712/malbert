@@ -135,7 +135,7 @@ PERMATA dalam sumber berarti Permisi, Maaf, Tabe.
 
 Guru cukup memasukkan tautan folder Google Drive berisi foto/video. Aplikasi menyimpan metadata dan tautan, bukan salinan file asli. Album ditampilkan sebagai slider.
 
-Perilaku yang sudah dibuat: urutan nama file, maksimal 200 media, hanya isi langsung folder tanpa subfolder, diperbarui saat cerita disimpan ulang. Perubahan mengikuti alur tinjauan admin. Koneksi memerlukan konfigurasi server Google Drive API; jangan menyatakan aktif sebelum diuji dengan folder nyata.
+Perilaku yang sudah dibuat: urutan nama file, maksimal 200 media, hanya isi langsung folder tanpa subfolder, diperbarui saat cerita disimpan ulang. Perubahan mengikuti alur tinjauan admin. Google Drive API dan key lokal sudah aktif pada DRV-001, tetapi album belum boleh dinyatakan selesai sebelum diuji dengan folder nyata tanpa login Google.
 
 Unggahan foto terkompresi tetap tersedia sebagai pilihan. Bank karya perlu mendukung tulisan, foto, PDF, serta tautan dokumen, tidak hanya foto/video.
 
@@ -263,4 +263,4 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-21 | Tahap 4 selesai; periode, metode nilai, populasi penyebut, dan perlakuan data belum dinilai menjadi konfigurasi wajib sebelum capaian 80% dihitung | Bukti HANDOFF_MON_001; D-012 |
 | 2026-09-21 | Inti tahap 6 untuk bank karya selesai: hanya hasil disetujui dapat dipilih, data internal tidak disalin, izin identitas diperiksa, sumber dan revisi ditelusuri, serta versi terbit dipertahankan saat draf direvisi. Tahap 6 belum ditandai selesai karena album folder nyata masih menunggu DRV-001 | Bukti HANDOFF_PUB_001; D-013 |
 
-Pekerjaan berikutnya memerlukan dependensi eksternal atau keputusan sekolah: DRV-001 menunggu akses Google Cloud untuk pembuktian album folder nyata, sedangkan Tahap 5 menunggu aturan penanganan dan akses sensitif.
+Pekerjaan berikutnya memerlukan dependensi eksternal atau keputusan sekolah: DRV-001 menunggu tautan folder Drive publik berisi media untuk pembuktian album folder nyata, sedangkan Tahap 5 menunggu aturan penanganan dan akses sensitif.

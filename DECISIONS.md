@@ -9,7 +9,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-003 | Disepakati | Pisahkan data operasional dan publikasi; hasil tugas tidak otomatis publik | Rancangan alur pemeriksaan |
 | D-004 | Disepakati | Catatan pembinaan/pengaduan dan lampiran privat dibatasi kewenangan | Dokumen program dan rancangan |
 | D-005 | Disepakati | Nilai kemampuan dan poin aktivitas terpisah, koreksi terlacak, hindari poin ganda | Rancangan penilaian |
-| D-006 | Disepakati | Media publik melalui link folder Drive untuk menghemat penyimpanan; API masih perlu aktivasi | Permintaan pengguna |
+| D-006 | Disepakati | Media publik melalui link folder Drive untuk menghemat penyimpanan; API diaktifkan pada lingkungan lokal DRV-001 dan tetap memerlukan pembuktian folder nyata | Permintaan pengguna; progres DRV-001 |
 | D-007 | Diadopsi | Anti-slop sebagai rujukan inti lokal selama pengembangan; bukan plugin global | Permintaan pengguna dan PENERAPAN_ANTI_SLOP.md |
 | D-008 | Disepakati 2026-09-20 | Konteks disimpan di repositori; AGENTS/CLAUDE mengarah ke sumber yang sama; Git lokal dan serah terima per tugas | Pengguna: “oke buat seperti itu” |
 | D-009 | Disepakati 2026-09-20 | Kerja paralel memakai cabang/checkout terpisah dan satu koordinator integrasi | Usulan alur lintas agen disetujui pengguna |
@@ -17,6 +17,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-011 | Diterapkan 2026-09-21 | Admin wajib memilih pembulatan nilai, ambang berhasil per murid, periode poin, dan batas pengulangan sebelum penilaian dipakai. Rubrik, poin aktivitas, dan tingkatan apresiasi mengikuti sumber; nilai kemampuan dan poin tetap terpisah. Perubahan penilaian menyimpan snapshot revisi, sedangkan koreksi poin berupa transaksi tambahan dengan alasan sehingga riwayat lama tidak ditulis ulang | Keputusan terbuka dipertahankan sebagai konfigurasi sekolah; kriteria NIL-001; D-005 |
 | D-012 | Diterapkan 2026-09-21 | Capaian program hanya dihitung setelah admin memilih periode, cara merangkum nilai murid, populasi penyebut, dan perlakuan data belum dinilai. Target tetap 80%; murid belum dinilai selalu ditampilkan terpisah dan tidak disamakan dengan nilai nol. Laporan bulanan bersifat operasional, sedangkan klaim capaian mengikuti periode monitoring yang dipilih | Kriteria MON-001 dan kebutuhan agar keputusan sekolah tidak di-hardcode |
 | D-013 | Diterapkan 2026-09-21 | Publikasi dari bank karya hanya dapat dibuat dari hasil yang disetujui, satu hasil memiliki paling banyak satu publikasi, dan hubungan sumber beserta nomor revisinya disimpan. Isi karya yang dipilih disalin sebagai snapshot publikasi; jurnal, refleksi, umpan balik, nilai, NIS, dan NISN tidak disalin. Kredit kelas menjadi bawaan, sedangkan nama murid memerlukan konfirmasi izin khusus. Versi publik hanya berubah saat admin menyetujui ulang | Kriteria PUB-001; D-003; prinsip kerahasiaan publikasi |
+| D-014 | Diterapkan 2026-09-21 | Key Google Drive pada lingkungan lokal dibatasi hanya ke Google Drive API dan disimpan di `.env` yang diabaikan Git. Pembatasan aplikasi belum dipilih karena alamat IP server produksi belum tersedia; pembatasan itu harus ditetapkan saat hosting memiliki alamat keluar tetap | Praktik keamanan key dan kondisi deployment DRV-001 |
 
 ## Masih terbuka
 
