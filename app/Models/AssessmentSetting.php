@@ -30,6 +30,14 @@ class AssessmentSetting extends Model
         return static::query()->first();
     }
 
+    public function monitoringConfigured(): bool
+    {
+        return filled($this->monitoring_period)
+            && filled($this->student_score_method)
+            && filled($this->achievement_population)
+            && filled($this->unassessed_rule);
+    }
+
     public function roundedScore(float $score): float
     {
         return round($score, $this->score_rounding === 'whole' ? 0 : 1);

@@ -62,7 +62,10 @@ class EvaluationWorkflowTest extends TestCase
     {
         $context = $this->context();
         $admin = User::factory()->create(['role' => 'admin']);
-        $payload = ['score_rounding' => 'whole', 'success_threshold' => 76, 'point_period' => 'semester', 'repeat_rule' => 'once_daily'];
+        $payload = [
+            'score_rounding' => 'whole', 'success_threshold' => 76, 'point_period' => 'semester', 'repeat_rule' => 'once_daily',
+            'monitoring_period' => 'semester', 'student_score_method' => 'average', 'achievement_population' => 'enrolled', 'unassessed_rule' => 'not_successful',
+        ];
 
         $this->actingAs($context['teacher'])->get(route('evaluation.index'))->assertOk()->assertSee('Aturan sekolah belum ditetapkan');
         $this->get(route('evaluation.assessment', $context['submission']))->assertStatus(409);
@@ -70,7 +73,7 @@ class EvaluationWorkflowTest extends TestCase
         $this->put(route('evaluation.settings.update'), $payload)->assertForbidden();
         $this->actingAs($admin)->put(route('evaluation.settings.update'), $payload)->assertSessionHasNoErrors()->assertRedirect(route('evaluation.index'));
 
-        $this->assertDatabaseHas('assessment_settings', ['score_rounding' => 'whole', 'success_threshold' => 76, 'point_period' => 'semester', 'repeat_rule' => 'once_daily']);
+        $this->assertDatabaseHas('assessment_settings', ['score_rounding' => 'whole', 'success_threshold' => 76, 'point_period' => 'semester', 'repeat_rule' => 'once_daily', 'monitoring_period' => 'semester', 'student_score_method' => 'average', 'achievement_population' => 'enrolled', 'unassessed_rule' => 'not_successful']);
     }
 
     public function test_assessment_uses_six_indicators_formula_category_and_versioned_correction(): void

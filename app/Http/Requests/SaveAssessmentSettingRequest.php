@@ -27,6 +27,10 @@ class SaveAssessmentSettingRequest extends FormRequest
             'success_threshold' => ['required', 'numeric', 'between:0,100'],
             'point_period' => ['required', 'in:month,semester,academic_year'],
             'repeat_rule' => ['required', 'in:once_daily,distinct_event'],
+            'monitoring_period' => ['required', 'in:month,semester,academic_year'],
+            'student_score_method' => ['required', 'in:average,latest'],
+            'achievement_population' => ['required', 'in:enrolled,participants'],
+            'unassessed_rule' => ['required', 'in:not_successful,exclude'],
         ];
     }
 }

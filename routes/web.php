@@ -7,6 +7,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\FoundationController;
 use App\Http\Controllers\LiteracyAssignmentController;
 use App\Http\Controllers\LiteracySubmissionController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ReadingResourceController;
@@ -65,6 +66,10 @@ Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::get('/kelola/penilaian/murid/{student}/poin', [EvaluationController::class, 'points'])->name('evaluation.points');
     Route::post('/kelola/penilaian/murid/{student}/poin', [EvaluationController::class, 'addPoints'])->name('evaluation.points.store');
     Route::post('/kelola/penilaian/poin/{pointTransaction}/koreksi', [EvaluationController::class, 'correctPoints'])->name('evaluation.points.correct');
+    Route::get('/kelola/monitoring', [MonitoringController::class, 'index'])->name('monitoring.index');
+    Route::get('/kelola/monitoring/kelas/{classroom}/murid/{student}', [MonitoringController::class, 'student'])->name('monitoring.student');
+    Route::get('/kelola/monitoring/laporan/bulanan', [MonitoringController::class, 'monthly'])->name('monitoring.monthly');
+    Route::get('/kelola/monitoring/laporan/bulanan.csv', [MonitoringController::class, 'export'])->name('monitoring.export');
     Route::get('/kelola/konten/baru', [PublicationController::class, 'create'])->name('publications.create');
     Route::post('/kelola/konten', [PublicationController::class, 'save'])->name('publications.store');
     Route::get('/kelola/konten/{publication}', [PublicationController::class, 'edit'])->name('publications.edit');

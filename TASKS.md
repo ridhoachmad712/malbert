@@ -12,9 +12,9 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | DONE | Tidak ada | Terintegrasi setelah 48 tes dan QA admin/guru lulus | [Catatan](instruction/serah-terima/HANDOFF_FND_001.md) |
 | LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | DONE | Tidak ada | Terintegrasi setelah 57 tes dan QA Pojok Baca lulus | [Catatan](instruction/serah-terima/HANDOFF_LIT_001.md) |
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | DONE | Tidak ada | Terintegrasi setelah 66 tes dan QA halaman penilaian lulus | [Catatan](instruction/serah-terima/HANDOFF_NIL_001.md) |
-| MON-001 | Tahap 4: monitoring dan laporan | PLANNED | Belum ditugaskan | NIL-001 dan definisi target | Belum ada |
+| MON-001 | Tahap 4: monitoring dan laporan | DONE | Tidak ada | Terintegrasi setelah 73 tes dan QA monitoring/laporan lulus | [Catatan](instruction/serah-terima/HANDOFF_MON_001.md) |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
-| PUB-001 | Tahap 6: publikasi terhubung bank karya | PLANNED | Belum ditugaskan | Bank karya; tidak wajib menunggu KAS-001 | Belum ada |
+| PUB-001 | Tahap 6: publikasi terhubung bank karya | READY | Belum ditugaskan | Bank karya tersedia; tidak wajib menunggu KAS-001 | Belum ada |
 | DRV-001 | Aktivasi API dan uji album folder nyata | BLOCKED | Tidak ada | Akses Google Cloud dan konfigurasi key belum selesai | Lihat PROJECT_STATUS.md |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
@@ -36,6 +36,10 @@ Finalisasi 2026-09-21: alur bacaan/tugas → jurnal-karya-refleksi → tinjauan 
 NIL-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 6113431; konfigurasi aturan sekolah, rubrik enam indikator, nilai/kategori/umpan balik, transaksi poin, tingkatan apresiasi, koreksi terlacak, routes/views/backup/tests/konteks; tanpa pekerja paralel. Aturan terbuka tidak di-hardcode: admin wajib menetapkannya sebelum modul dipakai. Pengguna meminta lanjut ke tahap berikutnya.
 
 Finalisasi 2026-09-21: rubrik enam indikator, nilai otomatis, umpan balik, poin aktivitas terpisah, apresiasi per periode, pencegahan poin ganda, dan koreksi terlacak selesai. 66 tes / 460 assertions, Pint, sintaks JavaScript, rute, diff check, dan QA visual responsif lulus. Kepemilikan dilepas setelah commit checkpoint; MON-001 tetap PLANNED sampai definisi capaian program 80% dibakukan.
+
+MON-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar f254c2c; konfigurasi definisi capaian 80%, dasbor per kelas/murid/periode, data belum dinilai, laporan bulanan cetak/unduh, akses, routes/views/tests/backup/konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan. Nilai aturan sekolah tidak akan di-hardcode atau disimpulkan dari data demo.
+
+Finalisasi 2026-09-21: definisi capaian menjadi konfigurasi wajib, dasbor kelas/periode, perkembangan murid, laporan bulanan, cetak, dan CSV selesai. 73 tes / 497 assertions, Pint, sintaks JavaScript, 65 rute, diff check, dan QA browser responsif lulus. Kepemilikan dilepas setelah commit checkpoint; PUB-001 menjadi READY sementara KAS-001 masih menunggu aturan penanganan.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

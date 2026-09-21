@@ -34,6 +34,7 @@
     <a href="{{ route('students.index') }}" class="{{ request()->routeIs('students.*') ? 'selected' : '' }}">Data murid</a>
     <a href="{{ route('literacy.index') }}" class="{{ request()->routeIs('literacy.*', 'readings.*') ? 'selected' : '' }}">Literasi</a>
     <a href="{{ route('evaluation.index') }}" class="{{ request()->routeIs('evaluation.*') ? 'selected' : '' }}">Penilaian & poin</a>
+    <a href="{{ route('monitoring.index') }}" class="{{ request()->routeIs('monitoring.*') ? 'selected' : '' }}">Monitoring & laporan</a>
     @if(auth()->user()->role === 'admin')
     <a href="{{ route('foundation.index') }}" class="{{ request()->routeIs('foundation.*', 'classrooms.*') ? 'selected' : '' }}">Kelas & tahun ajaran</a>
     <a href="{{ route('users.index') }}">♧ Pengguna</a>

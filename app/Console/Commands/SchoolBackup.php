@@ -35,7 +35,7 @@ class SchoolBackup extends Command
                 return self::FAILURE;
             }
             $payload = json_decode($zip->getFromName('records.json') ?: '', true);
-            if (! in_array($payload['version'] ?? null, [1, 2, 3, 4], true) || ! isset($payload['tables'])) {
+            if (! in_array($payload['version'] ?? null, [1, 2, 3, 4, 5], true) || ! isset($payload['tables'])) {
                 $zip->close();
                 $this->error('Invalid backup format.');
 
@@ -96,7 +96,7 @@ class SchoolBackup extends Command
 
             return self::FAILURE;
         }
-        $zip->addFromString('records.json', json_encode(['version' => 4, 'created_at' => now()->toIso8601String(), 'tables' => $records], JSON_THROW_ON_ERROR));
+        $zip->addFromString('records.json', json_encode(['version' => 5, 'created_at' => now()->toIso8601String(), 'tables' => $records], JSON_THROW_ON_ERROR));
         foreach ($disk->files('media') as $file) {
             $zip->addFile($disk->path($file), $file);
         }

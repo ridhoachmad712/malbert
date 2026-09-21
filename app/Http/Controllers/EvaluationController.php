@@ -61,7 +61,7 @@ class EvaluationController extends Controller
                 'configured_by' => $request->user()->id,
                 'configured_at' => now(),
             ]);
-            ActivityLog::record('Menetapkan aturan penilaian', 'Pembulatan, ambang keberhasilan, periode poin, dan pengulangan');
+            ActivityLog::record('Menetapkan aturan penilaian', 'Nilai, poin, populasi, dan periode capaian');
         });
 
         return redirect()->route('evaluation.index')->with('success', 'Aturan penilaian disimpan dan siap digunakan.');

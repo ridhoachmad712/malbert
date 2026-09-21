@@ -24,6 +24,10 @@ class EvaluationSeeder extends Seeder
             'success_threshold' => 76,
             'point_period' => 'month',
             'repeat_rule' => 'once_daily',
+            'monitoring_period' => 'month',
+            'student_score_method' => 'average',
+            'achievement_population' => 'enrolled',
+            'unassessed_rule' => 'not_successful',
             'configured_at' => now(),
         ]);
     }

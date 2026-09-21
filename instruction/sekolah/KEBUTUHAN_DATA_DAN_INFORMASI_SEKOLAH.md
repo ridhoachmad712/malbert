@@ -48,7 +48,7 @@ Apabila dokumen yang sebelumnya diberikan sudah merupakan versi final, cukup dik
 | Bagian | Konfirmasi yang diperlukan |
 | --- | --- |
 | Nilai literasi | Cara pembulatan nilai dan batas setiap kategori |
-| Target keberhasilan 80% | Kriteria murid dianggap mencapai target dan periode pengukurannya |
+| Target keberhasilan 80% | Pilih ambang murid, periode bulanan/semester/tahun ajaran, nilai rata-rata/terbaru, populasi murid terdaftar/peserta, serta apakah murid belum dinilai masuk penyebut |
 | Poin apresiasi | Akumulasi per bulan, semester, atau tahun; batas pemberian berulang; ketentuan koreksi |
 | Penghargaan | Tingkatan, waktu pemberian, dan pihak yang menetapkan |
 | Pembinaan OTFD | Urutan tahap baku dan pihak yang dapat melihat catatannya |

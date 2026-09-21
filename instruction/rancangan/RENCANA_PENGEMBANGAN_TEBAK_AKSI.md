@@ -234,7 +234,7 @@ Checklist pengembangan:
 - [x] Tahap 1 — Fondasi data dan akses
 - [x] Tahap 2 — Kegiatan literasi
 - [x] Tahap 3 — Penilaian dan apresiasi
-- [ ] Tahap 4 — Monitoring dan laporan
+- [x] Tahap 4 — Monitoring dan laporan
 - [ ] Tahap 5 — Pembinaan dan pengaduan
 - [ ] Tahap 6 — Publikasi terintegrasi
 - [ ] Tahap 7 — Uji sekolah dan operasional
@@ -260,5 +260,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-20 | Rancangan TEBAK AKSI versi 1.0 disimpan sebagai rujukan pengembangan | Persetujuan pengguna atas rancangan dan permintaan membuat file rujukan |
 | 2026-09-20 | Anti-slop diadopsi sebagai rujukan kualitas lokal dengan revisi sumber tetap dan lisensi | Permintaan pengguna menggunakan repositori miqdadbadjuber/anti-slop |
 | 2026-09-21 | Tahap 2 dan 3 selesai; aturan penilaian/poin yang belum dipilih sekolah diterapkan sebagai konfigurasi wajib, bukan nilai baku tersembunyi | Bukti HANDOFF_LIT_001 dan HANDOFF_NIL_001; D-011 |
+| 2026-09-21 | Tahap 4 selesai; periode, metode nilai, populasi penyebut, dan perlakuan data belum dinilai menjadi konfigurasi wajib sebelum capaian 80% dihitung | Bukti HANDOFF_MON_001; D-012 |
 
-Pekerjaan implementasi berikutnya: Tahap 4, dimulai dengan pembakuan definisi capaian program 80%, lalu monitoring dan laporan dasar.
+Pekerjaan implementasi berikutnya untuk versi pertama: bagian Tahap 6 yang menghubungkan bank karya dengan publikasi terpilih. Tahap 5 tetap menunggu aturan penanganan dan akses sensitif.
