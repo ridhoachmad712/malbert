@@ -13,7 +13,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | DONE | Tidak ada | Terintegrasi setelah 57 tes dan QA Pojok Baca lulus | [Catatan](instruction/serah-terima/HANDOFF_LIT_001.md) |
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | DONE | Tidak ada | Terintegrasi setelah 66 tes dan QA halaman penilaian lulus | [Catatan](instruction/serah-terima/HANDOFF_NIL_001.md) |
 | MON-001 | Tahap 4: monitoring dan laporan | DONE | Tidak ada | Terintegrasi setelah 73 tes dan QA monitoring/laporan lulus | [Catatan](instruction/serah-terima/HANDOFF_MON_001.md) |
-| KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
+| KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Tidak ada | Ditunda pengguna karena belum mendesak; aturan penanganan dan akses tetap belum ditetapkan | Belum ada |
 | PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Inti integrasi selesai; album Drive nyata tetap DRV-001 | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
 | DRV-001 | Aktivasi API dan uji album folder nyata | IN_PROGRESS | Codex lokal | API dan key lokal aktif; menunggu tautan folder publik berisi media untuk uji penerimaan | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |

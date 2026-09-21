@@ -18,15 +18,17 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Bank karya hanya menampilkan hasil yang disetujui. Satu karya dapat disiapkan menjadi satu draf publikasi dengan hubungan sumber dan nomor revisi; hanya karya terpilih yang disalin, sedangkan jurnal, refleksi, umpan balik, nilai, NIS, dan NISN tidak masuk ke konten publik. Kredit nama murid memerlukan konfirmasi izin khusus. Revisi draf mempertahankan versi publik terakhir sampai admin menyetujui ulang.
 - Penilaian dari rubrik enam indikator, nilai dan kategori otomatis, umpan balik, transaksi poin aktivitas, tingkatan apresiasi per periode, pencegahan poin ganda, serta koreksi bernalar dan terlacak sudah tersedia. Admin wajib menyimpan konfigurasi aturan sekolah sebelum modul digunakan.
 - Monitoring per kelas/periode, perkembangan bulanan murid, konfigurasi capaian 80%, pembedaan data belum dinilai, laporan bulanan cetak, dan ekspor CSV sudah tersedia. Angka menggunakan tanggal kegiatan sumber dan akses guru mengikuti rombel.
-- Pembinaan dan pengaduan belum diimplementasikan.
+- Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
 - Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Anti-slop diadopsi sebagai panduan lokal; audit menyeluruh UI lama belum dilakukan.
 
 ## Pekerjaan berikutnya
 
-1. KAS-001 memerlukan aturan penanganan, matriks akses sensitif, pengaduan anonim, waktu respons, dan retensi lampiran sebelum implementasi.
-2. DRV-001 menunggu tautan folder Drive publik berisi foto/video untuk menguji impor, tampilan tanpa login Google, dan batas akses; tahap 6 keseluruhan belum selesai sampai bukti itu lulus.
-3. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
+1. DRV-001 menunggu tautan folder Drive publik berisi foto/video untuk menguji impor, tampilan tanpa login Google, dan batas akses; tahap 6 keseluruhan belum selesai sampai bukti itu lulus.
+2. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
+3. REL-001: uji bersama sekolah, pemulihan cadangan, konfigurasi hosting/domain, akun nyata, dan aktivasi jadwal cadangan.
+
+KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
 
 ## Bukti dan batas verifikasi
 
