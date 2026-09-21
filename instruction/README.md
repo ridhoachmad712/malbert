@@ -7,6 +7,7 @@ Mulai sesi agen dari [START_HERE.md](../START_HERE.md). Dokumentasi pendukung di
 | [rancangan](rancangan/RENCANA_PENGEMBANGAN_TEBAK_AKSI.md) | Rancangan disepakati, aturan bisnis, tahapan, kriteria selesai | Sebelum mengubah fitur |
 | sumber | 14 dokumen Word asli program/sekolah, nama asli dipertahankan | Saat membutuhkan rincian formulir, rubrik dan alur sumber |
 | [sekolah](sekolah/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md) | Catatan kebutuhan data untuk pihak sekolah | Saat mengumpulkan data dan konfirmasi |
+| [operasional](operasional/PANDUAN_PELUNCURAN.md) | Konfigurasi produksi, peluncuran, backup/restore, dan UAT REL-001 | Saat menyiapkan hosting atau uji penerimaan sekolah |
 | [kualitas](kualitas/PENERAPAN_ANTI_SLOP.md) | Adaptasi anti-slop, salinan asli dan lisensi | Saat mengembangkan UI, teks, responsivitas |
 | [serah-terima](serah-terima/HANDOFF_TEMPLATE.md) | Catatan per tugas dan template | Saat melanjutkan atau mengakhiri tugas |
 

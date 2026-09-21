@@ -1,8 +1,8 @@
 # Status proyek
 
-Diperbarui: 2026-09-21 oleh Codex, finalisasi UI-001.
+Diperbarui: 2026-09-21 oleh Codex, checkpoint kesiapan lokal REL-001.
 
-Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka publik, admin, dan guru juga selesai; bukti terbaru: [HANDOFF_UI_001.md](instruction/serah-terima/HANDOFF_UI_001.md).
+Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
 Dokumentasi disatukan di [instruction](instruction/README.md). Catatan penataan terbaru: [DOC-002](instruction/serah-terima/HANDOFF_DOC_002.md). Fitur aplikasi tidak berubah.
 
@@ -21,24 +21,25 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
 - Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
+- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, dan lembar UAT sekolah sudah tersedia. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
 
 ## Pekerjaan berikutnya
 
-1. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
-2. REL-001: uji bersama sekolah, pemulihan cadangan, konfigurasi hosting/domain, akun nyata, dan aktivasi jadwal cadangan.
+1. REL-001: pilih hosting/domain, isi identitas serta akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
+2. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 3. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
 KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-21: 77 tes / 544 assertions lulus. Pint, sintaks JavaScript, daftar 68 rute, dan diff check lulus. Audit browser mencakup 21 rute representatif publik/admin dan 10 rute guru pada 1440×900 serta 390×844, pemeriksaan kontras WCAG AA, overflow, label formulir, satu H1 per halaman, fokus keyboard, menu Escape, keadaan kosong/peringatan/error, dan konsol tanpa error/warning. Screenshot per-area membuktikan dugaan duplikasi pada screenshot halaman panjang hanya artefak penyambungan. Uji bersama sekolah tetap belum dilakukan.
+Pengujian aplikasi terbaru 2026-09-21: 79 tes / 548 assertions lulus. Pint, sintaks JavaScript, 68 rute, `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, dan diff check lulus. Restore backup nyata ke SQLite/penyimpanan terisolasi berhasil: migrasi dan restore keluar 0, jumlah seluruh 17 tabel cocok, serta cadangan saat itu memang tidak memiliki berkas media lokal. Jalur media backup tetap dicakup tes otomatis. `school:release-check` dengan sengaja masih melaporkan tujuh item BELUM pada lingkungan lokal: mode produksi, debug, HTTPS, cookie aman, enkripsi sesi, profil nyata, dan akun demo. UAT bersama sekolah serta server/domain nyata belum tersedia.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 
 ## Koordinasi
 
-Tidak ada pekerja aktif setelah finalisasi UI-001. Periksa TASKS.md dan status aktual sebelum mengambil tugas berikutnya.
+Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah kesiapan lokal selesai; lanjutkan ketika pengguna memilih hosting/domain dan sekolah siap menjalankan UAT dengan akun/data nyata.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

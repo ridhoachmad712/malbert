@@ -18,7 +18,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
-| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
+| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Kesiapan lokal selesai; menunggu pilihan hosting/domain, akun/data nyata, dan UAT bersama sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
 
@@ -53,6 +53,10 @@ Finalisasi 2026-09-21 16:46: folder publik nyata dari pengguna menghasilkan 8 fo
 UI-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 4c1563f; audit halaman publik/admin/guru pada desktop dan ponsel, keyboard, keadaan kosong/validasi, konsol, perbaikan CSS/Blade/JavaScript yang terbukti, tes dan konteks; tanpa pekerja paralel. Pengguna meminta audit UI dikerjakan lebih dahulu.
 
 Finalisasi 2026-09-21: 21 rute representatif publik/admin diperiksa pada 1440×900 dan 390×844; 10 rute guru diperiksa pada kedua ukuran. Overflow dasbor, kontras teks sekunder, sasaran sentuh, semantik dekorasi, navigasi seluler, placeholder tabel, dan kegagalan prasyarat laporan bulanan diperbaiki. 77 tes / 544 assertions, Pint, sintaks JavaScript, 68 rute, diff check, pemeriksaan kontras, keyboard, dan konsol browser lulus. Kepemilikan dilepas setelah commit checkpoint; REL-001 menjadi tahapan produk berikutnya, sedangkan OPS-001 tetap menunggu tujuan remote.
+
+REL-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 5eca5e6; simulasi pemulihan cadangan terisolasi, pemeriksaan konfigurasi produksi dan scheduler, paket UAT sekolah, penanganan akun/data contoh, bukti pengujian, dan konteks; tanpa pekerja paralel. Pengguna meminta mengerjakan REL-001. Hosting/domain dan UAT bersama sekolah tidak akan dianggap selesai sebelum pilihan serta pelaksanaannya nyata.
+
+Checkpoint 2026-09-21: pemulihan nyata ke SQLite/penyimpanan terisolasi lulus pada 17 tabel tanpa selisih; template lingkungan produksi, panduan peluncuran, lembar UAT, dan perintah `school:release-check` tersedia. 79 tes / 548 assertions dan pemeriksaan platform/scheduler/rute lulus. Konfigurasi cache tes dipisahkan agar tes tidak dapat membaca cache konfigurasi lokal; database lokal yang sempat kosong saat verifikasi paralel dipulihkan penuh dari backup pra-uji menjadi 2 pengguna, 7 publikasi, dan 1 profil sekolah. Tugas dilepas dengan status BLOCKED sampai hosting/domain dipilih, akun/data nyata siap, dan UAT sekolah dilaksanakan.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 
