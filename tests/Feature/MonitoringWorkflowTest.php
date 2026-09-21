@@ -81,7 +81,9 @@ class MonitoringWorkflowTest extends TestCase
 
         $this->actingAs($context['teacher'])->get(route('monitoring.index'))
             ->assertOk()->assertSee('Aturan monitoring belum lengkap')->assertDontSee('Target minimal 80% tercapai');
-        $this->get(route('monitoring.monthly'))->assertStatus(409);
+        $this->get(route('monitoring.monthly'))
+            ->assertRedirect(route('monitoring.index'))
+            ->assertSessionHasErrors(['report' => 'Admin harus melengkapi aturan monitoring terlebih dahulu.']);
     }
 
     public function test_enrolled_population_keeps_unassessed_students_distinct_and_uses_source_dates(): void

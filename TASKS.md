@@ -16,6 +16,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Tidak ada | Ditunda pengguna karena belum mendesak; aturan penanganan dan akses tetap belum ditetapkan | Belum ada |
 | PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Integrasi bank karya dan album Drive nyata selesai | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
+| UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
 
@@ -48,6 +49,10 @@ Finalisasi 2026-09-21: bank karya yang disetujui dapat dibuat menjadi satu draf 
 DRV-001; Codex lokal; 2026-09-21 16:23 Asia/Makassar; main; dasar 62a1ecf; aktivasi Google Drive API, pembuatan key terbatas Drive API, konfigurasi lokal, uji koneksi nyata, uji folder publik dan pembaruan konteks; tanpa pekerja paralel. Google Drive API dan key lokal sudah aktif. Kriteria penerimaan folder nyata menunggu tautan folder publik berisi foto/video dari pengguna.
 
 Finalisasi 2026-09-21 16:46: folder publik nyata dari pengguna menghasilkan 8 foto. Seluruh URL pratinjau merespons 200 tanpa cookie Google; halaman publik memuat 8 slide dan navigasi berpindah dari 1/8 ke 2/8. Publikasi QA sementara dihapus. 6 tes Drive / 55 assertions dan regresi 77 tes / 541 assertions lulus. Kepemilikan dilepas; DRV-001 dan Tahap 6 selesai.
+
+UI-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 4c1563f; audit halaman publik/admin/guru pada desktop dan ponsel, keyboard, keadaan kosong/validasi, konsol, perbaikan CSS/Blade/JavaScript yang terbukti, tes dan konteks; tanpa pekerja paralel. Pengguna meminta audit UI dikerjakan lebih dahulu.
+
+Finalisasi 2026-09-21: 21 rute representatif publik/admin diperiksa pada 1440×900 dan 390×844; 10 rute guru diperiksa pada kedua ukuran. Overflow dasbor, kontras teks sekunder, sasaran sentuh, semantik dekorasi, navigasi seluler, placeholder tabel, dan kegagalan prasyarat laporan bulanan diperbaiki. 77 tes / 544 assertions, Pint, sintaks JavaScript, 68 rute, diff check, pemeriksaan kontras, keyboard, dan konsol browser lulus. Kepemilikan dilepas setelah commit checkpoint; REL-001 menjadi tahapan produk berikutnya, sedangkan OPS-001 tetap menunggu tujuan remote.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

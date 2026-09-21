@@ -1,7 +1,27 @@
-document.querySelector('.menu-toggle')?.addEventListener('click', function () {
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNavigation = document.querySelector('#main-nav');
+
+function closeNavigation(restoreFocus = false) {
+  if (!menuToggle || !mainNavigation || menuToggle.getAttribute('aria-expanded') !== 'true') return;
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Buka menu navigasi');
+  mainNavigation.classList.remove('open');
+  if (restoreFocus) menuToggle.focus();
+}
+
+menuToggle?.addEventListener('click', function () {
   const expanded = this.getAttribute('aria-expanded') === 'true';
   this.setAttribute('aria-expanded', String(!expanded));
-  document.querySelector('#main-nav').classList.toggle('open', !expanded);
+  this.setAttribute('aria-label', expanded ? 'Buka menu navigasi' : 'Tutup menu navigasi');
+  mainNavigation.classList.toggle('open', !expanded);
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeNavigation(true);
+});
+
+mainNavigation?.addEventListener('click', event => {
+  if (event.target.closest('a')) closeNavigation();
 });
 document.querySelectorAll('[data-confirm]').forEach(form => form.addEventListener('submit', event => {
   if (!confirm(form.dataset.confirm)) event.preventDefault();

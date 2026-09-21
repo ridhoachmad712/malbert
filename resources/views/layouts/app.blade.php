@@ -13,7 +13,7 @@
 <a class="skip" href="#main">Lewati ke isi utama</a>
 <header class="site-header"><div class="header-inner">
     <a class="brand" href="{{ route('home') }}">@if(!empty($school['logo']))<img class="school-logo" src="{{ route('school.logo') }}" alt="Logo sekolah">@else<span class="brand-icon" aria-hidden="true">✳</span>@endif <span>ruang<span class="brand-blue">cerita</span><small>{{ $school['name'] }}</small></span></a>
-    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰ <span>Menu</span></button>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka menu navigasi">☰ <span>Menu</span></button>
     <nav id="main-nav" aria-label="Navigasi utama">
         <a class="{{ request()->routeIs('home') && !request('type') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
         <a class="{{ request('type') === 'kegiatan' ? 'active' : '' }}" href="{{ route('home', ['type'=>'kegiatan']) }}#jelajah">Kegiatan</a>
@@ -49,5 +49,5 @@
 @if($errors->any())<div class="alert error" role="alert"><strong>Periksa kembali isian berikut:</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
 @yield('content')
 </main>@if(request()->is('kelola*'))</div>@endif
-<footer><div class="container footer-inner"><div><a class="brand" href="{{ route('home') }}"><span class="brand-icon">✳</span><span>ruang<span class="brand-blue">cerita</span></span></a><p>Setiap anak punya cerita. Setiap usaha berharga.</p></div><div><strong>{{ $school['name'] }}</strong><p>Ruang tumbuh dan karya siswa</p><small>© {{ date('Y') }} · Dibuat untuk merayakan proses belajar.</small></div></div></footer>
+<footer><div class="container footer-inner"><div><a class="brand" href="{{ route('home') }}"><span class="brand-icon" aria-hidden="true">✳</span><span>ruang<span class="brand-blue">cerita</span></span></a><p>Setiap anak punya cerita. Setiap usaha berharga.</p></div><div><strong>{{ $school['name'] }}</strong><p>Ruang tumbuh dan karya siswa</p><small>© {{ date('Y') }} · Dibuat untuk merayakan proses belajar.</small></div></div></footer>
 </body></html>

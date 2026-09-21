@@ -7,12 +7,14 @@ use App\Models\Classroom;
 use App\Models\Student;
 use App\Services\MonitoringReport;
 use Carbon\CarbonImmutable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class MonitoringController extends Controller
 {
@@ -46,9 +48,17 @@ class MonitoringController extends Controller
         ]);
     }
 
-    public function monthly(Request $request, MonitoringReport $reports): View
+    public function monthly(Request $request, MonitoringReport $reports): View|RedirectResponse
     {
-        return view('manage.monitoring.monthly', $this->monthlyData($request, $reports));
+        try {
+            return view('manage.monitoring.monthly', $this->monthlyData($request, $reports));
+        } catch (HttpException $exception) {
+            if ($exception->getStatusCode() !== 409) {
+                throw $exception;
+            }
+
+            return redirect()->route('monitoring.index')->withErrors(['report' => $exception->getMessage()]);
+        }
     }
 
     public function export(Request $request, MonitoringReport $reports): StreamedResponse

@@ -1,8 +1,8 @@
 # Status proyek
 
-Diperbarui: 2026-09-21 oleh Codex, finalisasi DRV-001.
+Diperbarui: 2026-09-21 oleh Codex, finalisasi UI-001.
 
-Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Bukti terbaru: [HANDOFF_DRV_001.md](instruction/serah-terima/HANDOFF_DRV_001.md); alur publikasi: [HANDOFF_PUB_001.md](instruction/serah-terima/HANDOFF_PUB_001.md).
+Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka publik, admin, dan guru juga selesai; bukti terbaru: [HANDOFF_UI_001.md](instruction/serah-terima/HANDOFF_UI_001.md).
 
 Dokumentasi disatukan di [instruction](instruction/README.md). Catatan penataan terbaru: [DOC-002](instruction/serah-terima/HANDOFF_DOC_002.md). Fitur aplikasi tidak berubah.
 
@@ -20,25 +20,25 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Monitoring per kelas/periode, perkembangan bulanan murid, konfigurasi capaian 80%, pembedaan data belum dinilai, laporan bulanan cetak, dan ekspor CSV sudah tersedia. Angka menggunakan tanggal kegiatan sumber dan akses guru mengikuti rombel.
 - Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
 - Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
-- Anti-slop diadopsi sebagai panduan lokal; audit menyeluruh UI lama belum dilakukan.
+- Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
 
 ## Pekerjaan berikutnya
 
 1. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 2. REL-001: uji bersama sekolah, pemulihan cadangan, konfigurasi hosting/domain, akun nyata, dan aktivasi jadwal cadangan.
-3. Audit UI menyeluruh pada halaman lama dan penyesuaian data contoh sebelum penggunaan sekolah.
+3. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
 KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-21: 77 tes / 541 assertions lulus, termasuk 6 tes Drive / 55 assertions dan 4 tes publikasi terhubung / 44 assertions. Pint dan daftar 68 rute sebelumnya lulus. Tes otomatis Drive tetap memakai respons tiruan untuk kasus batas dan kegagalan. Pembuktian nyata DRV-001 memakai folder publik dari pengguna: API mengimpor 8 foto, delapan URL pratinjau merespons HTTP 200 tanpa cookie Google, halaman publik merender 8 slide, media terlihat di browser, dan tombol berikutnya mengubah posisi 1/8 menjadi 2/8. Publikasi QA sementara sudah dihapus. Audit UI menyeluruh dan uji bersama sekolah belum dilakukan.
+Pengujian aplikasi terbaru 2026-09-21: 77 tes / 544 assertions lulus. Pint, sintaks JavaScript, daftar 68 rute, dan diff check lulus. Audit browser mencakup 21 rute representatif publik/admin dan 10 rute guru pada 1440×900 serta 390×844, pemeriksaan kontras WCAG AA, overflow, label formulir, satu H1 per halaman, fokus keyboard, menu Escape, keadaan kosong/peringatan/error, dan konsol tanpa error/warning. Screenshot per-area membuktikan dugaan duplikasi pada screenshot halaman panjang hanya artefak penyambungan. Uji bersama sekolah tetap belum dilakukan.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 
 ## Koordinasi
 
-Tidak ada pekerja aktif setelah finalisasi DRV-001. Periksa TASKS.md dan status aktual sebelum mengambil tugas berikutnya.
+Tidak ada pekerja aktif setelah finalisasi UI-001. Periksa TASKS.md dan status aktual sebelum mengambil tugas berikutnya.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 
