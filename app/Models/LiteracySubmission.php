@@ -52,6 +52,11 @@ class LiteracySubmission extends Model
         return $this->hasOne(LiteracyAssessment::class);
     }
 
+    public function publication(): HasOne
+    {
+        return $this->hasOne(Publication::class);
+    }
+
     public function pointTransactions(): HasMany
     {
         return $this->hasMany(PointTransaction::class);

@@ -22,6 +22,7 @@ Route::get('/pojok-baca', [ReadingResourceController::class, 'index'])->name('re
 Route::get('/pojok-baca/{readingResource}/qr', [ReadingResourceController::class, 'qr'])->name('readings.qr');
 Route::get('/logo-sekolah', [PublicController::class, 'logo'])->name('school.logo');
 Route::get('/media/{publication}/{filename}', [PublicController::class, 'media'])->where('filename', '[a-zA-Z0-9-]+\.webp')->name('media');
+Route::get('/karya-terpilih/{publication}/{filename}', [PublicController::class, 'work'])->where('filename', '[a-zA-Z0-9-]+\.(?:pdf|jpe?g|png|webp)')->name('publication.work');
 Route::middleware('guest')->group(function () {
     Route::get('/masuk', [AuthController::class, 'create'])->name('login');
     Route::post('/masuk', [AuthController::class, 'store'])->middleware('throttle:15,1')->name('login.store');
@@ -71,6 +72,8 @@ Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::get('/kelola/monitoring/laporan/bulanan', [MonitoringController::class, 'monthly'])->name('monitoring.monthly');
     Route::get('/kelola/monitoring/laporan/bulanan.csv', [MonitoringController::class, 'export'])->name('monitoring.export');
     Route::get('/kelola/konten/baru', [PublicationController::class, 'create'])->name('publications.create');
+    Route::get('/kelola/bank-karya', [PublicationController::class, 'bank'])->name('publications.bank');
+    Route::post('/kelola/bank-karya/{literacySubmission}/publikasi', [PublicationController::class, 'fromWork'])->name('publications.from-work');
     Route::post('/kelola/konten', [PublicationController::class, 'save'])->name('publications.store');
     Route::get('/kelola/konten/{publication}', [PublicationController::class, 'edit'])->name('publications.edit');
     Route::put('/kelola/konten/{publication}', [PublicationController::class, 'save'])->name('publications.update');

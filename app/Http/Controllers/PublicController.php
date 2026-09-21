@@ -69,4 +69,17 @@ class PublicController extends Controller
 
         return response()->file(Storage::disk('local')->path($path), ['Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff']);
     }
+
+    public function work(Request $request, Publication $publication, string $filename): BinaryFileResponse
+    {
+        $path = 'publication-assets/'.$filename;
+        $public = $publication->status === 'published' ? $publication->published_content : [];
+        $paths = [$public['selected_work']['path'] ?? null];
+        if (! in_array($path, $paths, true) && $request->user()?->active && $publication->canEdit($request->user())) {
+            $paths[] = $publication->content['selected_work']['path'] ?? null;
+        }
+        abort_unless(in_array($path, $paths, true) && Storage::disk('local')->exists($path), 404);
+
+        return response()->file(Storage::disk('local')->path($path), ['Cache-Control' => 'private, no-store', 'X-Content-Type-Options' => 'nosniff']);
+    }
 }

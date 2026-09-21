@@ -63,6 +63,8 @@ class SavePublicationRequest extends FormRequest
             'existing.*.caption' => ['nullable', 'string', 'max:300'],
             'intent' => ['required', 'in:draft,submit'],
             'permission_confirmed' => ['accepted'],
+            'source_credit_mode' => ['nullable', 'in:class,student'],
+            'student_identity_confirmed' => ['nullable', 'accepted_if:source_credit_mode,student'],
         ];
     }
 }

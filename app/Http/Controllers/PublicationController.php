@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SavePublicationRequest;
 use App\Models\ActivityLog;
+use App\Models\LiteracySubmission;
 use App\Models\Publication;
 use App\Services\DriveAlbumService;
 use App\Services\MediaService;
+use App\Services\WorkPublicationService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +18,39 @@ use Illuminate\View\View;
 
 class PublicationController extends Controller
 {
+    public function bank(Request $request): View
+    {
+        $request->validate([
+            'q' => ['nullable', 'string', 'max:150'],
+            'type' => ['nullable', 'in:text,link,photo,pdf'],
+        ]);
+        $query = LiteracySubmission::visibleTo($request->user())
+            ->where('status', 'approved')
+            ->whereIn('work_type', ['text', 'link', 'photo', 'pdf'])
+            ->with(['student.classroom', 'assignment', 'publication']);
+        if ($request->filled('q')) {
+            $term = '%'.str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $request->string('q')->toString()).'%';
+            $query->where(function ($builder) use ($term): void {
+                $builder->whereHas('student', fn ($students) => $students->where('name', 'like', $term))
+                    ->orWhereHas('assignment', fn ($assignments) => $assignments->where('title', 'like', $term));
+            });
+        }
+        if ($request->filled('type')) {
+            $query->where('work_type', $request->input('type'));
+        }
+
+        return view('manage.publications.bank', ['submissions' => $query->latest('reviewed_at')->paginate(20)->withQueryString()]);
+    }
+
+    public function fromWork(Request $request, LiteracySubmission $literacySubmission, WorkPublicationService $service): RedirectResponse
+    {
+        $literacySubmission = LiteracySubmission::visibleTo($request->user())->findOrFail($literacySubmission->id);
+        $publication = $service->createDraft($request->user(), $literacySubmission);
+        ActivityLog::record('Menyiapkan publikasi karya', $literacySubmission->student->name.' · '.$literacySubmission->assignment->title);
+
+        return redirect()->route('publications.edit', $publication)->with('success', 'Draf publikasi dibuat dari karya yang disetujui. Periksa isi dan izin sebelum mengajukannya.');
+    }
+
     public function create(): View
     {
         return view('manage.editor', ['publication' => null, 'data' => []]);
@@ -25,7 +60,7 @@ class PublicationController extends Controller
     {
         abort_unless($publication->canEdit($request->user()), 403);
 
-        return view('manage.editor', ['publication' => $publication, 'data' => $publication->content]);
+        return view('manage.editor', ['publication' => $publication->loadMissing('literacySubmission'), 'data' => $publication->content]);
     }
 
     public function save(SavePublicationRequest $request, MediaService $mediaService, ?Publication $publication = null): RedirectResponse
@@ -36,6 +71,14 @@ class PublicationController extends Controller
         $data = $request->safe()->only(['title', 'type', 'summary', 'body', 'event_date', 'school_year', 'achievement']);
         $data['classes'] = array_values(array_unique(array_map('strval', $request->input('classes', []))));
         $data['permission_confirmed'] = true;
+        if ($publication?->literacy_submission_id) {
+            $creditMode = $request->input('source_credit_mode', 'class');
+            $data['selected_work'] = $publication->content['selected_work'];
+            $data['source_credit_mode'] = $creditMode;
+            $data['source_credit'] = $creditMode === 'student'
+                ? $publication->source_snapshot['student_name']
+                : 'Siswa '.$publication->source_snapshot['classroom_name'];
+        }
         if ($publication?->content['example'] ?? false) {
             $data['example'] = true;
             $data['emoji'] = $publication->content['emoji'] ?? '✳';

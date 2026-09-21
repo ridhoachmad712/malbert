@@ -14,7 +14,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | DONE | Tidak ada | Terintegrasi setelah 66 tes dan QA halaman penilaian lulus | [Catatan](instruction/serah-terima/HANDOFF_NIL_001.md) |
 | MON-001 | Tahap 4: monitoring dan laporan | DONE | Tidak ada | Terintegrasi setelah 73 tes dan QA monitoring/laporan lulus | [Catatan](instruction/serah-terima/HANDOFF_MON_001.md) |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
-| PUB-001 | Tahap 6: publikasi terhubung bank karya | READY | Belum ditugaskan | Bank karya tersedia; tidak wajib menunggu KAS-001 | Belum ada |
+| PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Inti integrasi selesai; album Drive nyata tetap DRV-001 | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
 | DRV-001 | Aktivasi API dan uji album folder nyata | BLOCKED | Tidak ada | Akses Google Cloud dan konfigurasi key belum selesai | Lihat PROJECT_STATUS.md |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
@@ -40,6 +40,10 @@ Finalisasi 2026-09-21: rubrik enam indikator, nilai otomatis, umpan balik, poin 
 MON-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar f254c2c; konfigurasi definisi capaian 80%, dasbor per kelas/murid/periode, data belum dinilai, laporan bulanan cetak/unduh, akses, routes/views/tests/backup/konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan. Nilai aturan sekolah tidak akan di-hardcode atau disimpulkan dari data demo.
 
 Finalisasi 2026-09-21: definisi capaian menjadi konfigurasi wajib, dasbor kelas/periode, perkembangan murid, laporan bulanan, cetak, dan CSV selesai. 73 tes / 497 assertions, Pint, sintaks JavaScript, 65 rute, diff check, dan QA browser responsif lulus. Kepemilikan dilepas setelah commit checkpoint; PUB-001 menjadi READY sementara KAS-001 masih menunggu aturan penanganan.
+
+PUB-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 2a5fb34; pemilihan karya internal yang disetujui, pemeriksaan kelayakan dan izin, pembuatan draf publikasi, hubungan sumber yang tetap, revisi/versi publik, media yang aman, routes/views/backup/tests/konteks; tanpa pekerja paralel. Pengguna meminta mengerjakan PUB-001. Catatan jurnal, refleksi, umpan balik, nilai, serta berkas privat tidak boleh ikut dipublikasikan.
+
+Finalisasi 2026-09-21: bank karya yang disetujui dapat dibuat menjadi satu draf publikasi yang terhubung sumber dan nomor revisinya. Salinan karya terpilih terpisah dari berkas privat, kredit nama membutuhkan konfirmasi izin khusus, dan revisi tidak mengganti versi yang sedang terbit. 77 tes / 541 assertions, Pint, 68 rute, diff check, dan QA browser desktop/390 px lulus. Kepemilikan dilepas setelah commit checkpoint; tahap 6 keseluruhan belum dicentang karena album Drive nyata tetap DRV-001 dan masih BLOCKED.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

@@ -261,5 +261,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-20 | Anti-slop diadopsi sebagai rujukan kualitas lokal dengan revisi sumber tetap dan lisensi | Permintaan pengguna menggunakan repositori miqdadbadjuber/anti-slop |
 | 2026-09-21 | Tahap 2 dan 3 selesai; aturan penilaian/poin yang belum dipilih sekolah diterapkan sebagai konfigurasi wajib, bukan nilai baku tersembunyi | Bukti HANDOFF_LIT_001 dan HANDOFF_NIL_001; D-011 |
 | 2026-09-21 | Tahap 4 selesai; periode, metode nilai, populasi penyebut, dan perlakuan data belum dinilai menjadi konfigurasi wajib sebelum capaian 80% dihitung | Bukti HANDOFF_MON_001; D-012 |
+| 2026-09-21 | Inti tahap 6 untuk bank karya selesai: hanya hasil disetujui dapat dipilih, data internal tidak disalin, izin identitas diperiksa, sumber dan revisi ditelusuri, serta versi terbit dipertahankan saat draf direvisi. Tahap 6 belum ditandai selesai karena album folder nyata masih menunggu DRV-001 | Bukti HANDOFF_PUB_001; D-013 |
 
-Pekerjaan implementasi berikutnya untuk versi pertama: bagian Tahap 6 yang menghubungkan bank karya dengan publikasi terpilih. Tahap 5 tetap menunggu aturan penanganan dan akses sensitif.
+Pekerjaan berikutnya memerlukan dependensi eksternal atau keputusan sekolah: DRV-001 menunggu akses Google Cloud untuk pembuktian album folder nyata, sedangkan Tahap 5 menunggu aturan penanganan dan akses sensitif.

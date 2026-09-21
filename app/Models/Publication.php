@@ -16,12 +16,17 @@ class Publication extends Model
 
     protected function casts(): array
     {
-        return ['content' => 'array', 'published_content' => 'array', 'featured' => 'boolean', 'published_at' => 'datetime'];
+        return ['content' => 'array', 'published_content' => 'array', 'source_snapshot' => 'array', 'featured' => 'boolean', 'published_at' => 'datetime'];
     }
 
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function literacySubmission(): BelongsTo
+    {
+        return $this->belongsTo(LiteracySubmission::class);
     }
 
     public function canEdit(User $user): bool
