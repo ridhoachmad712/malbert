@@ -1,6 +1,8 @@
 # Status proyek
 
-Diperbarui: 2026-09-20 oleh Codex, tugas DOC-002.
+Diperbarui: 2026-09-21 oleh Codex, finalisasi FND-001.
+
+Fondasi sudah diimplementasikan, diuji, dan diintegrasikan sebagai checkpoint FND-001. Bukti terbaru: [HANDOFF_FND_001.md](instruction/serah-terima/HANDOFF_FND_001.md).
 
 Dokumentasi disatukan di [instruction](instruction/README.md). Catatan penataan terbaru: [DOC-002](instruction/serah-terima/HANDOFF_DOC_002.md). Fitur aplikasi tidak berubah.
 
@@ -11,23 +13,24 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Aplikasi Laravel Ruang Cerita berjalan lokal sebagai dasar TEBAK AKSI.
 - Tersedia: akun admin/guru, publikasi kegiatan/karya/prestasi, draf/tinjauan/revisi/arsip, pencarian, profil/logo sekolah, foto terkompresi, tautan Drive, dan pencadangan.
 - Impor folder Drive dan slider sudah memiliki kode dan tes, tetapi koneksi nyata belum selesai. Jangan mengklaim API sudah aktif. Proses Google Cloud terakhir tertahan persyaratan verifikasi dua langkah; status akun perlu diperiksa kembali bila melanjutkan.
-- Data murid, rombel, jurnal, tugas, penilaian/poin, monitoring, laporan, pembinaan, dan pengaduan belum diimplementasikan.
+- Tahun ajaran, pilihan semester berjalan, rombel, penugasan guru, data murid, impor CSV, verifikasi/status aktif, dan riwayat perpindahan sudah tersedia pada working tree. Akses guru mengikuti rombel saat ini. Filter daftar murid memang memakai kelas saat ini, bukan laporan historis.
+- Jurnal, tugas, penilaian/poin, monitoring, laporan, pembinaan, dan pengaduan belum diimplementasikan.
 - Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Anti-slop diadopsi sebagai panduan lokal; audit menyeluruh UI lama belum dilakukan.
 
 ## Pekerjaan berikutnya
 
-1. FND-001: desain dan implementasi fondasi tahun ajaran, semester, rombel, data murid, riwayat keanggotaan dan penugasan guru. Pecah menjadi subtugas dengan kontrak data sebelum membagi pekerjaan paralel.
+1. LIT-001: tetapkan kontrak data bacaan, tugas, jurnal, karya, refleksi dan pemeriksaan, lalu implementasikan alur pertama. Catatan literasi harus menyimpan periode pada data sumbernya; jangan menghitung periode historis dari pilihan semester berjalan yang dapat berubah.
 2. DRV-001 dapat dilanjutkan terpisah bila akses Google Cloud tersedia.
 3. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terakhir sebelum CTX-001: 22 pengujian, 157 assertions, lulus; tes Drive memakai respons tiruan. Pada CTX-001 hanya dokumentasi dan pengaturan Git yang berubah. Catatan pemeriksaan terbaru berada pada [HANDOFF_CTX_001.md](instruction/serah-terima/HANDOFF_CTX_001.md).
+Pengujian terbaru 2026-09-21: 48 tes / 331 assertions lulus, termasuk 26 tes fondasi / 174 assertions. Pint, pemeriksaan sintaks JavaScript, daftar rute, dan git diff --check lulus. Tes Drive tetap memakai respons tiruan. Browser QA dengan SQLite terpisah membuktikan tambah/edit/verifikasi/nonaktif/pindah murid, tahun ajaran dan semester aktif, rombel serta penugasan, impor CSV gagal/berhasil, pembatasan admin/guru, pencarian/keadaan kosong, dan lebar layar 390 serta 1280 piksel. Audit UI menyeluruh dan uji bersama sekolah belum dilakukan.
 
 ## Koordinasi
 
-Tidak ada agen pekerja yang sedang dialokasikan setelah serah terima CTX-001. Sesi pertama yang melanjutkan bertindak sebagai koordinator sampai ada penunjukan lain. Ini bukan izin untuk mengabaikan klaim tugas yang lebih baru.
+Tidak ada pekerja aktif setelah finalisasi FND-001. Periksa TASKS.md dan status aktual sebelum mengambil tugas berikutnya.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

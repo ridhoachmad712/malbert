@@ -3,8 +3,10 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FoundationController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\StudentController;
 use App\Http\Middleware\EnsureActiveUser;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,21 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::post('/keluar', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/kelola', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/kelola/kelas', [FoundationController::class, 'index'])->name('foundation.index');
+    Route::post('/kelola/tahun-ajaran', [FoundationController::class, 'storeYear'])->name('years.store');
+    Route::put('/kelola/tahun-ajaran/{academicYear}/periode', [FoundationController::class, 'activateYear'])->name('years.activate');
+    Route::get('/kelola/kelas/baru', [FoundationController::class, 'editClassroom'])->name('classrooms.create');
+    Route::post('/kelola/kelas', [FoundationController::class, 'saveClassroom'])->name('classrooms.store');
+    Route::get('/kelola/kelas/{classroom}', [FoundationController::class, 'editClassroom'])->name('classrooms.edit');
+    Route::put('/kelola/kelas/{classroom}', [FoundationController::class, 'saveClassroom'])->name('classrooms.update');
+    Route::get('/kelola/murid', [StudentController::class, 'index'])->name('students.index');
+    Route::get('/kelola/murid/baru', [StudentController::class, 'edit'])->name('students.create');
+    Route::get('/kelola/murid/template', [StudentController::class, 'template'])->name('students.template');
+    Route::post('/kelola/murid/impor', [StudentController::class, 'import'])->name('students.import');
+    Route::post('/kelola/murid', [StudentController::class, 'save'])->name('students.store');
+    Route::get('/kelola/murid/{student}', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('/kelola/murid/{student}', [StudentController::class, 'save'])->name('students.update');
+    Route::post('/kelola/murid/{student}/pindah', [StudentController::class, 'transfer'])->name('students.transfer');
     Route::get('/kelola/konten/baru', [PublicationController::class, 'create'])->name('publications.create');
     Route::post('/kelola/konten', [PublicationController::class, 'save'])->name('publications.store');
     Route::get('/kelola/konten/{publication}', [PublicationController::class, 'edit'])->name('publications.edit');

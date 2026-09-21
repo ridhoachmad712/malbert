@@ -15,6 +15,25 @@ editor?.addEventListener('submit', event => {
   dirty = false;
 });
 window.addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
+document.querySelectorAll('form[data-submit-label]').forEach(form => {
+  form.addEventListener('submit', event => {
+    if (event.defaultPrevented) return;
+    const button = event.submitter || form.querySelector('button[type=submit],button:not([type])');
+    if (!button) return;
+    button.dataset.originalLabel = button.textContent;
+    button.textContent = form.dataset.submitLabel;
+    button.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+  });
+});
+window.addEventListener('pageshow', () => {
+  document.querySelectorAll('button[data-original-label]').forEach(button => {
+    button.textContent = button.dataset.originalLabel;
+    button.disabled = false;
+    button.closest('form').removeAttribute('aria-busy');
+    delete button.dataset.originalLabel;
+  });
+});
 let rowIndex = document.querySelectorAll('.drive-row').length;
 document.querySelector('#add-drive')?.addEventListener('click', () => {
   const rows = document.querySelector('#drive-rows');

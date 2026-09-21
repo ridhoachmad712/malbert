@@ -9,8 +9,8 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DOC-002 | Satukan dan kategorikan dokumentasi proyek | DONE | Tidak ada | Sumber utuh dan tautan diperbarui | [Catatan](instruction/serah-terima/HANDOFF_DOC_002.md) |
 | CTX-001 | Konteks lintas agen dan Git lokal | DONE | Tidak ada | Selesai pada checkpoint awal | [Catatan](instruction/serah-terima/HANDOFF_CTX_001.md) |
 | DOC-001 | Simpan catatan kebutuhan sekolah dalam Markdown | DONE | Tidak ada | Sesuai permintaan folder instruction | [Catatan](instruction/serah-terima/HANDOFF_DOC_001.md) |
-| FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | READY | Belum ditugaskan | Mulai dari kontrak data dan pembagian subtugas | Belum ada |
-| LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | PLANNED | Belum ditugaskan | FND-001 | Belum ada |
+| FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | DONE | Tidak ada | Terintegrasi setelah 48 tes dan QA admin/guru lulus | [Catatan](instruction/serah-terima/HANDOFF_FND_001.md) |
+| LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | READY | Belum ditugaskan | FND-001 selesai; kontrak data perlu ditetapkan | Belum ada |
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | PLANNED | Belum ditugaskan | LIT-001 dan aturan penilaian terbuka | Belum ada |
 | MON-001 | Tahap 4: monitoring dan laporan | PLANNED | Belum ditugaskan | NIL-001 dan definisi target | Belum ada |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
@@ -20,6 +20,14 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
 
 ## Format klaim tugas
+
+FND-001; Codex pemeriksaan lanjutan; 2026-09-20 Asia/Makassar; main; dasar f1b38d9 beserta perubahan lokal fondasi; tes fondasi, pemeriksaan browser, perbaikan yang terbukti dan konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan setelah analisis. Sesi sebelumnya terverifikasi berstatus systemError, bukan aktif. Langkah berikutnya: verifikasi batas periode/riwayat, antarmuka, dan checkpoint.
+
+Riwayat checkpoint pemeriksaan 2026-09-20: kepemilikan sempat dilepas dengan status REVIEW; lihat HANDOFF_FND_001. Pada saat itu perubahan masih lokal dan belum di-commit.
+
+FND-001; Codex finalisasi; 2026-09-21 Asia/Makassar; main; dasar f1b38d9 + working tree tercatat; seluruh paket fondasi untuk tinjauan/integrasi, QA browser dan konteks; pengguna meminta lanjut menyelesaikan fondasi dan checkpoint. Database QA terpisah, tanpa pekerja paralel.
+
+Finalisasi 2026-09-21: QA admin/guru dan impor CSV selesai, bug periode berjalan diperbaiki, 48 tes / 331 assertions lulus. Kepemilikan dilepas setelah commit checkpoint; LIT-001 menjadi READY.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

@@ -231,7 +231,7 @@ Status berikut dicatat dari pekerjaan sebelum dokumen ini dibuat, bukan verifika
 
 Checklist pengembangan:
 
-- [ ] Tahap 1 — Fondasi data dan akses
+- [x] Tahap 1 — Fondasi data dan akses
 - [ ] Tahap 2 — Kegiatan literasi
 - [ ] Tahap 3 — Penilaian dan apresiasi
 - [ ] Tahap 4 — Monitoring dan laporan

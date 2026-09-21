@@ -25,7 +25,21 @@
 </div></header>
 @if($school['demo'] ?? false)<div class="demo-strip">Ruang pratinjau · Identitas dan cerita di sini adalah contoh.</div>@endif
 @if(request()->is('kelola*'))
-<div class="manage-shell"><aside class="sidebar"><p class="eyebrow">RUANG PENGELOLA</p><a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'selected' : '' }}">▦ Dasbor & konten</a><a href="{{ route('publications.create') }}">＋ Buat cerita</a>@if(auth()->user()->role === 'admin')<a href="{{ route('users.index') }}">♧ Pengguna</a><a href="{{ route('settings') }}">⚙ Profil sekolah</a>@endif<a href="{{ route('account') }}">◉ Akun saya</a><div class="sidebar-person"><strong>{{ auth()->user()->name }}</strong><small>{{ ucfirst(auth()->user()->role) }}</small><form method="post" action="{{ route('logout') }}">@csrf<button class="text-button">Keluar dari akun ↗</button></form></div></aside><main id="main" class="manage-main">
+<div class="manage-shell">
+<aside class="sidebar">
+    <p class="eyebrow">RUANG PENGELOLA</p>
+    <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'selected' : '' }}">▦ Dasbor & konten</a>
+    <a href="{{ route('publications.create') }}">＋ Buat cerita</a>
+    <a href="{{ route('students.index') }}" class="{{ request()->routeIs('students.*') ? 'selected' : '' }}">Data murid</a>
+    @if(auth()->user()->role === 'admin')
+    <a href="{{ route('foundation.index') }}" class="{{ request()->routeIs('foundation.*', 'classrooms.*') ? 'selected' : '' }}">Kelas & tahun ajaran</a>
+    <a href="{{ route('users.index') }}">♧ Pengguna</a>
+    <a href="{{ route('settings') }}">⚙ Profil sekolah</a>
+    @endif
+    <a href="{{ route('account') }}">◉ Akun saya</a>
+    <div class="sidebar-person"><strong>{{ auth()->user()->name }}</strong><small>{{ ucfirst(auth()->user()->role) }}</small><form method="post" action="{{ route('logout') }}">@csrf<button class="text-button">Keluar dari akun ↗</button></form></div>
+</aside>
+<main id="main" class="manage-main">
 @else<main id="main">@endif
 @if(session('success'))<div class="alert success" role="status">✓ {{ session('success') }}</div>@endif
 @if($errors->any())<div class="alert error" role="alert"><strong>Periksa kembali isian berikut:</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
