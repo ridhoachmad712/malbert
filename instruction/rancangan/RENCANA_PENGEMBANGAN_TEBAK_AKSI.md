@@ -203,8 +203,8 @@ Pembinaan OTFD dan pengaduan menyusul setelah aturan penanganan dan akses dibaku
 | --- | --- |
 | Nama resmi sekolah, identitas program, daftar kelas dan penugasan | Tahap 1 memakai data sebenarnya |
 | Matriks hak akses rinci, termasuk kepala sekolah/koordinator/petugas | Modul terkait mengakses data sebenarnya |
-| Pembulatan nilai, ambang murid berhasil, periode dan penyebut capaian 80% | Tahap 3–4 |
-| Periode poin, frekuensi pemberian, aturan penggabungan dan pergantian periode | Tahap 3 |
+| Nilai konfigurasi sekolah untuk pembulatan dan ambang murid berhasil; periode, penyebut, dan data belum dinilai pada capaian 80% | Penggunaan data nyata dan Tahap 4 |
+| Nilai konfigurasi sekolah untuk periode poin dan frekuensi pemberian; aturan penggabungan dan pergantian periode | Penggunaan data nyata dan penyempurnaan Tahap 4 |
 | Satu susunan tahap OTFD yang baku dari beberapa versi sumber | Tahap 5 |
 | Pengaduan anonim, akses pelapor, penanggung jawab, batas waktu respons | Tahap 5 |
 | Penyimpanan privat, retensi dan penghapusan lampiran sensitif | Tahap 5 |
@@ -232,8 +232,8 @@ Status berikut dicatat dari pekerjaan sebelum dokumen ini dibuat, bukan verifika
 Checklist pengembangan:
 
 - [x] Tahap 1 — Fondasi data dan akses
-- [ ] Tahap 2 — Kegiatan literasi
-- [ ] Tahap 3 — Penilaian dan apresiasi
+- [x] Tahap 2 — Kegiatan literasi
+- [x] Tahap 3 — Penilaian dan apresiasi
 - [ ] Tahap 4 — Monitoring dan laporan
 - [ ] Tahap 5 — Pembinaan dan pengaduan
 - [ ] Tahap 6 — Publikasi terintegrasi
@@ -259,5 +259,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | --- | --- | --- |
 | 2026-09-20 | Rancangan TEBAK AKSI versi 1.0 disimpan sebagai rujukan pengembangan | Persetujuan pengguna atas rancangan dan permintaan membuat file rujukan |
 | 2026-09-20 | Anti-slop diadopsi sebagai rujukan kualitas lokal dengan revisi sumber tetap dan lisensi | Permintaan pengguna menggunakan repositori miqdadbadjuber/anti-slop |
+| 2026-09-21 | Tahap 2 dan 3 selesai; aturan penilaian/poin yang belum dipilih sekolah diterapkan sebagai konfigurasi wajib, bukan nilai baku tersembunyi | Bukti HANDOFF_LIT_001 dan HANDOFF_NIL_001; D-011 |
 
-Pekerjaan implementasi berikutnya: Tahap 1, dimulai dari data murid, rombongan belajar, tahun ajaran, dan penugasan guru.
+Pekerjaan implementasi berikutnya: Tahap 4, dimulai dengan pembakuan definisi capaian program 80%, lalu monitoring dan laporan dasar.

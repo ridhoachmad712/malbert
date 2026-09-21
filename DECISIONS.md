@@ -14,9 +14,10 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-008 | Disepakati 2026-09-20 | Konteks disimpan di repositori; AGENTS/CLAUDE mengarah ke sumber yang sama; Git lokal dan serah terima per tugas | Pengguna: “oke buat seperti itu” |
 | D-009 | Disepakati 2026-09-20 | Kerja paralel memakai cabang/checkout terpisah dan satu koordinator integrasi | Usulan alur lintas agen disetujui pengguna |
 | D-010 | Diterapkan 2026-09-21 | Satu hasil literasi per murid per tugas memuat jurnal, karya, dan refleksi; setiap pengajuan/tinjauan menyimpan snapshot revisi. Guru dapat mengusulkan bacaan internal, admin menyetujui bacaan publik, dan berkas karya hanya tersedia lewat unduhan berizin | Cakupan dan kriteria penerimaan LIT-001; D-003 |
+| D-011 | Diterapkan 2026-09-21 | Admin wajib memilih pembulatan nilai, ambang berhasil per murid, periode poin, dan batas pengulangan sebelum penilaian dipakai. Rubrik, poin aktivitas, dan tingkatan apresiasi mengikuti sumber; nilai kemampuan dan poin tetap terpisah. Perubahan penilaian menyimpan snapshot revisi, sedangkan koreksi poin berupa transaksi tambahan dengan alasan sehingga riwayat lama tidak ditulis ulang | Keputusan terbuka dipertahankan sebagai konfigurasi sekolah; kriteria NIL-001; D-005 |
 
 ## Masih terbuka
 
-Nama resmi sekolah; matriks akses tambahan; aturan pembulatan; definisi capaian 80%; periode dan batas frekuensi poin; tahap OTFD baku; pengaduan anonim dan waktu respons; retensi lampiran privat; remote privat; hosting/domain. Rincian dan tahap ketergantungannya berada pada bagian 10 rancangan sistem.
+Nama resmi sekolah; matriks akses tambahan; nilai konfigurasi sekolah untuk pembulatan, ambang berhasil, periode dan batas pengulangan poin; definisi periode, penyebut, dan perlakuan data belum dinilai bagi capaian program 80%; tahap OTFD baku; pengaduan anonim dan waktu respons; retensi lampiran privat; remote privat; hosting/domain. Rincian dan tahap ketergantungannya berada pada bagian 10 rancangan sistem.
 
-Periode poin bulanan adalah usulan, bukan keputusan final. Jangan mengisi keputusan terbuka dengan asumsi yang tidak dicatat. Pekerjaan independen boleh berjalan dengan data contoh yang jelas.
+Pilihan konfigurasi pada data demo bukan keputusan final sekolah. Jangan mengisi keputusan terbuka dengan asumsi yang tidak dicatat. Pekerjaan independen boleh berjalan dengan data contoh yang jelas.

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\FoundationController;
 use App\Http\Controllers\LiteracyAssignmentController;
 use App\Http\Controllers\LiteracySubmissionController;
@@ -56,6 +57,14 @@ Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::put('/kelola/literasi/tugas/{literacyAssignment}/murid/{student}', [LiteracySubmissionController::class, 'save'])->name('literacy.submissions.update');
     Route::post('/kelola/literasi/hasil/{literacySubmission}/tinjauan', [LiteracySubmissionController::class, 'review'])->name('literacy.submissions.review');
     Route::get('/kelola/literasi/hasil/{literacySubmission}/berkas', [LiteracySubmissionController::class, 'attachment'])->name('literacy.submissions.attachment');
+    Route::get('/kelola/penilaian', [EvaluationController::class, 'index'])->name('evaluation.index');
+    Route::get('/kelola/penilaian/aturan', [EvaluationController::class, 'settings'])->name('evaluation.settings');
+    Route::put('/kelola/penilaian/aturan', [EvaluationController::class, 'saveSettings'])->name('evaluation.settings.update');
+    Route::get('/kelola/penilaian/hasil/{literacySubmission}', [EvaluationController::class, 'assessment'])->name('evaluation.assessment');
+    Route::put('/kelola/penilaian/hasil/{literacySubmission}', [EvaluationController::class, 'saveAssessment'])->name('evaluation.assessment.update');
+    Route::get('/kelola/penilaian/murid/{student}/poin', [EvaluationController::class, 'points'])->name('evaluation.points');
+    Route::post('/kelola/penilaian/murid/{student}/poin', [EvaluationController::class, 'addPoints'])->name('evaluation.points.store');
+    Route::post('/kelola/penilaian/poin/{pointTransaction}/koreksi', [EvaluationController::class, 'correctPoints'])->name('evaluation.points.correct');
     Route::get('/kelola/konten/baru', [PublicationController::class, 'create'])->name('publications.create');
     Route::post('/kelola/konten', [PublicationController::class, 'save'])->name('publications.store');
     Route::get('/kelola/konten/{publication}', [PublicationController::class, 'edit'])->name('publications.edit');

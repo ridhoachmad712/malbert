@@ -84,7 +84,7 @@ class LiteracyAssignmentController extends Controller
 
     public function show(Request $request, LiteracyAssignment $literacyAssignment): View
     {
-        $literacyAssignment = LiteracyAssignment::visibleTo($request->user())->with(['classroom.academicYear', 'readingResource', 'submissions.student', 'submissions.reviews.user'])->findOrFail($literacyAssignment->id);
+        $literacyAssignment = LiteracyAssignment::visibleTo($request->user())->with(['classroom.academicYear', 'readingResource', 'submissions.student', 'submissions.assessment', 'submissions.reviews.user'])->findOrFail($literacyAssignment->id);
         $currentStudents = $literacyAssignment->classroom->students()->where('active', true)->orderBy('name')->get();
         $students = $currentStudents->merge($literacyAssignment->submissions->pluck('student'))->unique('id')->sortBy('name');
 

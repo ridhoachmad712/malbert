@@ -11,7 +11,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DOC-001 | Simpan catatan kebutuhan sekolah dalam Markdown | DONE | Tidak ada | Sesuai permintaan folder instruction | [Catatan](instruction/serah-terima/HANDOFF_DOC_001.md) |
 | FND-001 | Tahap 1: fondasi murid, rombel, tahun ajaran, penugasan | DONE | Tidak ada | Terintegrasi setelah 48 tes dan QA admin/guru lulus | [Catatan](instruction/serah-terima/HANDOFF_FND_001.md) |
 | LIT-001 | Tahap 2: bacaan, jurnal, tugas, karya, refleksi | DONE | Tidak ada | Terintegrasi setelah 57 tes dan QA Pojok Baca lulus | [Catatan](instruction/serah-terima/HANDOFF_LIT_001.md) |
-| NIL-001 | Tahap 3: observasi, poin, apresiasi | PLANNED | Belum ditugaskan | LIT-001 dan aturan penilaian terbuka | Belum ada |
+| NIL-001 | Tahap 3: observasi, poin, apresiasi | DONE | Tidak ada | Terintegrasi setelah 66 tes dan QA halaman penilaian lulus | [Catatan](instruction/serah-terima/HANDOFF_NIL_001.md) |
 | MON-001 | Tahap 4: monitoring dan laporan | PLANNED | Belum ditugaskan | NIL-001 dan definisi target | Belum ada |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Belum ditugaskan | Fondasi akses dan keputusan penanganan | Belum ada |
 | PUB-001 | Tahap 6: publikasi terhubung bank karya | PLANNED | Belum ditugaskan | Bank karya; tidak wajib menunggu KAS-001 | Belum ada |
@@ -32,6 +32,10 @@ Finalisasi 2026-09-21: QA admin/guru dan impor CSV selesai, bug periode berjalan
 LIT-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 476d080; kontrak data bacaan/tugas/jurnal-karya-refleksi/pemeriksaan, model/migrasi, controller/request, media privat, halaman publik dan kelola, routes, backup, factories/seeder, tes dan konteks; tanpa pekerja paralel. Pengguna meminta mengerjakan LIT-001.
 
 Finalisasi 2026-09-21: alur bacaan/tugas → jurnal-karya-refleksi → tinjauan → perbaikan/persetujuan selesai; karya tetap privat dan periode disimpan sebagai snapshot. 57 tes / 398 assertions, Pint, sintaks JavaScript, rute, diff check, dan QA visual Pojok Baca lulus. Kepemilikan dilepas setelah commit checkpoint; NIL-001 masih menunggu keputusan penilaian terbuka.
+
+NIL-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 6113431; konfigurasi aturan sekolah, rubrik enam indikator, nilai/kategori/umpan balik, transaksi poin, tingkatan apresiasi, koreksi terlacak, routes/views/backup/tests/konteks; tanpa pekerja paralel. Aturan terbuka tidak di-hardcode: admin wajib menetapkannya sebelum modul dipakai. Pengguna meminta lanjut ke tahap berikutnya.
+
+Finalisasi 2026-09-21: rubrik enam indikator, nilai otomatis, umpan balik, poin aktivitas terpisah, apresiasi per periode, pencegahan poin ganda, dan koreksi terlacak selesai. 66 tes / 460 assertions, Pint, sintaks JavaScript, rute, diff check, dan QA visual responsif lulus. Kepemilikan dilepas setelah commit checkpoint; MON-001 tetap PLANNED sampai definisi capaian program 80% dibakukan.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

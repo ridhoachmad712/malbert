@@ -19,7 +19,7 @@ class SchoolBackup extends Command
     public function handle(): int
     {
         $disk = Storage::disk('local');
-        $tables = ['users', 'school_settings', 'publications', 'activity_logs', 'academic_years', 'classrooms', 'classroom_user', 'students', 'enrollments', 'reading_resources', 'literacy_assignments', 'literacy_submissions', 'literacy_reviews'];
+        $tables = ['users', 'school_settings', 'publications', 'activity_logs', 'academic_years', 'classrooms', 'classroom_user', 'students', 'enrollments', 'reading_resources', 'literacy_assignments', 'literacy_submissions', 'literacy_reviews', 'assessment_settings', 'literacy_assessments', 'literacy_assessment_revisions', 'point_transactions'];
         if ($source = $this->option('restore')) {
             foreach ($tables as $table) {
                 if (DB::table($table)->exists()) {
@@ -35,7 +35,7 @@ class SchoolBackup extends Command
                 return self::FAILURE;
             }
             $payload = json_decode($zip->getFromName('records.json') ?: '', true);
-            if (! in_array($payload['version'] ?? null, [1, 2, 3], true) || ! isset($payload['tables'])) {
+            if (! in_array($payload['version'] ?? null, [1, 2, 3, 4], true) || ! isset($payload['tables'])) {
                 $zip->close();
                 $this->error('Invalid backup format.');
 
@@ -96,7 +96,7 @@ class SchoolBackup extends Command
 
             return self::FAILURE;
         }
-        $zip->addFromString('records.json', json_encode(['version' => 3, 'created_at' => now()->toIso8601String(), 'tables' => $records], JSON_THROW_ON_ERROR));
+        $zip->addFromString('records.json', json_encode(['version' => 4, 'created_at' => now()->toIso8601String(), 'tables' => $records], JSON_THROW_ON_ERROR));
         foreach ($disk->files('media') as $file) {
             $zip->addFile($disk->path($file), $file);
         }

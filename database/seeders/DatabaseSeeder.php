@@ -36,6 +36,6 @@ class DatabaseSeeder extends Seeder
             $content = ['title' => $title, 'type' => $type, 'summary' => $summary, 'body' => $body."\n\nContoh publikasi: ganti cerita ini dengan dokumentasi kegiatan sekolah Anda.", 'event_date' => now()->subDays($i * 2)->toDateString(), 'school_year' => '2026/2027', 'classes' => $classes, 'cover' => null, 'media' => [], 'emoji' => $emoji, 'example' => true, 'permission_confirmed' => true];
             Publication::firstOrCreate(['slug' => 'contoh-'.($i + 1)], ['user_id' => $admin->id, 'content' => $content, 'published_content' => $content, 'status' => 'published', 'review_status' => 'approved', 'featured' => $i === 0, 'published_at' => now()->subDays($i)]);
         }
-        $this->call([AcademicYearSeeder::class, ClassroomSeeder::class, StudentSeeder::class, EnrollmentSeeder::class, LiteracySeeder::class]);
+        $this->call([AcademicYearSeeder::class, ClassroomSeeder::class, StudentSeeder::class, EnrollmentSeeder::class, LiteracySeeder::class, EvaluationSeeder::class]);
     }
 }

@@ -41,6 +41,16 @@ class Student extends Model
         return $this->hasMany(LiteracySubmission::class);
     }
 
+    public function literacyAssessments(): HasMany
+    {
+        return $this->hasMany(LiteracyAssessment::class);
+    }
+
+    public function pointTransactions(): HasMany
+    {
+        return $this->hasMany(PointTransaction::class);
+    }
+
     public function scopeVisibleTo(Builder $query, User $user): void
     {
         $query->whereHas('classroom', fn (Builder $classrooms) => $classrooms->visibleTo($user));
