@@ -14,8 +14,8 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | NIL-001 | Tahap 3: observasi, poin, apresiasi | DONE | Tidak ada | Terintegrasi setelah 66 tes dan QA halaman penilaian lulus | [Catatan](instruction/serah-terima/HANDOFF_NIL_001.md) |
 | MON-001 | Tahap 4: monitoring dan laporan | DONE | Tidak ada | Terintegrasi setelah 73 tes dan QA monitoring/laporan lulus | [Catatan](instruction/serah-terima/HANDOFF_MON_001.md) |
 | KAS-001 | Tahap 5: pembinaan dan pengaduan | PLANNED | Tidak ada | Ditunda pengguna karena belum mendesak; aturan penanganan dan akses tetap belum ditetapkan | Belum ada |
-| PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Inti integrasi selesai; album Drive nyata tetap DRV-001 | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
-| DRV-001 | Aktivasi API dan uji album folder nyata | IN_PROGRESS | Codex lokal | API dan key lokal aktif; menunggu tautan folder publik berisi media untuk uji penerimaan | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
+| PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Integrasi bank karya dan album Drive nyata selesai | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
+| DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | PLANNED | Belum ditugaskan | Modul versi pertama dan pilihan hosting | Belum ada |
 
@@ -46,6 +46,8 @@ PUB-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 2a5fb34; pemilihan k
 Finalisasi 2026-09-21: bank karya yang disetujui dapat dibuat menjadi satu draf publikasi yang terhubung sumber dan nomor revisinya. Salinan karya terpilih terpisah dari berkas privat, kredit nama membutuhkan konfirmasi izin khusus, dan revisi tidak mengganti versi yang sedang terbit. 77 tes / 541 assertions, Pint, 68 rute, diff check, dan QA browser desktop/390 px lulus. Kepemilikan dilepas setelah commit checkpoint; tahap 6 keseluruhan belum dicentang karena album Drive nyata tetap DRV-001 dan masih BLOCKED.
 
 DRV-001; Codex lokal; 2026-09-21 16:23 Asia/Makassar; main; dasar 62a1ecf; aktivasi Google Drive API, pembuatan key terbatas Drive API, konfigurasi lokal, uji koneksi nyata, uji folder publik dan pembaruan konteks; tanpa pekerja paralel. Google Drive API dan key lokal sudah aktif. Kriteria penerimaan folder nyata menunggu tautan folder publik berisi foto/video dari pengguna.
+
+Finalisasi 2026-09-21 16:46: folder publik nyata dari pengguna menghasilkan 8 foto. Seluruh URL pratinjau merespons 200 tanpa cookie Google; halaman publik memuat 8 slide dan navigasi berpindah dari 1/8 ke 2/8. Publikasi QA sementara dihapus. 6 tes Drive / 55 assertions dan regresi 77 tes / 541 assertions lulus. Kepemilikan dilepas; DRV-001 dan Tahap 6 selesai.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

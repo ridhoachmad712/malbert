@@ -9,7 +9,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-003 | Disepakati | Pisahkan data operasional dan publikasi; hasil tugas tidak otomatis publik | Rancangan alur pemeriksaan |
 | D-004 | Disepakati | Catatan pembinaan/pengaduan dan lampiran privat dibatasi kewenangan | Dokumen program dan rancangan |
 | D-005 | Disepakati | Nilai kemampuan dan poin aktivitas terpisah, koreksi terlacak, hindari poin ganda | Rancangan penilaian |
-| D-006 | Disepakati | Media publik melalui link folder Drive untuk menghemat penyimpanan; API diaktifkan pada lingkungan lokal DRV-001 dan tetap memerlukan pembuktian folder nyata | Permintaan pengguna; progres DRV-001 |
+| D-006 | Diterapkan 2026-09-21 | Media publik melalui link folder Drive untuk menghemat penyimpanan; API aktif dan folder nyata berisi 8 foto berhasil diimpor serta ditampilkan tanpa sesi Google | Permintaan pengguna; bukti DRV-001 |
 | D-007 | Diadopsi | Anti-slop sebagai rujukan inti lokal selama pengembangan; bukan plugin global | Permintaan pengguna dan PENERAPAN_ANTI_SLOP.md |
 | D-008 | Disepakati 2026-09-20 | Konteks disimpan di repositori; AGENTS/CLAUDE mengarah ke sumber yang sama; Git lokal dan serah terima per tugas | Pengguna: “oke buat seperti itu” |
 | D-009 | Disepakati 2026-09-20 | Kerja paralel memakai cabang/checkout terpisah dan satu koordinator integrasi | Usulan alur lintas agen disetujui pengguna |

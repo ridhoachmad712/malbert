@@ -135,7 +135,7 @@ PERMATA dalam sumber berarti Permisi, Maaf, Tabe.
 
 Guru cukup memasukkan tautan folder Google Drive berisi foto/video. Aplikasi menyimpan metadata dan tautan, bukan salinan file asli. Album ditampilkan sebagai slider.
 
-Perilaku yang sudah dibuat: urutan nama file, maksimal 200 media, hanya isi langsung folder tanpa subfolder, diperbarui saat cerita disimpan ulang. Perubahan mengikuti alur tinjauan admin. Google Drive API dan key lokal sudah aktif pada DRV-001, tetapi album belum boleh dinyatakan selesai sebelum diuji dengan folder nyata tanpa login Google.
+Perilaku yang sudah dibuat: urutan nama file, maksimal 200 media, hanya isi langsung folder tanpa subfolder, diperbarui saat cerita disimpan ulang. Perubahan mengikuti alur tinjauan admin. Google Drive API dan key lokal aktif; DRV-001 membuktikan 8 foto dari folder nyata dapat diimpor dan ditampilkan tanpa sesi Google.
 
 Unggahan foto terkompresi tetap tersedia sebagai pilihan. Bank karya perlu mendukung tulisan, foto, PDF, serta tautan dokumen, tidak hanya foto/video.
 
@@ -223,7 +223,7 @@ Status berikut dicatat dari pekerjaan sebelum dokumen ini dibuat, bukan verifika
 | Galeri kegiatan/karya/prestasi, pencarian, profil/logo sekolah | Sudah tersedia |
 | Draf, tinjauan, revisi, publikasi, arsip | Sudah tersedia |
 | Foto terkompresi, tautan file Drive | Sudah tersedia |
-| Impor folder dan slider | Kode tersedia; aktivasi API dan uji nyata masih tertunda |
+| Impor folder dan slider | Aktif; folder nyata berisi 8 foto lulus uji API dan browser |
 | Cadangan aplikasi | Fitur tersedia; penjadwalan operasional perlu diaktifkan |
 | Modul data murid sampai pengaduan | Belum diimplementasikan |
 | Pengujian terakhir sebelum dokumen ini | 22 pengujian lulus; bukan bukti koneksi API nyata sudah aktif |
@@ -236,7 +236,7 @@ Checklist pengembangan:
 - [x] Tahap 3 — Penilaian dan apresiasi
 - [x] Tahap 4 — Monitoring dan laporan
 - [ ] Tahap 5 — Pembinaan dan pengaduan
-- [ ] Tahap 6 — Publikasi terintegrasi
+- [x] Tahap 6 — Publikasi terintegrasi
 - [ ] Tahap 7 — Uji sekolah dan operasional
 
 Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini. Setelah perubahan bermakna, perbarui status dengan tanggal, pekerjaan, bukti pengujian, dan hal yang masih tersisa. Tandai selesai hanya jika kriteria penerimaan terpenuhi; jangan menandai koneksi eksternal selesai berdasarkan pengujian dengan respons tiruan saja.
@@ -262,5 +262,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-21 | Tahap 2 dan 3 selesai; aturan penilaian/poin yang belum dipilih sekolah diterapkan sebagai konfigurasi wajib, bukan nilai baku tersembunyi | Bukti HANDOFF_LIT_001 dan HANDOFF_NIL_001; D-011 |
 | 2026-09-21 | Tahap 4 selesai; periode, metode nilai, populasi penyebut, dan perlakuan data belum dinilai menjadi konfigurasi wajib sebelum capaian 80% dihitung | Bukti HANDOFF_MON_001; D-012 |
 | 2026-09-21 | Inti tahap 6 untuk bank karya selesai: hanya hasil disetujui dapat dipilih, data internal tidak disalin, izin identitas diperiksa, sumber dan revisi ditelusuri, serta versi terbit dipertahankan saat draf direvisi. Tahap 6 belum ditandai selesai karena album folder nyata masih menunggu DRV-001 | Bukti HANDOFF_PUB_001; D-013 |
+| 2026-09-21 | DRV-001 dan Tahap 6 selesai: folder publik nyata menghasilkan 8 foto, seluruh pratinjau dapat diakses tanpa cookie Google, dan slider publik lulus pemeriksaan browser | Bukti HANDOFF_DRV_001; D-006 |
 
-Pekerjaan berikutnya memerlukan dependensi eksternal atau keputusan sekolah: DRV-001 menunggu tautan folder Drive publik berisi media untuk pembuktian album folder nyata. Tahap 5 ditunda pengguna pada 2026-09-21 karena belum mendesak; aturan penanganan dan akses sensitif tetap perlu ditetapkan sebelum tahap tersebut dimulai kembali.
+Pekerjaan berikutnya berfokus pada operasi: remote privat, uji sekolah, pemulihan cadangan, hosting/domain, akun nyata, dan penjadwalan cadangan. Tahap 5 ditunda pengguna pada 2026-09-21 karena belum mendesak; aturan penanganan dan akses sensitif tetap perlu ditetapkan sebelum tahap tersebut dimulai kembali.
