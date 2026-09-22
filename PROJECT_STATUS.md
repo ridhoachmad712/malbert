@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-21 oleh Codex, checkpoint kesiapan lokal REL-001.
+Diperbarui: 2026-09-22 oleh Codex, rekomendasi hosting/domain REL-001.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -21,11 +21,11 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
 - Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
-- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, dan lembar UAT sekolah sudah tersedia. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
+- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Hostinger Unlimited direkomendasikan secara bersyarat untuk rilis awal; staging tetap harus membuktikan Laravel 13, PHP 8.3 CLI, cron setiap menit, document root, dan restore. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
 
 ## Pekerjaan berikutnya
 
-1. REL-001: pilih hosting/domain, isi identitas serta akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
+1. REL-001: putuskan rekomendasi Hostinger Unlimited atau hosting/domain sekolah yang sudah ada, validasi staging, isi identitas serta akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
 2. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 3. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
@@ -39,7 +39,7 @@ Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata ma
 
 ## Koordinasi
 
-Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah kesiapan lokal selesai; lanjutkan ketika pengguna memilih hosting/domain dan sekolah siap menjalankan UAT dengan akun/data nyata.
+Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah rekomendasi hosting selesai; lanjutkan ketika pengguna menetapkan hosting/domain, staging tersedia, dan sekolah siap menjalankan UAT dengan akun/data nyata.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

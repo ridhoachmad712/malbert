@@ -1,6 +1,6 @@
 # Panduan peluncuran TEBAK AKSI
 
-Panduan ini berlaku setelah sekolah memilih hosting dan domain. Jangan menyimpan `.env`, kata sandi, API key, database, atau data murid di Git. Web root hosting wajib mengarah ke folder `public`.
+Panduan ini berlaku setelah sekolah memilih hosting dan domain. Rekomendasi dan daftar pemeriksaan penyedia dicatat pada [Pilihan hosting dan domain REL-001](PILIHAN_HOSTING_REL_001.md). Jangan menyimpan `.env`, kata sandi, API key, database, atau data murid di Git. Web root hosting wajib mengarah ke folder `public`.
 
 ## Kebutuhan server
 

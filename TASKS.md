@@ -18,7 +18,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
-| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Kesiapan lokal selesai; menunggu pilihan hosting/domain, akun/data nyata, dan UAT bersama sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
+| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Rekomendasi hosting siap; menunggu keputusan/pengadaan, staging, akun/data nyata, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
 
@@ -57,6 +57,10 @@ Finalisasi 2026-09-21: 21 rute representatif publik/admin diperiksa pada 1440×9
 REL-001; Codex lokal; 2026-09-21 Asia/Makassar; main; dasar 5eca5e6; simulasi pemulihan cadangan terisolasi, pemeriksaan konfigurasi produksi dan scheduler, paket UAT sekolah, penanganan akun/data contoh, bukti pengujian, dan konteks; tanpa pekerja paralel. Pengguna meminta mengerjakan REL-001. Hosting/domain dan UAT bersama sekolah tidak akan dianggap selesai sebelum pilihan serta pelaksanaannya nyata.
 
 Checkpoint 2026-09-21: pemulihan nyata ke SQLite/penyimpanan terisolasi lulus pada 17 tabel tanpa selisih; template lingkungan produksi, panduan peluncuran, lembar UAT, dan perintah `school:release-check` tersedia. 79 tes / 548 assertions dan pemeriksaan platform/scheduler/rute lulus. Konfigurasi cache tes dipisahkan agar tes tidak dapat membaca cache konfigurasi lokal; database lokal yang sempat kosong saat verifikasi paralel dipulihkan penuh dari backup pra-uji menjadi 2 pengguna, 7 publikasi, dan 1 profil sekolah. Tugas dilepas dengan status BLOCKED sampai hosting/domain dipilih, akun/data nyata siap, dan UAT sekolah dilaksanakan.
+
+REL-001; Codex lokal; 2026-09-22 Asia/Makassar; main; dasar be1fea4; perbandingan hosting/domain, rekomendasi deployment awal, pembaruan panduan dan konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan REL-001. Pengadaan layanan tidak dilakukan sebelum opsi dan kepemilikan akun ditetapkan pengguna.
+
+Checkpoint 2026-09-22: Hostinger Unlimited direkomendasikan secara bersyarat untuk rilis awal, dengan Hostinger Premium sebagai opsi pilot hemat. Domain memakai `.sch.id` milik sekolah dan subdomain `tebakaksi`; bila domain sudah ada, tidak perlu membeli domain kedua. Daftar enam konfirmasi pra-pembayaran, risiko Laravel 13, perbandingan biaya perpanjangan, dan alternatif cloud/VPS telah dicatat. Kepemilikan dilepas dengan status BLOCKED sampai pengguna menetapkan layanan, staging tersedia, dan sekolah siap UAT.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 
