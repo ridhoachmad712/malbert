@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-23 oleh Codex, pengaturan Tampilan & Konten UI-002.
+Diperbarui: 2026-09-23 oleh Codex, perapian kerangka pengelolaan UI-003.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -13,6 +13,7 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Aplikasi Laravel **AksiKita — Portal Literasi, Karya, dan Karakter Siswa** berjalan lokal sebagai dasar TEBAK AKSI.
 - Branding AksiKita sudah tampil pada header, metadata, halaman utama, halaman masuk, footer, dan laporan cetak; nama sekolah tetap ditampilkan sebagai identitas instansi.
 - Admin memiliki halaman **Tampilan & Konten** untuk mengubah nama aplikasi, nama penjelas, palet tujuh warna, teks halaman utama/login/footer, gambar utama/login/profil, serta favicon. Pratinjau berubah sebelum disimpan, warna teks diperiksa kontrasnya, dan tampilan dapat dikembalikan ke bawaan tanpa mengubah data sekolah.
+- Halaman pengelolaan memiliki topbar ringkas dan sidebar berkelompok untuk ringkasan, konten, pembelajaran, administrasi, serta akun. Navigasi administrasi hanya tampil untuk admin; pada ponsel menu menjadi drawer. Footer dan strip pratinjau milik situs publik tidak dirender di ruang pengelolaan.
 - Tersedia: akun admin/guru, publikasi kegiatan/karya/prestasi, draf/tinjauan/revisi/arsip, pencarian, profil/logo sekolah, foto terkompresi, tautan Drive, dan pencadangan.
 - Impor folder Drive dan slider aktif pada lingkungan lokal ini. Folder publik nyata berisi 8 foto berhasil dibaca, seluruh pratinjau merespons tanpa cookie Google, dan slider publik berhasil menampilkan serta berpindah antar-media.
 - Tahun ajaran, pilihan semester berjalan, rombel, penugasan guru, data murid, impor CSV, verifikasi/status aktif, dan riwayat perpindahan sudah tersedia pada working tree. Akses guru mengikuti rombel saat ini. Filter daftar murid memang memakai kelas saat ini, bukan laporan historis.
@@ -35,7 +36,7 @@ KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. L
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-23: 85 tes / 597 assertions, Pint, sintaks JavaScript, kompilasi Blade, dan rute pengaturan tampilan lulus. Panel Tampilan & Konten diperiksa pada desktop dan viewport 390 px; pratinjau langsung terbukti berubah tanpa menyimpan. Halaman utama dan masuk sebelumnya juga lulus pada desktop/ponsel. Bukti kesiapan platform sebelumnya tetap berlaku: `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
+Pengujian aplikasi terbaru 2026-09-23: 86 tes / 608 assertions, Pint, sintaks JavaScript, dan kompilasi Blade lulus. Dasbor serta halaman Tampilan & Konten diperiksa pada viewport ponsel; topbar tetap ringkas, drawer menu dapat dibuka, tidak terjadi overflow horizontal, dan footer publik tidak muncul. Panel Tampilan & Konten sebelumnya juga lulus pada desktop dan viewport 390 px; pratinjau langsung terbukti berubah tanpa menyimpan. Bukti kesiapan platform sebelumnya tetap berlaku: `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 

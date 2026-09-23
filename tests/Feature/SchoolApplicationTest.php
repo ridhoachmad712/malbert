@@ -147,6 +147,28 @@ class SchoolApplicationTest extends TestCase
         $this->get(route('profile'))->assertOk();
     }
 
+    public function test_management_layout_uses_grouped_navigation_without_public_footer(): void
+    {
+        $admin = User::factory()->create(['role' => 'admin']);
+
+        $this->actingAs($admin)->get(route('dashboard'))
+            ->assertOk()
+            ->assertSee('Ruang pengelola')
+            ->assertSee('Konten sekolah')
+            ->assertSee('Pembelajaran')
+            ->assertSee('Administrasi')
+            ->assertSee('Lihat situs')
+            ->assertDontSee('<footer', false);
+
+        $teacher = User::factory()->create(['role' => 'guru']);
+
+        $this->actingAs($teacher)->get(route('dashboard'))
+            ->assertOk()
+            ->assertSee('Pembelajaran')
+            ->assertDontSee('Administrasi')
+            ->assertDontSee('<footer', false);
+    }
+
     public function test_backup_round_trip_restores_records_and_media(): void
     {
         Storage::fake('local');

@@ -1,5 +1,7 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNavigation = document.querySelector('#main-nav');
+const adminMenuToggle = document.querySelector('.admin-menu-toggle');
+const adminSidebar = document.querySelector('#admin-sidebar');
 
 function closeNavigation(restoreFocus = false) {
   if (!menuToggle || !mainNavigation || menuToggle.getAttribute('aria-expanded') !== 'true') return;
@@ -9,6 +11,14 @@ function closeNavigation(restoreFocus = false) {
   if (restoreFocus) menuToggle.focus();
 }
 
+function closeAdminNavigation(restoreFocus = false) {
+  if (!adminMenuToggle || !adminSidebar || adminMenuToggle.getAttribute('aria-expanded') !== 'true') return;
+  adminMenuToggle.setAttribute('aria-expanded', 'false');
+  adminMenuToggle.setAttribute('aria-label', 'Buka menu pengelolaan');
+  adminSidebar.classList.remove('open');
+  if (restoreFocus) adminMenuToggle.focus();
+}
+
 menuToggle?.addEventListener('click', function () {
   const expanded = this.getAttribute('aria-expanded') === 'true';
   this.setAttribute('aria-expanded', String(!expanded));
@@ -16,12 +26,25 @@ menuToggle?.addEventListener('click', function () {
   mainNavigation.classList.toggle('open', !expanded);
 });
 
+adminMenuToggle?.addEventListener('click', function () {
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', String(!expanded));
+  this.setAttribute('aria-label', expanded ? 'Buka menu pengelolaan' : 'Tutup menu pengelolaan');
+  adminSidebar.classList.toggle('open', !expanded);
+});
+
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeNavigation(true);
+  if (event.key === 'Escape') {
+    closeNavigation(true);
+    closeAdminNavigation(true);
+  }
 });
 
 mainNavigation?.addEventListener('click', event => {
   if (event.target.closest('a')) closeNavigation();
+});
+adminSidebar?.addEventListener('click', event => {
+  if (event.target.closest('a')) closeAdminNavigation();
 });
 document.querySelectorAll('[data-confirm]').forEach(form => form.addEventListener('submit', event => {
   if (!confirm(form.dataset.confirm)) event.preventDefault();
