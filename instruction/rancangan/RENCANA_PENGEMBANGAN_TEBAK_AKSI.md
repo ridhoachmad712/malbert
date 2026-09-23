@@ -6,7 +6,7 @@ Status: rancangan pengembangan disepakati pengguna; implementasi bertahap. Keput
 
 ## 1. Tujuan dan kedudukan dokumen
 
-Dokumen ini menjadi rujukan utama pengembangan aplikasi sekolah berdasarkan analisis 14 dokumen Word di `instruction/sumber` dan rancangan yang disepakati dalam percakapan. TEBAK AKSI berarti TEras BAca Kelas Asah Karakter dan literaSI. Ruang Cerita yang sudah tersedia menjadi ruang publikasi kegiatan, karya, dan prestasi program.
+Dokumen ini menjadi rujukan utama pengembangan aplikasi sekolah berdasarkan analisis 14 dokumen Word di `instruction/sumber` dan rancangan yang disepakati dalam percakapan. TEBAK AKSI berarti TEras BAca Kelas Asah Karakter dan literaSI. Aplikasi **AksiKita — Portal Literasi, Karya, dan Karakter Siswa** menjadi ruang publikasi kegiatan, karya, dan prestasi program.
 
 Sistem mendukung kegiatan nyata di sekolah melalui pendataan, dokumentasi, literasi, monitoring, penilaian, pembinaan, pengaduan, dan pelaporan. Tampilan publik harus menarik bagi anak sekolah dasar dan mudah diakses oleh siswa, guru, pengelola, orang tua, masyarakat, serta pihak pemerintah, baik saat berkunjung maupun secara online.
 
@@ -32,7 +32,7 @@ Instruksi pengguna terbaru tetap menjadi acuan ketika ada perubahan. Catat perub
 
 Guru menyiapkan bacaan/tugas → murid berkegiatan → guru mencatat jurnal, karya, dan refleksi → pemeriksaan dan perbaikan → penilaian/poin → monitoring → laporan.
 
-Karya terpilih → pemeriksaan kelayakan dan izin publikasi → persetujuan admin → publikasi pada Ruang Cerita.
+Karya terpilih → pemeriksaan kelayakan dan izin publikasi → persetujuan admin → publikasi pada AksiKita.
 
 Hasil tugas tidak otomatis menjadi konten publik. Perubahan pada konten yang sudah terbit menjadi revisi; versi publik tetap memakai hasil yang terakhir disetujui.
 
@@ -266,5 +266,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-21 | UI-001 selesai: antarmuka publik, admin, dan guru diaudit pada desktop serta ponsel; perbaikan aksesibilitas, responsivitas, kontras, keadaan error, dan interaksi lulus pengujian regresi | Bukti HANDOFF_UI_001; panduan anti-slop lokal |
 | 2026-09-21 | Kesiapan lokal Tahap 7 tersedia: restore cadangan terisolasi lulus, template produksi, pemeriksaan rilis, panduan peluncuran, dan lembar UAT dibuat. Tahap tetap belum selesai sampai hosting/domain dipilih dan UAT sekolah dilaksanakan | Bukti HANDOFF_REL_001; kriteria Tahap 7 |
 | 2026-09-23 | Pengguna menyatakan hosting/domain sudah ditetapkan tetapi belum dibuat dan identitas sekolah sudah tersedia. Field NPSN, email, serta telepon resmi ditambahkan agar identitas lengkap dapat dimasukkan tanpa digabung; nilai sebenarnya dan rincian layanan tetap menunggu pengguna | Instruksi pengguna; bukti HANDOFF_REL_001 |
+| 2026-09-23 | Nama aplikasi diubah dari Ruang Cerita menjadi AksiKita dengan nama penjelas “Portal Literasi, Karya, dan Karakter Siswa” | Instruksi pengguna; D-016 |
 
 Pekerjaan berikutnya berfokus pada operasi: remote privat, uji sekolah, pemulihan cadangan, hosting/domain, akun nyata, dan penjadwalan cadangan. Tahap 5 ditunda pengguna pada 2026-09-21 karena belum mendesak; aturan penanganan dan akses sensitif tetap perlu ditetapkan sebelum tahap tersebut dimulai kembali.

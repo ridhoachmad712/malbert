@@ -4,7 +4,7 @@
 - Agen/sesi: Codex lokal
 - Status: BLOCKED
 - Tujuan dan kriteria penerimaan: uji bersama guru pada ponsel, perbaikan alur, pemulihan cadangan, hosting/domain, akun sebenarnya, dan aktivasi jadwal cadangan. Selesai hanya jika sekolah telah mencoba alur utama, restore terbukti, konfigurasi produksi siap, serta akun/data contoh ditangani.
-- Cabang, revisi dasar, revisi kode yang diuji: `main`, dasar `e746284`, working tree kelengkapan identitas sebelum commit.
+- Cabang, revisi dasar, revisi kode yang diuji: `main`, dasar `c7c3306`, working tree branding AksiKita sebelum commit.
 - Commit hasil atau cara menemukannya: commit checkpoint REL-001 pada `main`; lihat `git log -1 -- instruction/serah-terima/HANDOFF_REL_001.md`.
 - Pemilik selanjutnya: belum ditugaskan; lanjutkan setelah pengguna memberikan nilai identitas serta nama penyedia/domain yang telah dipilih.
 
@@ -18,6 +18,7 @@
 - `.gitignore` mengizinkan template produksi dilacak tanpa mengizinkan `.env` produksi sebenarnya.
 - `instruction/operasional/PILIHAN_HOSTING_REL_001.md` membandingkan pilihan terkelola dan VPS, menetapkan Hostinger Unlimited sebagai rekomendasi bersyarat, menjelaskan pilihan domain `.sch.id`, dan memberi enam pemeriksaan sebelum pembayaran.
 - Profil sekolah menyimpan NPSN, email resmi, dan telepon resmi sebagai field terpisah. Form admin memvalidasi ketiganya, profil publik menampilkannya, dan `school:release-check` mensyaratkannya sebelum rilis.
+- Nama aplikasi ditetapkan menjadi AksiKita dengan nama penjelas “Portal Literasi, Karya, dan Karakter Siswa”. Branding diterapkan pada header, metadata, halaman utama, halaman masuk, footer, laporan cetak, konfigurasi lokal, dan template produksi.
 
 ## Bukti pemeriksaan
 
@@ -38,6 +39,8 @@
 | `php artisan test --compact` (2026-09-23) | PASS, 80 tes / 555 assertions | Regresi setelah penambahan field identitas |
 | `vendor/bin/pint --dirty --format agent` (2026-09-23) | PASS | PHP yang berubah |
 | Profil publik pada browser desktop dan viewport ponsel (2026-09-23) | PASS; identitas/placeholder terbaca tanpa overflow | Profil publik; form admin dicakup tes fitur, belum diisi data nyata |
+| `php artisan test --compact` setelah branding (2026-09-23) | PASS, 80 tes / 557 assertions | Regresi aplikasi dan teks identitas utama |
+| Halaman utama desktop/390 px dan halaman masuk 390 px (2026-09-23) | PASS; AksiKita serta nama penjelas tampil tanpa overflow | Pemeriksaan browser atas permukaan branding utama |
 
 ## Insiden verifikasi dan pemulihan
 
@@ -64,4 +67,4 @@ Tes dan `php artisan optimize` sempat dijalankan bersamaan. Cache konfigurasi lo
 
 ## Keputusan dan integrasi
 
-Tahap 7 tetap tidak dicentang. Pemulihan dan kesiapan lokal sudah terbukti, sedangkan keputusan hosting/domain dan penerimaan sekolah tidak boleh disimpulkan dari pengujian lokal. Tidak ada rahasia atau data murid yang ditambahkan ke Git.
+Tahap 7 tetap tidak dicentang. Branding AksiKita sudah terintegrasi; pemulihan dan kesiapan lokal juga terbukti. Keputusan hosting/domain dan penerimaan sekolah tidak boleh disimpulkan dari pengujian lokal. Tidak ada rahasia atau data murid yang ditambahkan ke Git. Perubahan lokal pengguna pada `instruction/sekolah/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md` tidak disentuh dan tidak disertakan dalam checkpoint branding.

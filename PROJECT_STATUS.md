@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-23 oleh Codex, kesiapan pengisian identitas sekolah REL-001.
+Diperbarui: 2026-09-23 oleh Codex, branding AksiKita dan kesiapan identitas REL-001.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -10,7 +10,8 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 
 ## Kondisi produk
 
-- Aplikasi Laravel Ruang Cerita berjalan lokal sebagai dasar TEBAK AKSI.
+- Aplikasi Laravel **AksiKita — Portal Literasi, Karya, dan Karakter Siswa** berjalan lokal sebagai dasar TEBAK AKSI.
+- Branding AksiKita sudah tampil pada header, metadata, halaman utama, halaman masuk, footer, dan laporan cetak; nama sekolah tetap ditampilkan sebagai identitas instansi.
 - Tersedia: akun admin/guru, publikasi kegiatan/karya/prestasi, draf/tinjauan/revisi/arsip, pencarian, profil/logo sekolah, foto terkompresi, tautan Drive, dan pencadangan.
 - Impor folder Drive dan slider aktif pada lingkungan lokal ini. Folder publik nyata berisi 8 foto berhasil dibaca, seluruh pratinjau merespons tanpa cookie Google, dan slider publik berhasil menampilkan serta berpindah antar-media.
 - Tahun ajaran, pilihan semester berjalan, rombel, penugasan guru, data murid, impor CSV, verifikasi/status aktif, dan riwayat perpindahan sudah tersedia pada working tree. Akses guru mengikuti rombel saat ini. Filter daftar murid memang memakai kelas saat ini, bukan laporan historis.
@@ -33,7 +34,7 @@ KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. L
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-23: 80 tes / 555 assertions lulus dan Pint lulus. Profil publik dengan field identitas baru diperiksa pada desktop dan viewport ponsel. Bukti kesiapan platform sebelumnya tetap berlaku: sintaks JavaScript, 68 rute, `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
+Pengujian aplikasi terbaru 2026-09-23: 80 tes / 557 assertions lulus dan Pint lulus. Halaman utama AksiKita diperiksa pada desktop dan viewport 390 px; halaman masuk diperiksa pada 390 px tanpa overflow. Profil publik dengan field identitas baru sebelumnya juga diperiksa pada desktop dan ponsel. Bukti kesiapan platform sebelumnya tetap berlaku: sintaks JavaScript, 68 rute, `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 

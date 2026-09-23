@@ -4,7 +4,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 
 | ID | Status | Keputusan dan alasan | Dasar |
 | --- | --- | --- | --- |
-| D-001 | Disepakati | Ruang Cerita menjadi ruang publikasi sistem TEBAK AKSI; lanjutkan Laravel yang ada | Rancangan disetujui 2026-09-20 |
+| D-001 | Diperbarui oleh D-016 | Aplikasi Laravel yang semula bernama Ruang Cerita menjadi ruang publikasi sistem TEBAK AKSI | Rancangan disetujui 2026-09-20 |
 | D-002 | Disepakati | Versi awal memakai akun admin/guru; akun murid/orang tua belum termasuk | Rancangan tahap awal |
 | D-003 | Disepakati | Pisahkan data operasional dan publikasi; hasil tugas tidak otomatis publik | Rancangan alur pemeriksaan |
 | D-004 | Disepakati | Catatan pembinaan/pengaduan dan lampiran privat dibatasi kewenangan | Dokumen program dan rancangan |
@@ -19,6 +19,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-013 | Diterapkan 2026-09-21 | Publikasi dari bank karya hanya dapat dibuat dari hasil yang disetujui, satu hasil memiliki paling banyak satu publikasi, dan hubungan sumber beserta nomor revisinya disimpan. Isi karya yang dipilih disalin sebagai snapshot publikasi; jurnal, refleksi, umpan balik, nilai, NIS, dan NISN tidak disalin. Kredit kelas menjadi bawaan, sedangkan nama murid memerlukan konfirmasi izin khusus. Versi publik hanya berubah saat admin menyetujui ulang | Kriteria PUB-001; D-003; prinsip kerahasiaan publikasi |
 | D-014 | Diterapkan 2026-09-21 | Key Google Drive pada lingkungan lokal dibatasi hanya ke Google Drive API dan disimpan di `.env` yang diabaikan Git. Pembatasan aplikasi belum dipilih karena alamat IP server produksi belum tersedia; pembatasan itu harus ditetapkan saat hosting memiliki alamat keluar tetap | Praktik keamanan key dan kondisi deployment DRV-001 |
 | D-015 | Disepakati 2026-09-21 | KAS-001 pembinaan dan pengaduan ditunda karena belum mendesak. Modul tidak diimplementasikan sampai pengguna mengubah prioritas; keputusan akses dan penanganan sensitif tetap terbuka | Instruksi pengguna |
+| D-016 | Disepakati 2026-09-23 | Nama aplikasi ditetapkan menjadi **AksiKita** dengan nama penjelas **Portal Literasi, Karya, dan Karakter Siswa**. Nama sekolah tetap menjadi identitas instansi yang terpisah | Instruksi langsung pengguna |
 
 ## Masih terbuka
 

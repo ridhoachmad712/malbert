@@ -18,7 +18,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
-| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Field identitas siap; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
+| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Branding AksiKita selesai; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
 
@@ -65,6 +65,10 @@ Checkpoint 2026-09-22: Hostinger Unlimited direkomendasikan secara bersyarat unt
 REL-001; Codex lokal; 2026-09-23 Asia/Makassar; main; dasar e746284; kelengkapan field identitas sekolah, validasi, tampilan profil publik, tes, dan konteks; tanpa pekerja paralel. Pengguna menyatakan hosting/domain sudah ditetapkan tetapi belum dibuat dan identitas sekolah sudah tersedia. Nilai identitas belum diberikan, sehingga aplikasi disiapkan untuk menerimanya tanpa menebak data.
 
 Checkpoint 2026-09-23: profil sekolah kini menampung NPSN delapan digit, email resmi, dan telepon resmi secara terpisah selain nama, alamat, tagline, deskripsi, visi, misi, dan logo. Field divalidasi, tampil pada profil publik, dan menjadi bagian pemeriksaan rilis. 80 tes / 555 assertions dan Pint lulus; profil publik diperiksa pada desktop serta viewport ponsel. Kepemilikan dilepas dengan status BLOCKED sampai nilai identitas dan rincian hosting/domain diberikan, layanan dibuat, lalu staging/UAT dapat dijalankan.
+
+REL-001; Codex lokal; 2026-09-23 Asia/Makassar; main; dasar c7c3306 dengan perubahan lokal pengguna pada dokumen kebutuhan sekolah yang tidak disentuh; nama dan teks identitas aplikasi, konfigurasi contoh, tes visual/regresi, keputusan dan konteks; tanpa pekerja paralel. Pengguna menetapkan AksiKita dengan nama penjelas “Portal Literasi, Karya, dan Karakter Siswa”.
+
+Checkpoint branding 2026-09-23: nama AksiKita diterapkan pada header, judul halaman, metadata, halaman utama, halaman masuk, footer, laporan cetak, konfigurasi lokal, dan template produksi. Nama penjelas tampil pada halaman utama, footer, dan metadata; nama sekolah tetap menjadi identitas instansi. 80 tes / 557 assertions dan Pint lulus. Halaman utama desktop/390 px serta halaman masuk 390 px lulus pemeriksaan browser tanpa overflow. Perubahan lokal pengguna pada dokumen kebutuhan sekolah dipertahankan di luar commit. Kepemilikan dilepas dan REL-001 kembali BLOCKED pada data/deployment/UAT.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

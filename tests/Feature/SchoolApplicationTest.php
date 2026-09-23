@@ -25,7 +25,11 @@ class SchoolApplicationTest extends TestCase
         $draft = Publication::factory()->create();
         $published = Publication::factory()->create(['content' => $this->payload(['media' => [], 'cover' => null])]);
         $published->update(['published_content' => $published->content, 'status' => 'published', 'review_status' => 'approved', 'published_at' => now()]);
-        $this->get('/')->assertOk()->assertSee('Kebun Kelas Tiga')->assertDontSee($draft->content['title']);
+        $this->get('/')->assertOk()
+            ->assertSee('AksiKita')
+            ->assertSee('Portal Literasi, Karya, dan Karakter Siswa')
+            ->assertSee('Kebun Kelas Tiga')
+            ->assertDontSee($draft->content['title']);
         $this->get('/?class=3&type=kegiatan&year=2026%2F2027&q=Kebun')->assertOk()->assertSee('Kebun Kelas Tiga');
         $this->get('/?class=1')->assertOk()->assertDontSee('Kebun Kelas Tiga');
         $this->get(route('story', $draft->slug))->assertNotFound();

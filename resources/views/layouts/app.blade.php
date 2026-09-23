@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Ruang Cerita') · {{ $school['name'] }}</title>
-    <meta name="description" content="@yield('description', 'Jelajahi kegiatan, karya, dan prestasi siswa. Setiap anak punya cerita.')">
+    <title>@yield('title', 'AksiKita') · {{ $school['name'] }}</title>
+    <meta name="description" content="@yield('description', 'AksiKita — Portal Literasi, Karya, dan Karakter Siswa.')">
     @if(request()->is('kelola*', 'masuk'))<meta name="robots" content="noindex,nofollow">@endif
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -12,7 +12,7 @@
 <body class="{{ request()->is('kelola*') ? 'management' : '' }}">
 <a class="skip" href="#main">Lewati ke isi utama</a>
 <header class="site-header"><div class="header-inner">
-    <a class="brand" href="{{ route('home') }}">@if(!empty($school['logo']))<img class="school-logo" src="{{ route('school.logo') }}" alt="Logo sekolah">@else<span class="brand-icon" aria-hidden="true">✳</span>@endif <span>ruang<span class="brand-blue">cerita</span><small>{{ $school['name'] }}</small></span></a>
+    <a class="brand" href="{{ route('home') }}">@if(!empty($school['logo']))<img class="school-logo" src="{{ route('school.logo') }}" alt="Logo sekolah">@else<span class="brand-icon" aria-hidden="true">✳</span>@endif <span>Aksi<span class="brand-blue">Kita</span><small>{{ $school['name'] }}</small></span></a>
     <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka menu navigasi">☰ <span>Menu</span></button>
     <nav id="main-nav" aria-label="Navigasi utama">
         <a class="{{ request()->routeIs('home') && !request('type') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
@@ -49,5 +49,5 @@
 @if($errors->any())<div class="alert error" role="alert"><strong>Periksa kembali isian berikut:</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
 @yield('content')
 </main>@if(request()->is('kelola*'))</div>@endif
-<footer><div class="container footer-inner"><div><a class="brand" href="{{ route('home') }}"><span class="brand-icon" aria-hidden="true">✳</span><span>ruang<span class="brand-blue">cerita</span></span></a><p>Setiap anak punya cerita. Setiap usaha berharga.</p></div><div><strong>{{ $school['name'] }}</strong><p>Ruang tumbuh dan karya siswa</p><small>© {{ date('Y') }} · Dibuat untuk merayakan proses belajar.</small></div></div></footer>
+<footer><div class="container footer-inner"><div><a class="brand" href="{{ route('home') }}"><span class="brand-icon" aria-hidden="true">✳</span><span>Aksi<span class="brand-blue">Kita</span></span></a><p>Portal Literasi, Karya, dan Karakter Siswa</p></div><div><strong>{{ $school['name'] }}</strong><p>Baca, berkarya, dan bertumbuh bersama.</p><small>© {{ date('Y') }} · Dibuat untuk merayakan proses belajar.</small></div></div></footer>
 </body></html>

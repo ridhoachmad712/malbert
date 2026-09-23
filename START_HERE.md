@@ -1,6 +1,6 @@
 # Mulai di sini
 
-Proyek: TEBAK AKSI / Ruang Cerita. Dokumen konteks ini berlaku untuk semua coding-agent dan akun. Riwayat chat tidak diperlukan untuk melanjutkan pekerjaan yang sudah tercatat, tetapi instruksi pengguna terbaru tetap diutamakan.
+Proyek: TEBAK AKSI / AksiKita. Dokumen konteks ini berlaku untuk semua coding-agent dan akun. Riwayat chat tidak diperlukan untuk melanjutkan pekerjaan yang sudah tercatat, tetapi instruksi pengguna terbaru tetap diutamakan.
 
 ## Urutan membaca
 
