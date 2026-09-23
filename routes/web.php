@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppearanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaluationController;
@@ -21,6 +22,7 @@ Route::get('/profil-sekolah', [PublicController::class, 'profile'])->name('profi
 Route::get('/pojok-baca', [ReadingResourceController::class, 'index'])->name('readings.public');
 Route::get('/pojok-baca/{readingResource}/qr', [ReadingResourceController::class, 'qr'])->name('readings.qr');
 Route::get('/logo-sekolah', [PublicController::class, 'logo'])->name('school.logo');
+Route::get('/aset-tampilan/{slot}', [PublicController::class, 'appearanceAsset'])->whereIn('slot', ['hero', 'login', 'profile', 'favicon'])->name('appearance.asset');
 Route::get('/media/{publication}/{filename}', [PublicController::class, 'media'])->where('filename', '[a-zA-Z0-9-]+\.webp')->name('media');
 Route::get('/karya-terpilih/{publication}/{filename}', [PublicController::class, 'work'])->where('filename', '[a-zA-Z0-9-]+\.(?:pdf|jpe?g|png|webp)')->name('publication.work');
 Route::middleware('guest')->group(function () {
@@ -84,6 +86,9 @@ Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::put('/kelola/pengguna/{user}', [AdminController::class, 'saveUser'])->name('users.update');
     Route::get('/kelola/sekolah', [AdminController::class, 'settings'])->name('settings');
     Route::put('/kelola/sekolah', [AdminController::class, 'saveSettings'])->name('settings.update');
+    Route::get('/kelola/tampilan', [AppearanceController::class, 'edit'])->name('appearance.edit');
+    Route::put('/kelola/tampilan', [AppearanceController::class, 'update'])->name('appearance.update');
+    Route::delete('/kelola/tampilan', [AppearanceController::class, 'reset'])->name('appearance.reset');
     Route::view('/kelola/akun', 'manage.account')->name('account');
     Route::put('/kelola/akun', [AuthController::class, 'password'])->name('password.update');
 });

@@ -65,7 +65,9 @@ class AdminController extends Controller
         ]);
         $data['logo'] = $request->hasFile('logo') ? $mediaService->storeImage($request->file('logo'), 320) : (SchoolSetting::values()['logo'] ?? null);
         $data['demo'] = $request->boolean('demo');
-        SchoolSetting::updateOrCreate(['id' => 1], ['data' => $data]);
+        $setting = SchoolSetting::firstOrNew(['id' => 1]);
+        $setting->data = array_replace($setting->data ?? [], $data);
+        $setting->save();
         ActivityLog::record('Memperbarui profil sekolah', $data['name']);
 
         return back()->with('success', 'Profil sekolah berhasil diperbarui.');

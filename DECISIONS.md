@@ -20,6 +20,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-014 | Diterapkan 2026-09-21 | Key Google Drive pada lingkungan lokal dibatasi hanya ke Google Drive API dan disimpan di `.env` yang diabaikan Git. Pembatasan aplikasi belum dipilih karena alamat IP server produksi belum tersedia; pembatasan itu harus ditetapkan saat hosting memiliki alamat keluar tetap | Praktik keamanan key dan kondisi deployment DRV-001 |
 | D-015 | Disepakati 2026-09-21 | KAS-001 pembinaan dan pengaduan ditunda karena belum mendesak. Modul tidak diimplementasikan sampai pengguna mengubah prioritas; keputusan akses dan penanganan sensitif tetap terbuka | Instruksi pengguna |
 | D-016 | Disepakati 2026-09-23 | Nama aplikasi ditetapkan menjadi **AksiKita** dengan nama penjelas **Portal Literasi, Karya, dan Karakter Siswa**. Nama sekolah tetap menjadi identitas instansi yang terpisah | Instruksi langsung pengguna |
+| D-017 | Diterapkan 2026-09-23 | Admin dapat menyesuaikan identitas aplikasi, palet, teks utama, gambar publik, dan favicon melalui field terstruktur dengan pratinjau serta reset bawaan. HTML/CSS bebas tidak disediakan; kombinasi warna teks wajib memenuhi kontras minimum agar keamanan dan keterbacaan tetap terjaga | Permintaan pengguna; UI-002 |
 
 ## Masih terbuka
 

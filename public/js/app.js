@@ -134,3 +134,24 @@ document.querySelectorAll('[data-album]').forEach(album => {
   });
   show(0);
 });
+
+const themeForm = document.querySelector('[data-theme-form]');
+const themePreview = document.querySelector('[data-theme-preview]');
+themeForm?.addEventListener('input', event => {
+  const input = event.target;
+  if (input.matches('[data-preview-text]')) {
+    themePreview.querySelectorAll(`[data-preview-value="${input.name}"]`).forEach(element => {
+      element.textContent = input.value || '—';
+    });
+  }
+  if (input.matches('[data-preview-color]')) {
+    themePreview.style.setProperty(input.dataset.previewColor, input.value);
+    input.closest('.color-input').querySelector('[data-color-value]').textContent = input.value;
+  }
+  if (input.matches('[data-preview-file]') && input.files[0]) {
+    const url = URL.createObjectURL(input.files[0]);
+    const image = themePreview.querySelector('[data-preview-image]');
+    image.onload = () => URL.revokeObjectURL(url);
+    image.src = url;
+  }
+});

@@ -139,7 +139,7 @@ class SchoolApplicationTest extends TestCase
         $admin = User::factory()->create(['role' => 'admin']);
         $post = Publication::factory()->create();
         $this->actingAs($admin);
-        foreach (['dashboard', 'publications.create', 'users.index', 'settings', 'account'] as $name) {
+        foreach (['dashboard', 'publications.create', 'users.index', 'settings', 'appearance.edit', 'account'] as $name) {
             $this->get(route($name))->assertOk();
         }
         $this->get(route('publications.edit', $post))->assertOk();

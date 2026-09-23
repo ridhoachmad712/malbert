@@ -56,6 +56,22 @@ class PublicController extends Controller
         return response()->file(Storage::disk('local')->path($path), ['Cache-Control' => 'no-cache', 'X-Content-Type-Options' => 'nosniff']);
     }
 
+    public function appearanceAsset(string $slot): BinaryFileResponse
+    {
+        $key = match ($slot) {
+            'hero' => 'hero_image',
+            'login' => 'login_image',
+            'profile' => 'profile_image',
+            'favicon' => 'favicon',
+            default => null,
+        };
+        abort_unless($key, 404);
+        $path = SchoolSetting::appearance()[$key];
+        abort_unless($path && Storage::disk('local')->exists($path), 404);
+
+        return response()->file(Storage::disk('local')->path($path), ['Cache-Control' => 'no-cache', 'X-Content-Type-Options' => 'nosniff']);
+    }
+
     public function media(Request $request, Publication $publication, string $filename): BinaryFileResponse
     {
         $path = 'media/'.$filename;

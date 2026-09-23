@@ -17,6 +17,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | PUB-001 | Tahap 6: publikasi terhubung bank karya | DONE | Tidak ada | Integrasi bank karya dan album Drive nyata selesai | [Catatan](instruction/serah-terima/HANDOFF_PUB_001.md) |
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
+| UI-002 | Pengaturan tampilan dan konten publik | DONE | Tidak ada | Admin dapat mengubah tema, teks, gambar, favicon, melihat pratinjau, dan memulihkan bawaan | [Catatan](instruction/serah-terima/HANDOFF_UI_002.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Branding AksiKita selesai; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
@@ -69,6 +70,10 @@ Checkpoint 2026-09-23: profil sekolah kini menampung NPSN delapan digit, email r
 REL-001; Codex lokal; 2026-09-23 Asia/Makassar; main; dasar c7c3306 dengan perubahan lokal pengguna pada dokumen kebutuhan sekolah yang tidak disentuh; nama dan teks identitas aplikasi, konfigurasi contoh, tes visual/regresi, keputusan dan konteks; tanpa pekerja paralel. Pengguna menetapkan AksiKita dengan nama penjelas “Portal Literasi, Karya, dan Karakter Siswa”.
 
 Checkpoint branding 2026-09-23: nama AksiKita diterapkan pada header, judul halaman, metadata, halaman utama, halaman masuk, footer, laporan cetak, konfigurasi lokal, dan template produksi. Nama penjelas tampil pada halaman utama, footer, dan metadata; nama sekolah tetap menjadi identitas instansi. 80 tes / 557 assertions dan Pint lulus. Halaman utama desktop/390 px serta halaman masuk 390 px lulus pemeriksaan browser tanpa overflow. Perubahan lokal pengguna pada dokumen kebutuhan sekolah dipertahankan di luar commit. Kepemilikan dilepas dan REL-001 kembali BLOCKED pada data/deployment/UAT.
+
+UI-002; Codex lokal; 2026-09-23 Asia/Makassar; main; dasar 9c3c64b dengan perubahan lokal pengguna pada dokumen kebutuhan sekolah yang tidak disentuh; panel admin Tampilan & Konten, pengaturan tema/teks/gambar, pratinjau, reset, akses, tes dan konteks; tanpa pekerja paralel. Pengguna meminta seluruh isi UI publik dapat disesuaikan seperti warna, teks, dan foto.
+
+Finalisasi UI-002 2026-09-23: admin dapat mengatur nama aplikasi, nama penjelas, tujuh warna dengan validasi kontras, teks halaman utama/login/footer, gambar utama/login/profil, dan favicon. Pratinjau berubah langsung sebelum disimpan; reset mengembalikan bawaan tanpa mengubah data sekolah. Penyimpanan profil sekolah terbukti mempertahankan tema. 85 tes / 597 assertions, Pint, sintaks JavaScript, kompilasi Blade, rute, dan browser desktop/390 px lulus. Perubahan lokal pengguna pada dokumen kebutuhan sekolah tetap di luar commit. Kepemilikan dilepas dan UI-002 selesai.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

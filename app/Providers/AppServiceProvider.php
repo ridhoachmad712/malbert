@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         \Illuminate\Support\Facades\View::composer('*', function (View $view) {
             $view->with('school', SchoolSetting::values());
+            $view->with('appearance', SchoolSetting::appearance());
         });
         Paginator::defaultView('components.pagination');
     }
