@@ -209,7 +209,7 @@ Pembinaan OTFD dan pengaduan menyusul setelah aturan penanganan dan akses dibaku
 | Pengaduan anonim, akses pelapor, penanggung jawab, batas waktu respons | Tahap 5 |
 | Penyimpanan privat, retensi dan penghapusan lampiran sensitif | Tahap 5 |
 | Konfigurasi Google Drive API dan uji folder nyata | Aktivasi impor album |
-| Domain, hosting, petugas operasional dan jadwal cadangan | Peluncuran online |
+| Rincian domain/hosting yang telah dipilih, pembuatan layanan, petugas operasional dan jadwal cadangan | Peluncuran online |
 
 Keputusan terbuka tidak menghalangi pekerjaan lain yang independen. Jangan mengubah usulan menjadi aturan final tanpa dasar dari pengguna/sekolah.
 
@@ -265,5 +265,6 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-21 | DRV-001 dan Tahap 6 selesai: folder publik nyata menghasilkan 8 foto, seluruh pratinjau dapat diakses tanpa cookie Google, dan slider publik lulus pemeriksaan browser | Bukti HANDOFF_DRV_001; D-006 |
 | 2026-09-21 | UI-001 selesai: antarmuka publik, admin, dan guru diaudit pada desktop serta ponsel; perbaikan aksesibilitas, responsivitas, kontras, keadaan error, dan interaksi lulus pengujian regresi | Bukti HANDOFF_UI_001; panduan anti-slop lokal |
 | 2026-09-21 | Kesiapan lokal Tahap 7 tersedia: restore cadangan terisolasi lulus, template produksi, pemeriksaan rilis, panduan peluncuran, dan lembar UAT dibuat. Tahap tetap belum selesai sampai hosting/domain dipilih dan UAT sekolah dilaksanakan | Bukti HANDOFF_REL_001; kriteria Tahap 7 |
+| 2026-09-23 | Pengguna menyatakan hosting/domain sudah ditetapkan tetapi belum dibuat dan identitas sekolah sudah tersedia. Field NPSN, email, serta telepon resmi ditambahkan agar identitas lengkap dapat dimasukkan tanpa digabung; nilai sebenarnya dan rincian layanan tetap menunggu pengguna | Instruksi pengguna; bukti HANDOFF_REL_001 |
 
 Pekerjaan berikutnya berfokus pada operasi: remote privat, uji sekolah, pemulihan cadangan, hosting/domain, akun nyata, dan penjadwalan cadangan. Tahap 5 ditunda pengguna pada 2026-09-21 karena belum mendesak; aturan penanganan dan akses sensitif tetap perlu ditetapkan sebelum tahap tersebut dimulai kembali.

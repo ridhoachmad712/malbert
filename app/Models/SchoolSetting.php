@@ -15,6 +15,6 @@ class SchoolSetting extends Model
 
     public static function values(): array
     {
-        return array_replace(['name' => 'Sekolah Kita', 'tagline' => 'Tempat tumbuh, berkarya, dan bercerita.', 'description' => '', 'vision' => '', 'mission' => '', 'address' => '', 'contact' => '', 'demo' => false], static::first()?->data ?? []);
+        return array_replace(['name' => 'Sekolah Kita', 'npsn' => '', 'tagline' => 'Tempat tumbuh, berkarya, dan bercerita.', 'description' => '', 'vision' => '', 'mission' => '', 'address' => '', 'email' => '', 'phone' => '', 'contact' => '', 'demo' => false], static::first()?->data ?? []);
     }
 }

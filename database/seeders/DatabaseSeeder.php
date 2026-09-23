@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        SchoolSetting::firstOrCreate(['id' => 1], ['data' => ['name' => 'Sekolah Kita', 'tagline' => 'Tempat tumbuh, berkarya, dan bercerita.', 'description' => 'Setiap anak memiliki rasa ingin tahu, bakat, dan cerita yang berharga. Ruang ini merayakan perjalanan belajar mereka bersama teman dan guru.', 'vision' => 'Anak yang ingin tahu, percaya diri, kreatif, dan peduli.', 'mission' => "Menghadirkan pembelajaran yang menyenangkan.\nMemberi ruang bagi setiap anak untuk berkarya.\nMenumbuhkan kepedulian dan kebiasaan baik.", 'address' => '', 'contact' => '', 'demo' => true]]);
+        SchoolSetting::firstOrCreate(['id' => 1], ['data' => ['name' => 'Sekolah Kita', 'npsn' => '', 'tagline' => 'Tempat tumbuh, berkarya, dan bercerita.', 'description' => 'Setiap anak memiliki rasa ingin tahu, bakat, dan cerita yang berharga. Ruang ini merayakan perjalanan belajar mereka bersama teman dan guru.', 'vision' => 'Anak yang ingin tahu, percaya diri, kreatif, dan peduli.', 'mission' => "Menghadirkan pembelajaran yang menyenangkan.\nMemberi ruang bagi setiap anak untuk berkarya.\nMenumbuhkan kepedulian dan kebiasaan baik.", 'address' => '', 'email' => '', 'phone' => '', 'demo' => true]]);
         if (! app()->environment('local', 'testing')) {
             return;
         }

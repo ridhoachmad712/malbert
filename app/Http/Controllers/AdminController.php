@@ -50,7 +50,19 @@ class AdminController extends Controller
     public function saveSettings(Request $request, MediaService $mediaService): RedirectResponse
     {
         abort_unless($request->user()->role === 'admin', 403);
-        $data = $request->validate(['name' => 'required|string|max:120', 'tagline' => 'required|string|max:200', 'description' => 'nullable|string|max:10000', 'vision' => 'nullable|string|max:5000', 'mission' => 'nullable|string|max:5000', 'address' => 'nullable|string|max:500', 'contact' => 'nullable|string|max:200', 'demo' => 'nullable|boolean', 'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240|dimensions:max_width=8000,max_height=8000']);
+        $data = $request->validate([
+            'name' => 'required|string|max:120',
+            'npsn' => ['nullable', 'digits:8'],
+            'tagline' => 'required|string|max:200',
+            'description' => 'nullable|string|max:10000',
+            'vision' => 'nullable|string|max:5000',
+            'mission' => 'nullable|string|max:5000',
+            'address' => 'nullable|string|max:500',
+            'email' => 'nullable|email|max:190',
+            'phone' => ['nullable', 'string', 'max:30', 'regex:/^[0-9+().\-\s]+$/'],
+            'demo' => 'nullable|boolean',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240|dimensions:max_width=8000,max_height=8000',
+        ]);
         $data['logo'] = $request->hasFile('logo') ? $mediaService->storeImage($request->file('logo'), 320) : (SchoolSetting::values()['logo'] ?? null);
         $data['demo'] = $request->boolean('demo');
         SchoolSetting::updateOrCreate(['id' => 1], ['data' => $data]);

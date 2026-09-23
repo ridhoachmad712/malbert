@@ -18,7 +18,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | DRV-001 | Aktivasi API dan uji album folder nyata | DONE | Tidak ada | Folder nyata berisi 8 foto berhasil diimpor dan ditampilkan tanpa sesi Google | [Catatan](instruction/serah-terima/HANDOFF_DRV_001.md) |
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
-| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Rekomendasi hosting siap; menunggu keputusan/pengadaan, staging, akun/data nyata, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
+| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Field identitas siap; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
 
@@ -61,6 +61,10 @@ Checkpoint 2026-09-21: pemulihan nyata ke SQLite/penyimpanan terisolasi lulus pa
 REL-001; Codex lokal; 2026-09-22 Asia/Makassar; main; dasar be1fea4; perbandingan hosting/domain, rekomendasi deployment awal, pembaruan panduan dan konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan REL-001. Pengadaan layanan tidak dilakukan sebelum opsi dan kepemilikan akun ditetapkan pengguna.
 
 Checkpoint 2026-09-22: Hostinger Unlimited direkomendasikan secara bersyarat untuk rilis awal, dengan Hostinger Premium sebagai opsi pilot hemat. Domain memakai `.sch.id` milik sekolah dan subdomain `tebakaksi`; bila domain sudah ada, tidak perlu membeli domain kedua. Daftar enam konfirmasi pra-pembayaran, risiko Laravel 13, perbandingan biaya perpanjangan, dan alternatif cloud/VPS telah dicatat. Kepemilikan dilepas dengan status BLOCKED sampai pengguna menetapkan layanan, staging tersedia, dan sekolah siap UAT.
+
+REL-001; Codex lokal; 2026-09-23 Asia/Makassar; main; dasar e746284; kelengkapan field identitas sekolah, validasi, tampilan profil publik, tes, dan konteks; tanpa pekerja paralel. Pengguna menyatakan hosting/domain sudah ditetapkan tetapi belum dibuat dan identitas sekolah sudah tersedia. Nilai identitas belum diberikan, sehingga aplikasi disiapkan untuk menerimanya tanpa menebak data.
+
+Checkpoint 2026-09-23: profil sekolah kini menampung NPSN delapan digit, email resmi, dan telepon resmi secara terpisah selain nama, alamat, tagline, deskripsi, visi, misi, dan logo. Field divalidasi, tampil pada profil publik, dan menjadi bagian pemeriksaan rilis. 80 tes / 555 assertions dan Pint lulus; profil publik diperiksa pada desktop serta viewport ponsel. Kepemilikan dilepas dengan status BLOCKED sampai nilai identitas dan rincian hosting/domain diberikan, layanan dibuat, lalu staging/UAT dapat dijalankan.
 
 ID; alias agen/sesi; waktu beserta zona; cabang; revisi dasar; file/area yang dimiliki; dependensi; langkah berikutnya. Koordinator menggabungkan klaim sebelum agen mulai mengedit. Jika cakupan bersinggungan, selesaikan kontrak bersama atau ubah pembagian terlebih dahulu.
 

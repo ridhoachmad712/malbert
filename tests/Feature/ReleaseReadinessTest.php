@@ -33,9 +33,11 @@ class ReleaseReadinessTest extends TestCase
         ]);
         SchoolSetting::create(['data' => [
             'name' => 'SD Contoh',
+            'npsn' => '12345678',
             'tagline' => 'Belajar bersama',
             'address' => 'Alamat sekolah',
-            'contact' => 'Kontak sekolah',
+            'email' => 'sekolah@example.sch.id',
+            'phone' => '+62 812-3456-7890',
             'demo' => false,
         ]]);
         User::factory()->create(['email' => 'admin@contoh.sch.id', 'role' => 'admin', 'active' => true]);

@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-22 oleh Codex, rekomendasi hosting/domain REL-001.
+Diperbarui: 2026-09-23 oleh Codex, kesiapan pengisian identitas sekolah REL-001.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -19,13 +19,13 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Penilaian dari rubrik enam indikator, nilai dan kategori otomatis, umpan balik, transaksi poin aktivitas, tingkatan apresiasi per periode, pencegahan poin ganda, serta koreksi bernalar dan terlacak sudah tersedia. Admin wajib menyimpan konfigurasi aturan sekolah sebelum modul digunakan.
 - Monitoring per kelas/periode, perkembangan bulanan murid, konfigurasi capaian 80%, pembedaan data belum dinilai, laporan bulanan cetak, dan ekspor CSV sudah tersedia. Angka menggunakan tanggal kegiatan sumber dan akses guru mengikuti rombel.
 - Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
-- Data yang terlihat masih contoh. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
+- Profil lokal sudah bernama SD Inpres Malbert, tetapi masih ditandai sebagai pratinjau dan identitas lengkap belum diberikan pada sesi. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
-- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Hostinger Unlimited direkomendasikan secara bersyarat untuk rilis awal; staging tetap harus membuktikan Laravel 13, PHP 8.3 CLI, cron setiap menit, document root, dan restore. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
+- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Pengguna menyatakan pilihan hosting/domain sudah ditetapkan tetapi layanan belum dibuat; nama penyedia dan domain tujuan belum dicatat. Form profil kini memiliki field terpisah untuk NPSN, email, dan telepon resmi. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
 
 ## Pekerjaan berikutnya
 
-1. REL-001: putuskan rekomendasi Hostinger Unlimited atau hosting/domain sekolah yang sudah ada, validasi staging, isi identitas serta akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
+1. REL-001: catat penyedia/domain yang telah dipilih, masukkan identitas sekolah yang diberikan pengguna, buat dan validasi staging, siapkan akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
 2. OPS-001: menghubungkan remote privat agar akun/perangkat/cloud lain dapat mengambil revisi terbaru. Belum ada tujuan remote yang dipilih pengguna.
 3. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
@@ -33,13 +33,13 @@ KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. L
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-21: 79 tes / 548 assertions lulus. Pint, sintaks JavaScript, 68 rute, `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, dan diff check lulus. Restore backup nyata ke SQLite/penyimpanan terisolasi berhasil: migrasi dan restore keluar 0, jumlah seluruh 17 tabel cocok, serta cadangan saat itu memang tidak memiliki berkas media lokal. Jalur media backup tetap dicakup tes otomatis. `school:release-check` dengan sengaja masih melaporkan tujuh item BELUM pada lingkungan lokal: mode produksi, debug, HTTPS, cookie aman, enkripsi sesi, profil nyata, dan akun demo. UAT bersama sekolah serta server/domain nyata belum tersedia.
+Pengujian aplikasi terbaru 2026-09-23: 80 tes / 555 assertions lulus dan Pint lulus. Profil publik dengan field identitas baru diperiksa pada desktop dan viewport ponsel. Bukti kesiapan platform sebelumnya tetap berlaku: sintaks JavaScript, 68 rute, `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 
 ## Koordinasi
 
-Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah rekomendasi hosting selesai; lanjutkan ketika pengguna menetapkan hosting/domain, staging tersedia, dan sekolah siap menjalankan UAT dengan akun/data nyata.
+Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah field identitas dilengkapi; lanjutkan ketika pengguna memberikan nilai identitas dan rincian hosting/domain terpilih, lalu layanan dapat dibuat untuk staging dan UAT.
 
 Git lokal disiapkan pada CTX-001. Remote belum dihubungkan dan tidak ada push. Revisi awal dapat ditemukan dengan `git log --oneline`; kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

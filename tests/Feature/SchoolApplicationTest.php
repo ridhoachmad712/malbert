@@ -179,9 +179,34 @@ class SchoolApplicationTest extends TestCase
     {
         Storage::fake('local');
         $admin = User::factory()->create(['role' => 'admin']);
-        $this->actingAs($admin)->put(route('settings.update'), ['name' => 'SD Contoh', 'tagline' => 'Belajar bersama', 'logo' => UploadedFile::fake()->image('logo.png', 500, 500)])->assertSessionHasNoErrors();
-        $this->get(route('profile'))->assertOk()->assertSee('SD Contoh');
+        $this->actingAs($admin)->put(route('settings.update'), [
+            'name' => 'SD Contoh',
+            'npsn' => '12345678',
+            'tagline' => 'Belajar bersama',
+            'address' => 'Jalan Pendidikan 1',
+            'email' => 'sekolah@example.sch.id',
+            'phone' => '+62 812-3456-7890',
+            'logo' => UploadedFile::fake()->image('logo.png', 500, 500),
+        ])->assertSessionHasNoErrors();
+        $this->get(route('profile'))->assertOk()
+            ->assertSee('SD Contoh')
+            ->assertSee('NPSN 12345678')
+            ->assertSee('sekolah@example.sch.id')
+            ->assertSee('+62 812-3456-7890');
         $this->get(route('school.logo'))->assertOk();
         $this->assertFalse(SchoolSetting::values()['demo']);
+    }
+
+    public function test_school_identity_rejects_invalid_npsn_email_and_phone(): void
+    {
+        $admin = User::factory()->create(['role' => 'admin']);
+
+        $this->actingAs($admin)->put(route('settings.update'), [
+            'name' => 'SD Contoh',
+            'tagline' => 'Belajar bersama',
+            'npsn' => '123',
+            'email' => 'bukan-email',
+            'phone' => 'telepon sekolah',
+        ])->assertSessionHasErrors(['npsn', 'email', 'phone']);
     }
 }

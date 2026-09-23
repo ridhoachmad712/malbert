@@ -1,12 +1,12 @@
 # Serah terima REL-001
 
-- Tanggal/waktu/zona: 2026-09-22 Asia/Makassar
+- Tanggal/waktu/zona: 2026-09-23 Asia/Makassar
 - Agen/sesi: Codex lokal
 - Status: BLOCKED
 - Tujuan dan kriteria penerimaan: uji bersama guru pada ponsel, perbaikan alur, pemulihan cadangan, hosting/domain, akun sebenarnya, dan aktivasi jadwal cadangan. Selesai hanya jika sekolah telah mencoba alur utama, restore terbukti, konfigurasi produksi siap, serta akun/data contoh ditangani.
-- Cabang, revisi dasar, revisi kode yang diuji: `main`, dasar `be1fea4`, working tree rekomendasi hosting sebelum commit.
+- Cabang, revisi dasar, revisi kode yang diuji: `main`, dasar `e746284`, working tree kelengkapan identitas sebelum commit.
 - Commit hasil atau cara menemukannya: commit checkpoint REL-001 pada `main`; lihat `git log -1 -- instruction/serah-terima/HANDOFF_REL_001.md`.
-- Pemilik selanjutnya: belum ditugaskan; lanjutkan setelah pengguna menerima rekomendasi atau menyebut hosting/domain yang sudah dimiliki, lalu sekolah siap UAT.
+- Pemilik selanjutnya: belum ditugaskan; lanjutkan setelah pengguna memberikan nilai identitas serta nama penyedia/domain yang telah dipilih.
 
 ## Hasil dan berkas berubah
 
@@ -17,6 +17,7 @@
 - `phpunit.xml` memakai jalur cache khusus tes. Ini mencegah proses tes membaca cache konfigurasi lokal/produksi dan menyentuh database yang salah.
 - `.gitignore` mengizinkan template produksi dilacak tanpa mengizinkan `.env` produksi sebenarnya.
 - `instruction/operasional/PILIHAN_HOSTING_REL_001.md` membandingkan pilihan terkelola dan VPS, menetapkan Hostinger Unlimited sebagai rekomendasi bersyarat, menjelaskan pilihan domain `.sch.id`, dan memberi enam pemeriksaan sebelum pembayaran.
+- Profil sekolah menyimpan NPSN, email resmi, dan telepon resmi sebagai field terpisah. Form admin memvalidasi ketiganya, profil publik menampilkannya, dan `school:release-check` mensyaratkannya sebelum rilis.
 
 ## Bukti pemeriksaan
 
@@ -34,6 +35,9 @@
 | Cache konfigurasi lokal aktif lalu tes readiness | PASS; tes tetap memakai SQLite in-memory | Isolasi cache tes baru |
 | Verifikasi setelah pemulihan database lokal | PASS; 17 tabel cocok, termasuk 2 pengguna, 7 publikasi, 1 profil sekolah | Pemulihan dari backup pra-uji |
 | `php artisan school:release-check` pada lokal | EXPECTED BLOCKED; 7 pemeriksaan BELUM | Lingkungan lokal memang bukan produksi |
+| `php artisan test --compact` (2026-09-23) | PASS, 80 tes / 555 assertions | Regresi setelah penambahan field identitas |
+| `vendor/bin/pint --dirty --format agent` (2026-09-23) | PASS | PHP yang berubah |
+| Profil publik pada browser desktop dan viewport ponsel (2026-09-23) | PASS; identitas/placeholder terbaca tanpa overflow | Profil publik; form admin dicakup tes fitur, belum diisi data nyata |
 
 ## Insiden verifikasi dan pemulihan
 
@@ -41,8 +45,8 @@ Tes dan `php artisan optimize` sempat dijalankan bersamaan. Cache konfigurasi lo
 
 ## Kondisi belum selesai
 
-- Hosting dan domain belum dipilih; deployment nyata, DNS, HTTPS, pembatasan IP key Drive, serta cron server belum dapat diuji.
-- Identitas sekolah, akun admin/guru nyata, data kelas/murid, dan konfigurasi aturan sekolah belum diberikan.
+- Pengguna menyatakan hosting dan domain sudah dipilih, tetapi nama penyedia/domain tujuan belum dicatat dan layanannya belum dibuat. Deployment nyata, DNS, HTTPS, pembatasan IP key Drive, serta cron server belum dapat diuji.
+- Pengguna menyatakan identitas sekolah sudah tersedia, tetapi nilai lengkapnya belum diberikan. Akun admin/guru nyata, data kelas/murid, dan konfigurasi aturan sekolah juga belum diberikan.
 - Delapan belas skenario UAT masih `BELUM` karena memerlukan perwakilan sekolah dan perangkat yang benar-benar digunakan.
 - Salinan backup di luar server dan bukti cron menghasilkan backup hari berikutnya belum tersedia.
 - `school:release-check` lokal masih memiliki tujuh item `BELUM`, sesuai kondisi development.
@@ -51,11 +55,12 @@ Tes dan `php artisan optimize` sempat dijalankan bersamaan. Cache konfigurasi lo
 
 ## Langkah berikutnya
 
-1. Pengguna menerima rekomendasi Hostinger Unlimited atau menyebut hosting/domain yang sudah dimiliki. Sebelum pembayaran, konfirmasi enam kebutuhan pada `PILIHAN_HOSTING_REL_001.md`.
-2. Siapkan server dengan `.env.production.example`, jalankan deployment, migrasi, dan `school:release-check`.
-3. Sekolah membuat akun nyata dan mengisi identitas/data melalui jalur terbatas; uji akun sebelum menonaktifkan demo.
-4. Jalankan semua skenario `UAT_REL_001.md`, perbaiki temuan, lalu minta persetujuan admin, guru, dan petugas operasional.
-5. Buktikan cron harian dan salinan backup di luar server, lalu tandai Tahap 7 selesai.
+1. Pengguna memberikan nama penyedia/domain terpilih serta identitas sekolah: nama resmi, NPSN, alamat, email, telepon, tagline, deskripsi, visi, misi, dan logo bila tersedia.
+2. Masukkan identitas ke profil lokal, tinjau halaman publik, lalu buat layanan hosting/domain sesuai kepemilikan akun sekolah.
+3. Siapkan server dengan `.env.production.example`, jalankan deployment, migrasi, dan `school:release-check`.
+4. Sekolah membuat akun nyata dan mengisi data melalui jalur terbatas; uji akun sebelum menonaktifkan demo.
+5. Jalankan semua skenario `UAT_REL_001.md`, perbaiki temuan, lalu minta persetujuan admin, guru, dan petugas operasional.
+6. Buktikan cron harian dan salinan backup di luar server, lalu tandai Tahap 7 selesai.
 
 ## Keputusan dan integrasi
 

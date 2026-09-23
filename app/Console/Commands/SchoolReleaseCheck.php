@@ -35,7 +35,7 @@ class SchoolReleaseCheck extends Command
             ['Penyimpanan privat dapat ditulis', is_string($storageRoot) && is_dir($storageRoot) && is_writable($storageRoot), 'Siapkan izin tulis untuk storage/app/private.'],
             ['Cadangan dijadwalkan', collect($schedule->events())->contains(fn ($event) => Str::contains((string) $event->command, 'school:backup')), 'Daftarkan school:backup pada scheduler.'],
             ['Google Drive dikonfigurasi', filled(config('services.drive.api_key')), 'Isi GOOGLE_DRIVE_API_KEY pada server.'],
-            ['Profil sekolah bukan data contoh', ! ($school['demo'] ?? true) && ($school['name'] ?? '') !== 'Sekolah Kita' && filled($school['address'] ?? null) && filled($school['contact'] ?? null), 'Lengkapi nama, alamat, kontak, lalu matikan penanda data contoh.'],
+            ['Profil sekolah bukan data contoh', ! ($school['demo'] ?? true) && ($school['name'] ?? '') !== 'Sekolah Kita' && filled($school['npsn'] ?? null) && filled($school['address'] ?? null) && filled($school['email'] ?? null) && filled($school['phone'] ?? null), 'Lengkapi nama, NPSN, alamat, email, telepon, lalu matikan penanda data contoh.'],
             ['Akun demo sudah ditangani', ! User::query()->whereIn('email', ['admin@sekolah.test', 'guru@sekolah.test'])->exists(), 'Hapus atau nonaktifkan akun demo setelah akun nyata diuji.'],
             ['Admin aktif tersedia', User::query()->where('role', 'admin')->where('active', true)->exists(), 'Siapkan minimal satu akun admin aktif.'],
             ['Guru aktif tersedia', User::query()->where('role', 'guru')->where('active', true)->exists(), 'Siapkan minimal satu akun guru aktif.'],
