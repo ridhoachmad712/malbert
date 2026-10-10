@@ -28,12 +28,12 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Profil lokal sudah bernama SD Inpres Malbert, tetapi masih ditandai sebagai pratinjau dan identitas lengkap belum diberikan pada sesi. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
 - Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
 - Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Pengguna menyatakan pilihan hosting/domain sudah ditetapkan tetapi layanan belum dibuat; nama penyedia dan domain tujuan belum dicatat. Form profil kini memiliki field terpisah untuk NPSN, email, dan telepon resmi. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
+- OPS-001 selesai: kode pada `main` tersinkron ke [GitHub malbert](https://github.com/ridhoachmad712/malbert), dengan repositori publik sesuai pilihan pengguna. `.env` dan perubahan lokal yang belum di-commit tidak ikut push.
 
 ## Pekerjaan berikutnya
 
 1. REL-001: catat penyedia/domain yang telah dipilih, masukkan identitas sekolah yang diberikan pengguna, buat dan validasi staging, siapkan akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
-2. OPS-001: remote `origin` sudah terhubung ke `https://github.com/ridhoachmad712/malbert.git`; cabang `main` berhasil didorong dan melacak `origin/main`. GitHub melaporkan visibilitas repositori saat ini `PUBLIC`, sedangkan rencana operasional semula menghendaki remote privat. Keputusan visibilitas menunggu pengguna; lihat [HANDOFF_OPS_001.md](instruction/serah-terima/HANDOFF_OPS_001.md).
-3. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
+2. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
 KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
 
@@ -47,7 +47,7 @@ Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata ma
 
 Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah field identitas dilengkapi; lanjutkan ketika pengguna memberikan nilai identitas dan rincian hosting/domain terpilih, lalu layanan dapat dibuat untuk staging dan UAT.
 
-Git lokal disiapkan pada CTX-001. Remote `origin` terhubung ke repositori GitHub yang dipilih pengguna, dan `main` pertama kali didorong pada 2026-10-10 sampai commit `2f24bfa`. GitHub melaporkan repositori `PUBLIC` saat pemeriksaan; perubahan lokal pengguna yang belum di-commit tidak ikut push. Kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
+Git lokal disiapkan pada CTX-001. Remote `origin` terhubung ke repositori GitHub yang dipilih pengguna. `main` pertama kali didorong pada 2026-10-10; visibilitas `PUBLIC` dikonfirmasi pengguna. Perubahan lokal pengguna yang belum di-commit tidak ikut push. Kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 
 ## Lokasi penting
 
