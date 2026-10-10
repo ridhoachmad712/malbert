@@ -22,7 +22,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | UI-004 | Situs publik bergaya portofolio | DONE | Tidak ada | Beranda, cerita, profil, dan navigasi diperbarui; 21 tes / 160 assertions lulus; desktop 1440 px dan ponsel 390 px tanpa overflow; filter, keadaan kosong, menu ponsel, dan tautan cerita diperiksa di browser | Bukti pada perubahan kode 2026-10-10 |
 | UI-005 | Selaraskan alur pengelolaan dengan rancangan awal | DONE | Tidak ada | Dasbor guru/admin mendahulukan pekerjaan literasi; publikasi lengkap tetap dapat dicari dan difilter; akses rombel, menu, desktop/ponsel, dan regresi diperiksa | [Catatan](instruction/serah-terima/HANDOFF_UI_005.md) |
 | OPS-001 | Remote GitHub untuk sinkronisasi lintas lingkungan | DONE | Tidak ada | `origin/main` tersinkron; repo PUBLIC sesuai pilihan pengguna pada 2026-10-10 | [Catatan](instruction/serah-terima/HANDOFF_OPS_001.md) |
-| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Hostinger: root 403, `/public/` 500. Log 2026-10-10 memastikan `APP_KEY` kosong dan SQLite tidak ada. `.htaccess` akar disiapkan; server masih perlu `.env` MySQL, key baru, migrasi, verifikasi live, identitas, dan UAT | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
+| REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Hostinger: 403 root teratasi oleh `.htaccess`; `/` dan `/up` masih 500. Log 2026-10-10 memastikan `APP_KEY` kosong dan SQLite tidak ada. Server perlu `.env` MySQL, key baru, migrasi, verifikasi live, identitas, dan UAT | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
 

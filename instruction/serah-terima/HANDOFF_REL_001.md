@@ -4,8 +4,8 @@
 
 - Domain sementara `mediumaquamarine-whale-776973.hostingersite.com` menempatkan seluruh proyek di `public_html`. Pemeriksaan HTTP sebelum revisi: `/` = 403, `/public/` = 500, `/public/css/app.css` = 200. Ini menunjukkan web root belum mengarah ke entry point Laravel.
 - Log produksi yang diberikan pengguna menunjukkan `MissingAppKeyException` dan koneksi `sqlite` ke `database/database.sqlite` yang tidak ada. Keduanya merupakan konfigurasi server; tidak ada rahasia yang dimasukkan ke Git.
-- `.htaccess` akar disiapkan untuk meneruskan permintaan ke `public/`; panduan peluncuran memuat langkah instalasi baru dengan `.env` produksi MySQL, `APP_KEY`, pembersihan cache konfigurasi, dan migrasi. Efek pada server belum terbukti sampai revisi dipasang serta endpoint diuji ulang.
-- Status REL-001 tetap BLOCKED. Langkah berikutnya: pasang revisi di Hostinger, atur `.env` dan database pada server, uji `/` dan `/up`, pastikan jalur privat tidak tersaji, lalu lanjutkan pemeriksaan rilis dan UAT. Jangan memakai `migrate:fresh` atau menaruh `.env` di repo.
+- `.htaccess` akar dari commit `4362fda` sudah tertarik ke Hostinger: pemeriksaan HTTP ulang menunjukkan `/` dan `/up` = 500, `/css/app.css` = 200, `/composer.json` = 404, sedangkan `/.env` dan `/storage/logs/laravel.log` = 403. Ini membuktikan jalur web root berubah sesuai maksud, tetapi aplikasi belum berjalan. Panduan peluncuran memuat langkah instalasi baru dengan `.env` produksi MySQL, `APP_KEY`, pembersihan cache konfigurasi, dan migrasi.
+- Status REL-001 tetap BLOCKED. Langkah berikutnya: atur `.env` dan database pada server, uji `/` dan `/up`, lalu lanjutkan pemeriksaan rilis dan UAT. Jangan memakai `migrate:fresh` atau menaruh `.env` di repo.
 
 - Tanggal/waktu/zona: 2026-09-23 Asia/Makassar
 - Agen/sesi: Codex lokal
