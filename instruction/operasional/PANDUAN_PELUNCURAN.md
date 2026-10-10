@@ -40,7 +40,7 @@ Log produksi 2026-10-10 menunjukkan dua penyebab HTTP 500: `APP_KEY` kosong dan 
 4. Untuk instalasi baru saja, jalankan `php artisan key:generate`. Jangan mengganti `APP_KEY` pada instalasi yang sudah berisi sesi atau data terenkripsi.
 5. Jalankan `php artisan migrate --force --no-interaction`.
 6. Jalankan `php artisan storage:link` bila hosting memerlukan tautan berkas publik.
-7. Isi profil sekolah dan buat akun admin/guru nyata melalui aplikasi. Uji akun tersebut sebelum akun demo dihapus atau dinonaktifkan.
+7. Pada database produksi baru tanpa admin, jalankan `php artisan school:create-admin` **secara interaktif** lewat SSH. Perintah ini meminta nama, email, dan kata sandi dua kali; kata sandi tidak tampil di terminal dan harus sedikitnya 12 karakter. Perintah menolak pembuatan jika akun admin sudah ada. Setelah masuk dengan akun tersebut, isi profil sekolah dan buat akun guru nyata melalui menu Akun. Uji akun tersebut sebelum akun demo dihapus atau dinonaktifkan.
 8. Jalankan `php artisan school:release-check`. Semua baris harus berstatus `SIAP`.
 9. Setelah konfigurasi final, jalankan `php artisan optimize`.
 

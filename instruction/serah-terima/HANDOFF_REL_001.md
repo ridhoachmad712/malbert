@@ -2,10 +2,13 @@
 
 ## Checkpoint deployment Hostinger — 2026-10-10
 
+- Sesudah pengguna menyiapkan `.env` produksi, MySQL, `APP_KEY`, dan migrasi melalui SSH, pemeriksaan eksternal menunjukkan `/` dan `/up` = 200, CSS = 200, berkas privat tidak tersaji. Pengguna menjalankan `school:release-check`: 9 pemeriksaan SIAP, 4 BELUM (Drive, profil sekolah nyata, admin aktif, guru aktif).
+- Terdapat celah bootstrap akun: admin pertama tidak dapat dibuat lewat antarmuka karena belum ada admin yang dapat masuk. Perintah `school:create-admin` ditambahkan untuk instalasi baru; meminta nama/email/kata sandi tersembunyi secara interaktif, menolak jika admin sudah ada. Tes fitur menyertai. Perlu verifikasi setelah Hostinger mengambil revisi terbaru.
+
 - Domain sementara `mediumaquamarine-whale-776973.hostingersite.com` menempatkan seluruh proyek di `public_html`. Pemeriksaan HTTP sebelum revisi: `/` = 403, `/public/` = 500, `/public/css/app.css` = 200. Ini menunjukkan web root belum mengarah ke entry point Laravel.
 - Log produksi yang diberikan pengguna menunjukkan `MissingAppKeyException` dan koneksi `sqlite` ke `database/database.sqlite` yang tidak ada. Keduanya merupakan konfigurasi server; tidak ada rahasia yang dimasukkan ke Git.
 - `.htaccess` akar dari commit `4362fda` sudah tertarik ke Hostinger: pemeriksaan HTTP ulang menunjukkan `/` dan `/up` = 500, `/css/app.css` = 200, `/composer.json` = 404, sedangkan `/.env` dan `/storage/logs/laravel.log` = 403. Ini membuktikan jalur web root berubah sesuai maksud, tetapi aplikasi belum berjalan. Panduan peluncuran memuat langkah instalasi baru dengan `.env` produksi MySQL, `APP_KEY`, pembersihan cache konfigurasi, dan migrasi.
-- Status REL-001 tetap BLOCKED. Langkah berikutnya: atur `.env` dan database pada server, uji `/` dan `/up`, lalu lanjutkan pemeriksaan rilis dan UAT. Jangan memakai `migrate:fresh` atau menaruh `.env` di repo.
+- Pada checkpoint awal ini REL-001 masih BLOCKED sebelum `.env` dan database diatur. Kondisi terbaru dicatat pada dua butir teratas: server sudah merespons dan pendampingan konfigurasi rilis sedang berjalan. Jangan memakai `migrate:fresh` atau menaruh `.env` di repo.
 
 - Tanggal/waktu/zona: 2026-09-23 Asia/Makassar
 - Agen/sesi: Codex lokal
