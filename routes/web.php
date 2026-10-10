@@ -73,6 +73,7 @@ Route::middleware(['auth', EnsureActiveUser::class])->group(function () {
     Route::get('/kelola/monitoring/kelas/{classroom}/murid/{student}', [MonitoringController::class, 'student'])->name('monitoring.student');
     Route::get('/kelola/monitoring/laporan/bulanan', [MonitoringController::class, 'monthly'])->name('monitoring.monthly');
     Route::get('/kelola/monitoring/laporan/bulanan.csv', [MonitoringController::class, 'export'])->name('monitoring.export');
+    Route::get('/kelola/konten', [PublicationController::class, 'index'])->name('publications.index');
     Route::get('/kelola/konten/baru', [PublicationController::class, 'create'])->name('publications.create');
     Route::get('/kelola/bank-karya', [PublicationController::class, 'bank'])->name('publications.bank');
     Route::post('/kelola/bank-karya/{literacySubmission}/publikasi', [PublicationController::class, 'fromWork'])->name('publications.from-work');

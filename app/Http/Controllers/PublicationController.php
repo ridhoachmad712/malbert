@@ -18,6 +18,31 @@ use Illuminate\View\View;
 
 class PublicationController extends Controller
 {
+    public function index(Request $request): View
+    {
+        $request->validate([
+            'q' => ['nullable', 'string', 'max:150'],
+            'status' => ['nullable', 'in:draft,pending,published,archived'],
+        ]);
+
+        $query = Publication::query()->when($request->user()->role !== 'admin', fn ($query) => $query->where('user_id', $request->user()->id));
+
+        if ($request->input('status') === 'pending') {
+            $query->where('review_status', 'pending');
+        } elseif ($request->input('status') === 'draft') {
+            $query->whereIn('review_status', ['draft', 'changes'])->where('status', '!=', 'archived');
+        } elseif (in_array($request->input('status'), ['published', 'archived'], true)) {
+            $query->where('status', $request->input('status'));
+        }
+
+        if ($request->filled('q')) {
+            $term = '%'.str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $request->string('q')->toString()).'%';
+            $query->where('content->title', 'like', $term);
+        }
+
+        return view('manage.publications.index', ['publications' => $query->with('author')->latest('updated_at')->paginate(12)->withQueryString()]);
+    }
+
     public function bank(Request $request): View
     {
         $request->validate([

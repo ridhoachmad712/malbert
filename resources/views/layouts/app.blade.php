@@ -49,17 +49,17 @@
                 </div>
 
                 <div class="sidebar-group">
-                    <p class="sidebar-label">Konten sekolah</p>
-                    <a href="{{ route('publications.create') }}" class="{{ request()->routeIs('publications.create', 'publications.edit', 'publications.preview') ? 'selected' : '' }}">Cerita sekolah</a>
-                    <a href="{{ route('publications.bank') }}" class="{{ request()->routeIs('publications.bank') ? 'selected' : '' }}">Bank karya</a>
-                </div>
-
-                <div class="sidebar-group">
                     <p class="sidebar-label">Pembelajaran</p>
                     <a href="{{ route('students.index') }}" class="{{ request()->routeIs('students.*') ? 'selected' : '' }}">Data murid</a>
                     <a href="{{ route('literacy.index') }}" class="{{ request()->routeIs('literacy.*', 'readings.*') ? 'selected' : '' }}">Literasi</a>
                     <a href="{{ route('evaluation.index') }}" class="{{ request()->routeIs('evaluation.*') ? 'selected' : '' }}">Penilaian & poin</a>
                     <a href="{{ route('monitoring.index') }}" class="{{ request()->routeIs('monitoring.*') ? 'selected' : '' }}">Monitoring & laporan</a>
+                </div>
+
+                <div class="sidebar-group">
+                    <p class="sidebar-label">Publikasi</p>
+                    <a href="{{ route('publications.bank') }}" class="{{ request()->routeIs('publications.bank') ? 'selected' : '' }}">Bank karya</a>
+                    <a href="{{ route('publications.index') }}" class="{{ request()->routeIs('publications.index', 'publications.create', 'publications.edit', 'publications.preview') ? 'selected' : '' }}">Cerita sekolah</a>
                 </div>
 
                 @if(auth()->user()->role === 'admin')

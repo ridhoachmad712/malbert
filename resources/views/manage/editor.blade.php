@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $publication ? 'Edit Cerita' : 'Buat Cerita')
 @section('content')
-<div class="page-heading"><div><a class="back-link" href="{{ route('dashboard') }}">← Semua konten</a><h1>{{ $publication ? 'Rawat cerita ini' : 'Bagikan cerita baru' }}</h1><p>Ceritakan kegiatannya, tampilkan karyanya, rayakan prosesnya.</p></div>@if($publication)<a class="button outline" href="{{ route('publications.preview', $publication) }}" target="_blank" rel="noopener">Pratinjau tersimpan ↗</a>@endif</div>
+<div class="page-heading"><div><a class="back-link" href="{{ route('publications.index') }}">← Semua cerita sekolah</a><h1>{{ $publication ? 'Rawat cerita ini' : 'Bagikan cerita baru' }}</h1><p>Ceritakan kegiatannya, tampilkan karyanya, rayakan prosesnya.</p></div>@if($publication)<a class="button outline" href="{{ route('publications.preview', $publication) }}" target="_blank" rel="noopener">Pratinjau tersimpan ↗</a>@endif</div>
 @if($publication?->review_note)<div class="alert warning"><strong>Catatan admin</strong><p>{{ $publication->review_note }}</p></div>@endif
 @if($publication?->status==='published')<div class="alert info">Versi terbit tetap terlihat oleh pengunjung. Perubahan di sini akan menjadi revisi yang perlu disetujui.</div>@endif
 <form class="editor-form" method="post" enctype="multipart/form-data" action="{{ $publication ? route('publications.update',$publication) : route('publications.store') }}" data-dirty-form>@csrf @if($publication)@method('put')@endif

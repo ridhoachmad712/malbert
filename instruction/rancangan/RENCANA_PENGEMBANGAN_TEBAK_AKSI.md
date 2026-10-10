@@ -269,5 +269,7 @@ Sebelum mengerjakan fitur, baca bagian terkait dan periksa kondisi kode saat ini
 | 2026-09-23 | Nama aplikasi diubah dari Ruang Cerita menjadi AksiKita dengan nama penjelas “Portal Literasi, Karya, dan Karakter Siswa” | Instruksi pengguna; D-016 |
 | 2026-09-23 | Admin dapat menyesuaikan tema, teks, gambar publik, dan favicon melalui pengaturan terstruktur dengan pratinjau, validasi kontras, dan reset bawaan | Instruksi pengguna; UI-002; D-017 |
 | 2026-09-23 | Ruang pengelolaan dipisahkan secara visual dari situs publik melalui topbar ringkas, navigasi samping berkelompok, drawer ponsel, dan penghapusan footer publik dari halaman pengelolaan | Instruksi pengguna; UI-003; D-018 |
+| 2026-10-10 | Situs publik disusun sebagai portofolio karya, kegiatan, dan prestasi tanpa mengubah batas privasi publikasi | Instruksi pengguna; UI-004; D-019 |
+| 2026-10-10 | Dasbor dan menu pengelolaan mendahulukan kelas, tugas, tinjauan, dan penilaian; publikasi tetap memiliki daftar lengkap tersendiri | Klarifikasi pengguna tentang kesesuaian alur; UI-005; D-020 |
 
 Pekerjaan berikutnya berfokus pada operasi: remote privat, uji sekolah, pemulihan cadangan, hosting/domain, akun nyata, dan penjadwalan cadangan. Tahap 5 ditunda pengguna pada 2026-09-21 karena belum mendesak; aturan penanganan dan akses sensitif tetap perlu ditetapkan sebelum tahap tersebut dimulai kembali.

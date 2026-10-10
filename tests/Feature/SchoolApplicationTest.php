@@ -2,8 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Models\Classroom;
+use App\Models\LiteracyAssignment;
+use App\Models\LiteracySubmission;
 use App\Models\Publication;
 use App\Models\SchoolSetting;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -154,7 +158,7 @@ class SchoolApplicationTest extends TestCase
         $this->actingAs($admin)->get(route('dashboard'))
             ->assertOk()
             ->assertSee('Ruang pengelola')
-            ->assertSee('Konten sekolah')
+            ->assertSee('Publikasi')
             ->assertSee('Pembelajaran')
             ->assertSee('Administrasi')
             ->assertSee('Lihat situs')
@@ -167,6 +171,72 @@ class SchoolApplicationTest extends TestCase
             ->assertSee('Pembelajaran')
             ->assertDontSee('Administrasi')
             ->assertDontSee('<footer', false);
+    }
+
+    public function test_dashboard_prioritizes_assigned_learning_work_and_admin_review(): void
+    {
+        $teacher = User::factory()->create(['role' => 'guru']);
+        $otherTeacher = User::factory()->create(['role' => 'guru']);
+        $admin = User::factory()->create(['role' => 'admin']);
+        $assignedClassroom = Classroom::factory()->create(['homeroom_teacher_id' => $teacher->id]);
+        $otherClassroom = Classroom::factory()->create(['homeroom_teacher_id' => $otherTeacher->id]);
+        $assignedTask = LiteracyAssignment::factory()->for($assignedClassroom)->create(['title' => 'Membaca cerita kelas sendiri']);
+        LiteracyAssignment::factory()->for($otherClassroom)->create(['title' => 'Tugas kelas lain']);
+        $student = Student::factory()->for($assignedClassroom)->create(['name' => 'Murid Ruang Sendiri']);
+        LiteracySubmission::factory()->for($assignedTask, 'assignment')->for($student)->create(['status' => 'submitted', 'submitted_at' => now()]);
+        $otherStudent = Student::factory()->for($otherClassroom)->create(['name' => 'Murid Kelas Lain']);
+        $otherTask = LiteracyAssignment::where('classroom_id', $otherClassroom->id)->firstOrFail();
+        LiteracySubmission::factory()->for($otherTask, 'assignment')->for($otherStudent)->create(['status' => 'submitted', 'submitted_at' => now()]);
+        $pendingPublication = Publication::factory()->for($otherTeacher, 'author')->create(['status' => 'pending', 'review_status' => 'pending', 'content' => ['title' => 'Cerita menunggu admin', 'type' => 'kegiatan']]);
+
+        $this->actingAs($teacher)->get(route('dashboard'))
+            ->assertOk()
+            ->assertSee('Buat tugas')
+            ->assertSee('Murid Ruang Sendiri')
+            ->assertSee('Membaca cerita kelas sendiri')
+            ->assertDontSee('Murid Kelas Lain')
+            ->assertDontSee('Tugas kelas lain')
+            ->assertDontSee('Cerita menunggu admin');
+
+        $this->actingAs($admin)->get(route('dashboard'))
+            ->assertOk()
+            ->assertSee('Publikasi menunggu persetujuan (1)')
+            ->assertSee('Cerita menunggu admin')
+            ->assertSee(route('publications.edit', $pendingPublication));
+    }
+
+    public function test_teacher_without_class_assignment_is_not_prompted_to_create_a_task(): void
+    {
+        $teacher = User::factory()->create(['role' => 'guru']);
+
+        $this->actingAs($teacher)->get(route('dashboard'))
+            ->assertOk()
+            ->assertSee('Anda belum ditugaskan ke rombel')
+            ->assertDontSee('Buat tugas');
+    }
+
+    public function test_full_publication_list_remains_searchable_and_scoped_to_author(): void
+    {
+        $teacher = User::factory()->create(['role' => 'guru']);
+        $otherTeacher = User::factory()->create(['role' => 'guru']);
+        $admin = User::factory()->create(['role' => 'admin']);
+        $ownPublication = Publication::factory()->for($teacher, 'author')->create(['content' => ['title' => 'Cerita milik guru', 'type' => 'karya'], 'status' => 'pending', 'review_status' => 'pending']);
+        Publication::factory()->for($otherTeacher, 'author')->create(['content' => ['title' => 'Cerita guru lain', 'type' => 'kegiatan'], 'status' => 'pending', 'review_status' => 'pending']);
+
+        $this->actingAs($teacher)->get(route('publications.index', ['status' => 'pending']))
+            ->assertOk()
+            ->assertSee('Cerita milik guru')
+            ->assertDontSee('Cerita guru lain')
+            ->assertSee(route('publications.edit', $ownPublication));
+
+        $this->get(route('publications.index', ['q' => 'tidak ada']))
+            ->assertOk()
+            ->assertDontSee('Cerita milik guru');
+
+        $this->actingAs($admin)->get(route('publications.index', ['status' => 'pending']))
+            ->assertOk()
+            ->assertSee('Cerita milik guru')
+            ->assertSee('Cerita guru lain');
     }
 
     public function test_backup_round_trip_restores_records_and_media(): void

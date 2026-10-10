@@ -268,3 +268,16 @@
   .portfolio-profile-contact{padding-bottom:0}
   .portfolio-profile-contact>div:last-child{padding-top:0}
 }
+
+.management .literacy-list-item>span:first-child{min-width:0;overflow-wrap:anywhere}
+.dashboard-panel .section-heading p{font-size:.82rem;margin:7px 0 0}
+.dashboard-panel .dashboard-empty{padding:4px 0;margin:0;font-size:.83rem}
+.publication-list{display:grid;gap:10px}
+.publication-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(110px,1fr) minmax(95px,.8fr) minmax(110px,.8fr) auto;align-items:center;gap:18px;padding:16px;border:1px solid var(--line);border-radius:12px}
+.publication-main{min-width:0;overflow-wrap:anywhere}
+.publication-main small,.publication-meta span:first-child,.publication-meta small{display:block;color:var(--muted);font-size:.72rem}
+.publication-main small{margin-top:4px}
+.publication-meta{min-width:0;overflow-wrap:anywhere}
+.publication-meta strong{display:block;font-size:.79rem;font-weight:650;margin-top:4px}
+.publication-meta .badge{display:inline-block}
+@media(max-width:700px){.publication-row{grid-template-columns:minmax(0,1fr) auto;gap:13px;padding:16px}.publication-main{grid-column:1/-1}.publication-meta:nth-of-type(2){grid-column:1}.publication-meta:nth-of-type(3){grid-column:2;grid-row:2}.publication-meta:nth-of-type(4){grid-column:1}.publication-row>.button{grid-column:2;grid-row:3;align-self:end}}

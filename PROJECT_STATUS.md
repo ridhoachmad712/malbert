@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-10-10 oleh Codex, penyegaran situs publik bergaya portofolio.
+Diperbarui: 2026-10-10 oleh Codex, penyesuaian alur ruang pengelolaan dengan rancangan awal.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -15,7 +15,8 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Pemeriksaan UI-004 pada 2026-10-10: 21 tes / 160 assertions dan kompilasi Blade lulus; beranda, cerita, dan profil pada lebar 390 px tidak meluap horizontal; beranda juga diperiksa pada 1440 px. Filter kategori, pencarian tanpa hasil, menu ponsel, serta tautan cerita pilihan diuji di browser lokal. Publikasi lokal yang tampil saat pemeriksaan masih data contoh, sehingga sampul menggunakan penanda contoh.
 - Branding AksiKita sudah tampil pada header, metadata, halaman utama, halaman masuk, footer, dan laporan cetak; nama sekolah tetap ditampilkan sebagai identitas instansi.
 - Admin memiliki halaman **Tampilan & Konten** untuk mengubah nama aplikasi, nama penjelas, palet tujuh warna, teks halaman utama/login/footer, gambar utama/login/profil, serta favicon. Pratinjau berubah sebelum disimpan, warna teks diperiksa kontrasnya, dan tampilan dapat dikembalikan ke bawaan tanpa mengubah data sekolah.
-- Halaman pengelolaan memiliki topbar ringkas dan sidebar berkelompok untuk ringkasan, konten, pembelajaran, administrasi, serta akun. Navigasi administrasi hanya tampil untuk admin; pada ponsel menu menjadi drawer. Footer dan strip pratinjau milik situs publik tidak dirender di ruang pengelolaan.
+- Halaman pengelolaan memiliki topbar ringkas dan sidebar berkelompok untuk ringkasan, pembelajaran, publikasi, administrasi, serta akun. Navigasi administrasi hanya tampil untuk admin; pada ponsel menu menjadi drawer. Footer dan strip pratinjau milik situs publik tidak dirender di ruang pengelolaan.
+- Dasbor kini mendahulukan pekerjaan literasi: rombel, tugas aktif, hasil menunggu tinjauan, dan hasil disetujui yang belum dinilai. Guru hanya melihat data rombel yang ditugaskan, serta menerima penjelasan jika belum memiliki penugasan. Admin juga melihat antrean publikasi. Menu menempatkan Pembelajaran sebelum Publikasi. Daftar cerita lengkap dengan pencarian/filter dipindahkan ke `/kelola/konten` dan tampil sebagai kartu pada ponsel. Bukti UI-005 ada di [serah terima](instruction/serah-terima/HANDOFF_UI_005.md).
 - Tersedia: akun admin/guru, publikasi kegiatan/karya/prestasi, draf/tinjauan/revisi/arsip, pencarian, profil/logo sekolah, foto terkompresi, tautan Drive, dan pencadangan.
 - Impor folder Drive dan slider aktif pada lingkungan lokal ini. Folder publik nyata berisi 8 foto berhasil dibaca, seluruh pratinjau merespons tanpa cookie Google, dan slider publik berhasil menampilkan serta berpindah antar-media.
 - Tahun ajaran, pilihan semester berjalan, rombel, penugasan guru, data murid, impor CSV, verifikasi/status aktif, dan riwayat perpindahan sudah tersedia pada working tree. Akses guru mengikuti rombel saat ini. Filter daftar murid memang memakai kelas saat ini, bukan laporan historis.
