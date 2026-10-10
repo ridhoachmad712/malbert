@@ -31,10 +31,11 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - OPS-001 selesai: kode pada `main` tersinkron ke [GitHub malbert](https://github.com/ridhoachmad712/malbert), dengan repositori publik sesuai pilihan pengguna. `.env` dan perubahan lokal yang belum di-commit tidak ikut push.
 - Deployment awal pada `https://mediumaquamarine-whale-776973.hostingersite.com` menaruh repo langsung di `public_html`. Semula `/` HTTP 403, `/public/` HTTP 500, dan `/public/css/app.css` HTTP 200. Setelah `.htaccess` akar dari commit `4362fda` tertarik Hostinger, pemeriksaan eksternal 2026-10-10 menunjukkan `/` dan `/up` HTTP 500, `/css/app.css` HTTP 200, `/composer.json` HTTP 404, `/.env` dan `/storage/logs/laravel.log` HTTP 403. Jadi 403 root tertangani, tetapi aplikasi belum berjalan. Log produksi yang diberikan pengguna menunjukkan `APP_KEY` kosong dan koneksi bawaan `sqlite` mengarah ke berkas database yang tidak ada. Perlu `.env` produksi MySQL di server, key instalasi baru, migrasi, serta pemeriksaan ulang; akses server belum tersedia pada sesi ini.
 - Setelah pengguna menyiapkan `.env`, MySQL, `APP_KEY`, dan migrasi di Hostinger, pemeriksaan HTTP 2026-10-10 menunjukkan `/` dan `/up` HTTP 200, `/css/app.css` HTTP 200, `/composer.json` HTTP 404, serta `.env` dan log HTTP 403. `school:release-check` di server dilaporkan pengguna: 9 `SIAP`, 4 `BELUM` (Google Drive, profil sekolah bukan contoh, admin aktif, guru aktif). Perintah `school:create-admin` ditambahkan untuk bootstrap admin pertama secara interaktif tanpa menampilkan kata sandi; perubahan ini belum dipasang/diuji di server saat catatan dibuat.
+- Pengguna berhasil menjalankan `school:create-admin` di Hostinger. Setelah itu Chrome menampilkan peringatan Google Safe Browsing bahwa domain sementara berpotensi phishing. Penyebab belum diketahui; penggunaan login dan impor data nyata ditahan sampai Malware Scanner Hostinger serta laporan Security Issues diperiksa. Perintah masuk yang benar adalah `/masuk`; tautan `/login` yang sebelumnya diberikan dalam percakapan keliru.
 
 ## Pekerjaan berikutnya
 
-1. REL-001: pasang revisi perintah bootstrap admin di Hostinger, buat akun admin pertama, isi profil sekolah dan akun guru, konfigurasi Google Drive, lalu ulangi pemeriksaan rilis. Setelah itu validasi staging, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
+1. REL-001: selidiki dan selesaikan peringatan Safe Browsing pada domain sementara sebelum login lanjutan atau impor data murid. Setelah aman, verifikasi admin, isi profil sekolah dan akun guru, konfigurasi Google Drive, lalu ulangi pemeriksaan rilis. Setelah itu validasi staging, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
 2. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
 KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
@@ -47,7 +48,7 @@ Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata ma
 
 ## Koordinasi
 
-REL-001 sedang didampingi Codex pada server Hostinger. Domain sementara sudah merespons; pengisian akun/profil, integrasi Drive, backup server, dan UAT masih berlangsung. Rujuk checkpoint deployment pada [serah terima REL-001](instruction/serah-terima/HANDOFF_REL_001.md).
+Tidak ada pekerja aktif. REL-001 berstatus BLOCKED oleh peringatan Safe Browsing pada domain sementara Hostinger; investigasi diperlukan sebelum data nyata diimpor. Pengisian profil, integrasi Drive, backup server, dan UAT belum selesai. Rujuk checkpoint deployment pada [serah terima REL-001](instruction/serah-terima/HANDOFF_REL_001.md).
 
 Git lokal disiapkan pada CTX-001. Remote `origin` terhubung ke repositori GitHub yang dipilih pengguna. `main` pertama kali didorong pada 2026-10-10; visibilitas `PUBLIC` dikonfirmasi pengguna. Perubahan lokal pengguna yang belum di-commit tidak ikut push. Kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

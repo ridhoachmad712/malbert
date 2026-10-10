@@ -2,6 +2,9 @@
 
 ## Checkpoint deployment Hostinger — 2026-10-10
 
+- Pengguna menyatakan admin pertama berhasil dibuat di Hostinger. Chrome kemudian menampilkan peringatan phishing Google Safe Browsing pada domain sementara. Penyebab belum diverifikasi, sehingga pengguna diminta tidak melewati peringatan atau mengunggah data murid. Pemeriksaan Malware Scanner Hostinger dan Security Issues Google masih menunggu. Rute login aplikasi sebenarnya `/masuk`; tautan `/login` yang sempat dikirim ke pengguna salah.
+- Berkas impor CSV untuk 378 murid/14 rombel telah dibuat dari Excel yang diberikan pengguna, disimpan lokal di luar repositori dan tidak diunggah. Tiap CSV berisi `nama,nis,nisn` sesuai kontrak impor, NIPD kosong dibiarkan kosong bila NISN ada. Verifikasi jumlah, nilai, dan arsip ZIP lulus; data pribadi tidak dimasukkan ke Git.
+
 - Sesudah pengguna menyiapkan `.env` produksi, MySQL, `APP_KEY`, dan migrasi melalui SSH, pemeriksaan eksternal menunjukkan `/` dan `/up` = 200, CSS = 200, berkas privat tidak tersaji. Pengguna menjalankan `school:release-check`: 9 pemeriksaan SIAP, 4 BELUM (Drive, profil sekolah nyata, admin aktif, guru aktif).
 - Terdapat celah bootstrap akun: admin pertama tidak dapat dibuat lewat antarmuka karena belum ada admin yang dapat masuk. Perintah `school:create-admin` ditambahkan untuk instalasi baru; meminta nama/email/kata sandi tersembunyi secara interaktif, menolak jika admin sudah ada. Tes fitur menyertai. Perlu verifikasi setelah Hostinger mengambil revisi terbaru.
 
