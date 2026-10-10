@@ -22,6 +22,7 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 | D-016 | Disepakati 2026-09-23 | Nama aplikasi ditetapkan menjadi **AksiKita** dengan nama penjelas **Portal Literasi, Karya, dan Karakter Siswa**. Nama sekolah tetap menjadi identitas instansi yang terpisah | Instruksi langsung pengguna |
 | D-017 | Diterapkan 2026-09-23 | Admin dapat menyesuaikan identitas aplikasi, palet, teks utama, gambar publik, dan favicon melalui field terstruktur dengan pratinjau serta reset bawaan. HTML/CSS bebas tidak disediakan; kombinasi warna teks wajib memenuhi kontras minimum agar keamanan dan keterbacaan tetap terjaga | Permintaan pengguna; UI-002 |
 | D-018 | Diterapkan 2026-09-23 | Ruang pengelolaan memakai kerangka yang terpisah dari situs publik: topbar ringkas, sidebar yang dikelompokkan menurut pekerjaan, dan tanpa footer publik. Pada ponsel, sidebar menjadi drawer yang dapat dibuka dan ditutup dari topbar | Permintaan pengguna; UI-003 |
+| D-019 | Diterapkan 2026-10-10 | Beranda publik memakai komposisi portofolio: cerita pilihan sebagai fokus, indeks kategori sebagai navigasi, dan sampul cerita dalam susunan editorial. Warna mengikuti tema admin; tipografi besar menonjolkan karya, ruang lapang memisahkan konten, tanpa animasi otomatis agar membaca tetap tenang | Permintaan pengguna agar situs publik terasa seperti portofolio; pemeriksaan UI-004 |
 
 ## Masih terbuka
 

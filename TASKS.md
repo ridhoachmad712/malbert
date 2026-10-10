@@ -19,6 +19,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | UI-001 | Audit UI publik, admin, dan guru | DONE | Tidak ada | 21 rute desktop/ponsel, keyboard, kontras, keadaan UI, dan regresi lulus | [Catatan](instruction/serah-terima/HANDOFF_UI_001.md) |
 | UI-002 | Pengaturan tampilan dan konten publik | DONE | Tidak ada | Admin dapat mengubah tema, teks, gambar, favicon, melihat pratinjau, dan memulihkan bawaan | [Catatan](instruction/serah-terima/HANDOFF_UI_002.md) |
 | UI-003 | Rapikan kerangka halaman pengelolaan | DONE | Tidak ada | Header ringkas, menu berkelompok, navigasi ponsel, dan halaman pengelolaan tanpa footer publik | [Catatan](instruction/serah-terima/HANDOFF_UI_003.md) |
+| UI-004 | Beranda publik bergaya portofolio | DONE | Tidak ada | 21 tes / 160 assertions lulus; desktop 1440 px dan ponsel 390 px tanpa overflow; filter, keadaan kosong, menu ponsel, dan tautan cerita diperiksa di browser | Bukti pada perubahan kode 2026-10-10 |
 | OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Branding AksiKita selesai; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 

@@ -111,12 +111,9 @@
             </a>
             <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka menu navigasi">☰ <span>Menu</span></button>
             <nav id="main-nav" aria-label="Navigasi utama">
-                <a class="{{ request()->routeIs('home') && !request('type') ? 'active' : '' }}" href="{{ route('home') }}">Beranda</a>
-                <a class="{{ request('type') === 'kegiatan' ? 'active' : '' }}" href="{{ route('home', ['type' => 'kegiatan']) }}#jelajah">Kegiatan</a>
-                <a class="{{ request('type') === 'karya' ? 'active' : '' }}" href="{{ route('home', ['type' => 'karya']) }}#jelajah">Karya Kita</a>
-                <a class="{{ request('type') === 'prestasi' ? 'active' : '' }}" href="{{ route('home', ['type' => 'prestasi']) }}#jelajah">Prestasi</a>
+                <a class="{{ request()->routeIs('home', 'story') ? 'active' : '' }}" href="{{ route('home') }}#jelajah">Portofolio</a>
                 <a class="{{ request()->routeIs('readings.public') ? 'active' : '' }}" href="{{ route('readings.public') }}">Pojok Baca</a>
-                <a class="{{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">Sekolah Kita</a>
+                <a class="{{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">Tentang Sekolah</a>
             </nav>
             <a class="button small outline header-login" href="{{ auth()->check() ? route('dashboard') : route('login') }}">{{ auth()->check() ? 'Ruang Kelola' : 'Masuk Pengelola' }} <span aria-hidden="true">↗</span></a>
         </div>

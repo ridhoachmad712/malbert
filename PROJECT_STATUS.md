@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-09-23 oleh Codex, perapian kerangka pengelolaan UI-003.
+Diperbarui: 2026-10-10 oleh Codex, penyegaran beranda publik bergaya portofolio.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -11,6 +11,8 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 ## Kondisi produk
 
 - Aplikasi Laravel **AksiKita — Portal Literasi, Karya, dan Karakter Siswa** berjalan lokal sebagai dasar TEBAK AKSI.
+- Beranda publik kini menempatkan cerita pilihan, indeks karya/kegiatan/prestasi, dan sampul publikasi sebagai fokus portofolio. Navigasi publik diringkas menjadi Portofolio, Pojok Baca, dan Tentang Sekolah. Teks serta warna utama tetap mengikuti pengaturan admin.
+- Pemeriksaan UI-004 pada 2026-10-10: 21 tes / 160 assertions dan kompilasi Blade lulus; tampilan 1440 px dan 390 px tidak meluap horizontal. Filter kategori, pencarian tanpa hasil, menu ponsel, serta tautan cerita pilihan diuji di browser lokal. Publikasi lokal yang tampil saat pemeriksaan masih data contoh, sehingga sampul menggunakan penanda contoh.
 - Branding AksiKita sudah tampil pada header, metadata, halaman utama, halaman masuk, footer, dan laporan cetak; nama sekolah tetap ditampilkan sebagai identitas instansi.
 - Admin memiliki halaman **Tampilan & Konten** untuk mengubah nama aplikasi, nama penjelas, palet tujuh warna, teks halaman utama/login/footer, gambar utama/login/profil, serta favicon. Pratinjau berubah sebelum disimpan, warna teks diperiksa kontrasnya, dan tampilan dapat dikembalikan ke bawaan tanpa mengubah data sekolah.
 - Halaman pengelolaan memiliki topbar ringkas dan sidebar berkelompok untuk ringkasan, konten, pembelajaran, administrasi, serta akun. Navigasi administrasi hanya tampil untuk admin; pada ponsel menu menjadi drawer. Footer dan strip pratinjau milik situs publik tidak dirender di ruang pengelolaan.
