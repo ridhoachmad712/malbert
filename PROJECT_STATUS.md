@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-10-10 oleh Codex, sinkronisasi awal ke GitHub.
+Diperbarui: 2026-10-10 oleh Codex, diagnosis deployment Hostinger.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -25,27 +25,28 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 - Penilaian dari rubrik enam indikator, nilai dan kategori otomatis, umpan balik, transaksi poin aktivitas, tingkatan apresiasi per periode, pencegahan poin ganda, serta koreksi bernalar dan terlacak sudah tersedia. Admin wajib menyimpan konfigurasi aturan sekolah sebelum modul digunakan.
 - Monitoring per kelas/periode, perkembangan bulanan murid, konfigurasi capaian 80%, pembedaan data belum dinilai, laporan bulanan cetak, dan ekspor CSV sudah tersedia. Angka menggunakan tanggal kegiatan sumber dan akses guru mengikuti rombel.
 - Pembinaan dan pengaduan belum diimplementasikan dan ditunda pengguna karena belum mendesak.
-- Profil lokal sudah bernama SD Inpres Malbert, tetapi masih ditandai sebagai pratinjau dan identitas lengkap belum diberikan pada sesi. Belum deployment online. Penjadwalan cadangan pada server belum diaktifkan.
+- Profil lokal sudah bernama SD Inpres Malbert, tetapi masih ditandai sebagai pratinjau dan identitas lengkap belum diberikan pada sesi. Deployment awal ke Hostinger telah dicoba tetapi aplikasi belum dapat dibuka. Penjadwalan cadangan pada server belum diaktifkan.
 - Audit UI berbasis anti-slop selesai pada 21 rute representatif publik/admin dan 10 rute guru, masing-masing pada desktop dan ponsel. Kontras, overflow, sasaran sentuh, navigasi keyboard, keadaan kosong/peringatan/error, semantik dekorasi, dan konsol browser sudah diperiksa.
-- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Pengguna menyatakan pilihan hosting/domain sudah ditetapkan tetapi layanan belum dibuat; nama penyedia dan domain tujuan belum dicatat. Form profil kini memiliki field terpisah untuk NPSN, email, dan telepon resmi. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan aktif tetap lokal/debug dan masih memakai data contoh.
+- Template lingkungan produksi, pemeriksaan `school:release-check`, panduan deployment/restore, lembar UAT sekolah, dan perbandingan hosting/domain sudah tersedia. Penyedia deployment awal diketahui Hostinger dengan domain sementara yang dicatat di bawah; domain resmi sekolah belum dicatat. Form profil kini memiliki field terpisah untuk NPSN, email, dan telepon resmi. Pemulihan backup nyata lulus pada database terisolasi dengan 17 tabel tanpa selisih. Lingkungan lokal masih debug dan memakai data contoh.
 - OPS-001 selesai: kode pada `main` tersinkron ke [GitHub malbert](https://github.com/ridhoachmad712/malbert), dengan repositori publik sesuai pilihan pengguna. `.env` dan perubahan lokal yang belum di-commit tidak ikut push.
+- Deployment awal pada `https://mediumaquamarine-whale-776973.hostingersite.com` menaruh repo langsung di `public_html`. Pemeriksaan eksternal 2026-10-10 menunjukkan `/` HTTP 403, `/public/` HTTP 500, dan `/public/css/app.css` HTTP 200. Berkas `.htaccess` akar disiapkan untuk meneruskan permintaan ke `public/`. Log produksi yang diberikan pengguna menunjukkan `APP_KEY` kosong dan koneksi bawaan `sqlite` mengarah ke berkas database yang tidak ada. Perlu `.env` produksi MySQL di server, key instalasi baru, migrasi, serta pemeriksaan ulang; akses server belum tersedia pada sesi ini.
 
 ## Pekerjaan berikutnya
 
-1. REL-001: catat penyedia/domain yang telah dipilih, masukkan identitas sekolah yang diberikan pengguna, buat dan validasi staging, siapkan akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
+1. REL-001: pasang `.htaccess` akar di Hostinger, lengkapi `.env` produksi MySQL dan `APP_KEY` pada instalasi baru, jalankan migrasi, lalu verifikasi URL dan keamanan jalur privat. Setelah itu masukkan identitas sekolah, validasi staging, siapkan akun nyata, jalankan UAT bersama sekolah, aktifkan cron dan salinan backup di luar server, lalu pastikan `school:release-check` seluruhnya `SIAP`.
 2. Menyesuaikan data contoh menjadi data sekolah yang telah diverifikasi sebelum penggunaan nyata.
 
 KAS-001 ditunda atas keputusan pengguna pada 2026-09-21 karena belum mendesak. Lanjutkan hanya bila pengguna mengubah prioritas dan sekolah sudah menetapkan aturan penanganan serta akses data sensitif.
 
 ## Bukti dan batas verifikasi
 
-Pengujian aplikasi terbaru 2026-09-23: 86 tes / 608 assertions, Pint, sintaks JavaScript, dan kompilasi Blade lulus. Dasbor serta halaman Tampilan & Konten diperiksa pada viewport ponsel; topbar tetap ringkas, drawer menu dapat dibuka, tidak terjadi overflow horizontal, dan footer publik tidak muncul. Panel Tampilan & Konten sebelumnya juga lulus pada desktop dan viewport 390 px; pratinjau langsung terbukti berubah tanpa menyimpan. Bukti kesiapan platform sebelumnya tetap berlaku: `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta server/domain nyata belum tersedia.
+Pengujian aplikasi terbaru 2026-09-23: 86 tes / 608 assertions, Pint, sintaks JavaScript, dan kompilasi Blade lulus. Dasbor serta halaman Tampilan & Konten diperiksa pada viewport ponsel; topbar tetap ringkas, drawer menu dapat dibuka, tidak terjadi overflow horizontal, dan footer publik tidak muncul. Panel Tampilan & Konten sebelumnya juga lulus pada desktop dan viewport 390 px; pratinjau langsung terbukti berubah tanpa menyimpan. Bukti kesiapan platform sebelumnya tetap berlaku: `composer check-platform-reqs`, scheduler backup pukul 02.00, endpoint `/up` HTTP 200 lokal, serta restore 17 tabel tanpa selisih. `school:release-check` tetap belum dapat lulus pada lingkungan lokal sampai konfigurasi produksi, identitas lengkap, dan akun demo ditangani. UAT bersama sekolah serta verifikasi server/domain yang berhasil masih belum tersedia.
 
 Saat pemeriksaan migrasi, perintah CLI `migrate:fresh --env=testing` ternyata masih menunjuk database MySQL lokal dan meresetnya sebelum migrasi gagal karena nama indeks terlalu panjang. Nama indeks sudah diperpendek, tabel parsial kosong dihapus, migrasi dijalankan ulang, lalu database dipulihkan dari cadangan terbaru yang tersedia `school-20260919-164003-UtkKg9.zip`. Isi yang pulih sesuai arsip: 2 pengguna, 7 publikasi, 1 pengaturan sekolah, tanpa tahun ajaran atau murid. QA selanjutnya memakai SQLite terpisah dengan target database eksplisit. Jangan memakai `migrate:fresh` CLI tanpa memeriksa target database aktual.
 
 ## Koordinasi
 
-Tidak ada pekerja aktif. REL-001 berstatus BLOCKED setelah field identitas dilengkapi; lanjutkan ketika pengguna memberikan nilai identitas dan rincian hosting/domain terpilih, lalu layanan dapat dibuat untuk staging dan UAT.
+Tidak ada pekerja aktif. REL-001 berstatus BLOCKED pada konfigurasi server Hostinger, identitas sekolah, dan UAT. Domain sementara tersedia tetapi masih merespons error; rujuk checkpoint deployment pada [serah terima REL-001](instruction/serah-terima/HANDOFF_REL_001.md).
 
 Git lokal disiapkan pada CTX-001. Remote `origin` terhubung ke repositori GitHub yang dipilih pengguna. `main` pertama kali didorong pada 2026-10-10; visibilitas `PUBLIC` dikonfirmasi pengguna. Perubahan lokal pengguna yang belum di-commit tidak ikut push. Kondisi sebenarnya selalu diperiksa dengan Git, bukan disimpulkan dari teks ini.
 

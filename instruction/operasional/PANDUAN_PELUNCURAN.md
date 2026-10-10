@@ -1,6 +1,27 @@
 # Panduan peluncuran TEBAK AKSI
 
-Panduan ini berlaku setelah sekolah memilih hosting dan domain. Rekomendasi dan daftar pemeriksaan penyedia dicatat pada [Pilihan hosting dan domain REL-001](PILIHAN_HOSTING_REL_001.md). Jangan menyimpan `.env`, kata sandi, API key, database, atau data murid di Git. Web root hosting wajib mengarah ke folder `public`.
+Panduan ini berlaku setelah sekolah memilih hosting dan domain. Rekomendasi dan daftar pemeriksaan penyedia dicatat pada [Pilihan hosting dan domain REL-001](PILIHAN_HOSTING_REL_001.md). Jangan menyimpan `.env`, kata sandi, API key, database, atau data murid di Git. Web root hosting sebaiknya mengarah langsung ke folder `public`.
+
+Jika pada Hostinger seluruh proyek terpasang langsung di `public_html` dan document root tidak dapat diubah, `.htaccess` di akar proyek meneruskan permintaan ke `public/`. Pastikan berkas tersembunyi ikut ter-deploy, karena Git/File Manager kadang tidak menampilkan `.htaccess` secara bawaan. Setelah itu uji `/` dan `/up`; `/composer.json`, `/.env`, dan jalur `storage` tidak boleh menyajikan isi berkas privat. Pengalihan ini hanya menangani jalur web.
+
+### Pemulihan deployment awal Hostinger
+
+Log produksi 2026-10-10 menunjukkan dua penyebab HTTP 500: `APP_KEY` kosong dan Laravel memakai `sqlite` padahal `database/database.sqlite` tidak ada. Konfigurasi produksi yang dimaksud proyek ini memakai MySQL. Pada instalasi **baru** di Hostinger:
+
+1. Buat database MySQL dan pengguna database melalui hPanel. Simpan kredensial hanya di `.env` server; jangan kirim ke chat atau Git.
+2. Di `public_html`, jika `.env` belum ada, salin `.env.production.example` menjadi `.env`. Jangan menimpa `.env` yang sudah berisi konfigurasi/data aktif. Atur `APP_URL` ke domain HTTPS, `APP_ENV=production`, `APP_DEBUG=false`, dan `DB_CONNECTION=mysql` beserta `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` sesuai hPanel.
+3. Dari terminal pada direktori proyek, jalankan perintah berikut berurutan. `key:generate` hanya untuk instalasi baru dengan `APP_KEY` yang masih kosong; jangan mengganti key yang sudah digunakan untuk data terenkripsi.
+
+   ```sh
+   php artisan config:clear --no-interaction
+   php artisan key:generate --force --no-interaction
+   php artisan config:clear --no-interaction
+   php artisan config:show database.default --no-interaction
+   php artisan migrate --force --no-interaction
+   ```
+
+   `database.default` harus menunjukkan `mysql`. Jika tidak, perbaiki `.env` dan ulangi `config:clear` sebelum migrasi. Jangan jalankan `migrate:fresh` pada database yang mungkin berisi data.
+4. Buka `/` dan `/up` pada domain. Jika tetap 500, baca **entri log terbaru** setelah permintaan baru, bukan mengulangi error lama. Jalankan `php artisan school:release-check --no-interaction` setelah halaman dapat diakses; status `BELUM` untuk identitas/UAT tetap harus ditangani sebelum peluncuran resmi.
 
 ## Kebutuhan server
 
