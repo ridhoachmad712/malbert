@@ -21,7 +21,7 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | UI-003 | Rapikan kerangka halaman pengelolaan | DONE | Tidak ada | Header ringkas, menu berkelompok, navigasi ponsel, dan halaman pengelolaan tanpa footer publik | [Catatan](instruction/serah-terima/HANDOFF_UI_003.md) |
 | UI-004 | Situs publik bergaya portofolio | DONE | Tidak ada | Beranda, cerita, profil, dan navigasi diperbarui; 21 tes / 160 assertions lulus; desktop 1440 px dan ponsel 390 px tanpa overflow; filter, keadaan kosong, menu ponsel, dan tautan cerita diperiksa di browser | Bukti pada perubahan kode 2026-10-10 |
 | UI-005 | Selaraskan alur pengelolaan dengan rancangan awal | DONE | Tidak ada | Dasbor guru/admin mendahulukan pekerjaan literasi; publikasi lengkap tetap dapat dicari dan difilter; akses rombel, menu, desktop/ponsel, dan regresi diperiksa | [Catatan](instruction/serah-terima/HANDOFF_UI_005.md) |
-| OPS-001 | Remote privat untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | Tujuan repositori/akun remote belum ditentukan | Belum ada |
+| OPS-001 | Remote GitHub untuk sinkronisasi lintas lingkungan | BLOCKED | Tidak ada | `origin/main` berhasil menerima commit `2f24bfa`; repo saat ini PUBLIC, keputusan apakah dibuat privat menunggu pengguna | [Catatan](instruction/serah-terima/HANDOFF_OPS_001.md) |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | Branding AksiKita selesai; menunggu nilai identitas, rincian pilihan serta pembuatan hosting/domain, dan UAT sekolah | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas

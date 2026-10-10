@@ -27,6 +27,6 @@ Keputusan berlaku bersama rancangan sistem. Instruksi pengguna terbaru mengunggu
 
 ## Masih terbuka
 
-Nilai lengkap identitas sekolah; matriks akses tambahan; nilai konfigurasi sekolah untuk pembulatan, ambang berhasil, periode dan batas pengulangan poin; pilihan konfigurasi nyata untuk periode, metode nilai, populasi, dan data belum dinilai pada capaian 80%; tahap OTFD baku; pengaduan anonim dan waktu respons; retensi lampiran privat; remote privat; rincian penyedia/domain yang menurut pengguna sudah dipilih serta pembuatan layanannya. Rincian dan tahap ketergantungannya berada pada bagian 10 rancangan sistem.
+Nilai lengkap identitas sekolah; matriks akses tambahan; nilai konfigurasi sekolah untuk pembulatan, ambang berhasil, periode dan batas pengulangan poin; pilihan konfigurasi nyata untuk periode, metode nilai, populasi, dan data belum dinilai pada capaian 80%; tahap OTFD baku; pengaduan anonim dan waktu respons; retensi lampiran privat; visibilitas repo GitHub `ridhoachmad712/malbert` (saat ini PUBLIC, sementara rencana awal menyebut remote privat); rincian penyedia/domain yang menurut pengguna sudah dipilih serta pembuatan layanannya. Rincian dan tahap ketergantungannya berada pada bagian 10 rancangan sistem.
 
 Pilihan konfigurasi pada data demo bukan keputusan final sekolah. Jangan mengisi keputusan terbuka dengan asumsi yang tidak dicatat. Pekerjaan independen boleh berjalan dengan data contoh yang jelas.
