@@ -23,7 +23,9 @@
 
 ## Kondisi dan langkah berikutnya
 
-Perubahan kode belum didorong ke remote atau dipasang pada Hostinger. Setelah push/pull, jalankan `php artisan migrate --force --no-interaction`, lalu periksa menu admin dan situs publik. Berkas yang diunggah di server disimpan pada `storage/app/private/navigation-files`; cadangan harus mencakup lokasi ini. Perubahan lokal pengguna pada `instruction/sekolah/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md` serta `docs/` dan `outputs/` tidak disentuh.
+Pada checkpoint awal, kode belum didorong ke remote atau dipasang pada Hostinger. Setelah push/pull, jalankan `php artisan migrate --force --no-interaction`, lalu periksa menu admin dan situs publik. Berkas yang diunggah di server disimpan pada `storage/app/private/navigation-files`; cadangan harus mencakup lokasi ini. Perubahan lokal pengguna pada `instruction/sekolah/KEBUTUHAN_DATA_DAN_INFORMASI_SEKOLAH.md` serta `docs/` dan `outputs/` tidak disentuh.
+
+Pembaruan 2026-10-15: commit NAV-001 `2fabfb6` sudah dipush dan ditarik pengguna ke hosting. Pengguna melaporkan `/kelola/menu` berantakan. CSS versi baru terkonfirmasi di server, tetapi header cache mengizinkan salinan lama selama 7 hari. URL CSS dengan query versi terkonfirmasi memperoleh cache MISS. Layout diperbaiki agar URL CSS dan JS selalu memuat versi dari waktu perubahan berkas; tes fitur NAV-001 (6 tes, 44 assertions) dan kompilasi Blade lulus. Pull perbaikan serta verifikasi visual halaman admin di hosting masih diperlukan.
 
 ## Keputusan dan integrasi
 

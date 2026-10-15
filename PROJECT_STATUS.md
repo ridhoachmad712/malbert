@@ -1,6 +1,6 @@
 # Status proyek
 
-Diperbarui: 2026-10-15 oleh Codex, pengelolaan navigasi publik.
+Diperbarui: 2026-10-15 oleh Codex, pengelolaan navigasi dan cache aset publik.
 
 Fondasi, literasi, penilaian/apresiasi, monitoring/laporan, serta publikasi terhubung bank karya dan album Drive sudah diimplementasikan, diuji, dan diintegrasikan. Audit antarmuka selesai. Persiapan lokal REL-001 juga tersedia, tetapi peluncuran tetap menunggu keputusan dan UAT sekolah; lihat [HANDOFF_REL_001.md](instruction/serah-terima/HANDOFF_REL_001.md).
 
@@ -10,7 +10,8 @@ Pembaruan dokumentasi DOC-001: catatan untuk pihak sekolah disimpan pada [Kebutu
 
 ## Kondisi produk
 
-- Admin kini dapat mengelola menu navigasi publik di `/kelola/menu`: menambah, mengubah label dan urutan, menyembunyikan, menghapus, serta memilih tujuan halaman aplikasi, halaman buatan, berkas unduhan, atau URL eksternal. Halaman buatan dikelola di `/kelola/halaman`; draf tetap privat. Tiga menu lama disalin sebagai data bawaan oleh migrasi baru. Berkas hanya tersedia saat menu aktif. Perubahan ini sudah diterapkan dan diuji di lingkungan lokal, belum di-hosting; jalankan migrasi setelah menarik kode. Bukti: [NAV-001](instruction/serah-terima/HANDOFF_NAV_001.md).
+- Admin kini dapat mengelola menu navigasi publik di `/kelola/menu`: menambah, mengubah label dan urutan, menyembunyikan, menghapus, serta memilih tujuan halaman aplikasi, halaman buatan, berkas unduhan, atau URL eksternal. Halaman buatan dikelola di `/kelola/halaman`; draf tetap privat. Tiga menu lama disalin sebagai data bawaan oleh migrasi baru. Berkas hanya tersedia saat menu aktif. Fitur telah diuji lokal, dipush, dan ditarik pengguna ke hosting. Bukti: [NAV-001](instruction/serah-terima/HANDOFF_NAV_001.md).
+- Setelah pengguna menarik NAV-001 ke Hostinger, `/kelola/menu` dilaporkan berantakan. Pemeriksaan eksternal menunjukkan `/css/app.css` versi terbaru sudah tersedia tetapi dikirim dengan `Cache-Control: public, max-age=604800` (7 hari); URL dengan query versi menghasilkan cache MISS. Layout kini menambahkan versi berdasarkan waktu perubahan berkas pada URL CSS/JS agar browser dan CDN mengambil aset terbaru setelah deploy. Kode perbaikan perlu ditarik lagi ke hosting; tampilan admin terautentikasi belum bisa diperiksa langsung dari sesi ini.
 
 - Aplikasi Laravel **AksiKita — Portal Literasi, Karya, dan Karakter Siswa** berjalan lokal sebagai dasar TEBAK AKSI.
 - Beranda publik kini menempatkan cerita pilihan, indeks karya/kegiatan/prestasi, dan sampul publikasi sebagai fokus portofolio. Halaman cerita dan profil sekolah memakai tipografi serta komposisi editorial yang selaras. Navigasi publik diringkas menjadi Portofolio, Pojok Baca, dan Tentang Sekolah. Teks serta warna utama tetap mengikuti pengaturan admin.

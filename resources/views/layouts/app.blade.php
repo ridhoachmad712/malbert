@@ -9,9 +9,9 @@
         <meta name="robots" content="noindex,nofollow">
     @endif
     <link rel="icon" href="{{ $appearance['favicon'] ? route('appearance.asset', ['slot' => 'favicon']) : asset('favicon.svg') }}" type="{{ $appearance['favicon'] ? 'image/webp' : 'image/svg+xml' }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ filemtime(public_path('css/app.css')) }}">
     <style>:root{--blue:{{ $appearance['primary_color'] }};--navy:{{ $appearance['heading_color'] }};--ink:{{ $appearance['text_color'] }};--muted:{{ $appearance['muted_color'] }};--green:{{ $appearance['secondary_color'] }};--yellow:{{ $appearance['accent_color'] }};--canvas:{{ $appearance['background_color'] }}}</style>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}" defer></script>
 </head>
 <body class="{{ request()->is('kelola*') ? 'management' : '' }}">
 <a class="skip" href="#main">Lewati ke isi utama</a>
