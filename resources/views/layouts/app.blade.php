@@ -69,6 +69,8 @@
                         <a href="{{ route('users.index') }}" class="{{ request()->routeIs('users.*') ? 'selected' : '' }}">Pengguna</a>
                         <a href="{{ route('settings') }}" class="{{ request()->routeIs('settings', 'settings.update') ? 'selected' : '' }}">Profil sekolah</a>
                         <a href="{{ route('appearance.edit') }}" class="{{ request()->routeIs('appearance.*') ? 'selected' : '' }}">Tampilan & konten</a>
+                        <a href="{{ route('site-pages.index') }}" class="{{ request()->routeIs('site-pages.index', 'site-pages.create', 'site-pages.edit') ? 'selected' : '' }}">Halaman publik</a>
+                        <a href="{{ route('navigation.index') }}" class="{{ request()->routeIs('navigation.*') ? 'selected' : '' }}">Menu navigasi</a>
                     </div>
                 @endif
 
@@ -111,9 +113,9 @@
             </a>
             <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka menu navigasi">☰ <span>Menu</span></button>
             <nav id="main-nav" aria-label="Navigasi utama">
-                <a class="{{ request()->routeIs('home', 'story') ? 'active' : '' }}" href="{{ route('home') }}#jelajah">Portofolio</a>
-                <a class="{{ request()->routeIs('readings.public') ? 'active' : '' }}" href="{{ route('readings.public') }}">Pojok Baca</a>
-                <a class="{{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">Tentang Sekolah</a>
+                @foreach($navigationItems as $navigationItem)
+                    <a class="{{ $navigationItem->isActive() ? 'active' : '' }}" href="{{ $navigationItem->url() }}" @if($navigationItem->open_new_tab) target="_blank" rel="noopener noreferrer" @endif @if($navigationItem->isActive()) aria-current="page" @endif>{{ $navigationItem->label }}</a>
+                @endforeach
             </nav>
             <a class="button small outline header-login" href="{{ auth()->check() ? route('dashboard') : route('login') }}">{{ auth()->check() ? 'Ruang Kelola' : 'Masuk Pengelola' }} <span aria-hidden="true">↗</span></a>
         </div>

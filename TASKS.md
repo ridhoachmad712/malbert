@@ -21,10 +21,15 @@ Koordinator harus membagikan tugas sebelum kerja paralel. Klaim dalam berkas ini
 | UI-003 | Rapikan kerangka halaman pengelolaan | DONE | Tidak ada | Header ringkas, menu berkelompok, navigasi ponsel, dan halaman pengelolaan tanpa footer publik | [Catatan](instruction/serah-terima/HANDOFF_UI_003.md) |
 | UI-004 | Situs publik bergaya portofolio | DONE | Tidak ada | Beranda, cerita, profil, dan navigasi diperbarui; 21 tes / 160 assertions lulus; desktop 1440 px dan ponsel 390 px tanpa overflow; filter, keadaan kosong, menu ponsel, dan tautan cerita diperiksa di browser | Bukti pada perubahan kode 2026-10-10 |
 | UI-005 | Selaraskan alur pengelolaan dengan rancangan awal | DONE | Tidak ada | Dasbor guru/admin mendahulukan pekerjaan literasi; publikasi lengkap tetap dapat dicari dan difilter; akses rombel, menu, desktop/ponsel, dan regresi diperiksa | [Catatan](instruction/serah-terima/HANDOFF_UI_005.md) |
+| NAV-001 | Menu navigasi publik yang dikelola admin | DONE | Tidak ada | Menu bawaan dapat diubah; tujuan halaman aplikasi, halaman buatan, berkas privat untuk unduhan publik, dan URL eksternal; 98 tes / 693 assertions lulus, menu ponsel diperiksa | [Catatan](instruction/serah-terima/HANDOFF_NAV_001.md) |
 | OPS-001 | Remote GitHub untuk sinkronisasi lintas lingkungan | DONE | Tidak ada | `origin/main` tersinkron; repo PUBLIC sesuai pilihan pengguna pada 2026-10-10 | [Catatan](instruction/serah-terima/HANDOFF_OPS_001.md) |
 | REL-001 | Uji sekolah, pemulihan cadangan, peluncuran | BLOCKED | Tidak ada | `/` dan `/up` sudah 200; admin pertama dibuat. Chrome memberi peringatan phishing pada domain sementara; investigasi Hostinger/Google diperlukan sebelum login atau impor data nyata. Pemeriksaan rilis sebelumnya 4 BELUM; UAT dan backup server menyusul | [Catatan](instruction/serah-terima/HANDOFF_REL_001.md) |
 
 ## Format klaim tugas
+
+NAV-001; Codex lokal; 2026-10-15 Asia/Makassar; main; dasar 1a65099; model/migrasi halaman dan menu, pengelolaan admin, navigasi publik, tes, serta konteks; tanpa pekerja paralel. Pengguna meminta fitur ini. Data lokal dan perubahan dokumen sekolah milik pengguna dipertahankan.
+
+Finalisasi 2026-10-15: 98 tes / 693 assertions, Pint, kompilasi Blade, migrasi tambahan lokal, dan navigasi publik desktop/ponsel lulus. Menu ponsel yang sempat meluap sudah diperbaiki. Halaman admin diuji melalui respons fitur; browser admin belum diperiksa secara visual karena kredensial lokal tidak digunakan. Perubahan belum didorong ke remote pada checkpoint ini.
 
 FND-001; Codex pemeriksaan lanjutan; 2026-09-20 Asia/Makassar; main; dasar f1b38d9 beserta perubahan lokal fondasi; tes fondasi, pemeriksaan browser, perbaikan yang terbukti dan konteks; tanpa pekerja paralel. Pengguna meminta melanjutkan setelah analisis. Sesi sebelumnya terverifikasi berstatus systemError, bukan aktif. Langkah berikutnya: verifikasi batas periode/riwayat, antarmuka, dan checkpoint.
 
